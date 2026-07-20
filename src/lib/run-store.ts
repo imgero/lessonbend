@@ -74,7 +74,7 @@ export async function getLatestComparisonRun() {
 }
 export async function listGalleryRuns() {
   await init();
-  const rows = await db.execute("SELECT r.id, r.lesson_text, r.created_at, (SELECT COUNT(*) FROM artifacts a WHERE a.run_id = r.id) AS profile_count FROM runs r WHERE (SELECT COUNT(*) FROM artifacts a WHERE a.run_id = r.id) >= 3 ORDER BY r.created_at DESC LIMIT 20");
+  const rows = await db.execute("SELECT r.id, r.lesson_text, r.created_at, (SELECT COUNT(*) FROM artifacts a WHERE a.run_id = r.id) AS profile_count FROM runs r WHERE (SELECT COUNT(*) FROM artifacts a WHERE a.run_id = r.id) >= 3 AND EXISTS (SELECT 1 FROM artifacts a WHERE a.run_id = r.id AND a.validation_json LIKE '%trusted-shell-v23%') ORDER BY r.created_at DESC LIMIT 20");
   return rows.rows;
 }
 export async function approveRun(id: string) { await event(id, "approved", "Teacher approved this artifact set."); }

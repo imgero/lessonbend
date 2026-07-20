@@ -8,3 +8,10 @@
 .profile-modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:18px;background:#14213daa}.profile-modal .profile-prep{width:min(680px,100%);max-height:calc(100vh - 36px);overflow:auto;background:#fffdf8;box-shadow:0 20px 60px #14213d55}.profile-name select{width:100%;border:2px solid #e7dfd2;border-radius:12px;padding:10px;background:#fff;color:#24324a;font:inherit}
 h1{font-size:clamp(2.7rem,6vw,5rem)}
 .class-insights{margin-top:26px;padding:24px;border:2px solid #e8dfcf;border-radius:26px;background:#fffdf8}.insight-privacy{color:#64748b}.insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.insight-card{padding:16px;border:2px solid var(--profile-color);border-radius:18px}.insight-card h3{margin:0}.insight-bar{height:12px;background:#eee7da;border-radius:99px;overflow:hidden}.insight-bar i{display:block;height:100%;background:var(--profile-color)}.step-timeline{display:flex;gap:6px}.step-timeline span{display:grid;padding:7px;border-radius:10px;background:#eaf4ee;font-size:.75rem}.step-timeline .retry{background:#fff0c8}.step-timeline .stuck{background:#f2e9e9}.step-timeline small{font-size:.65rem}.insight-copy{line-height:1.45}.aggregate{display:flex;gap:18px;margin-top:16px;padding:12px;border-radius:14px;background:#f7f4ff}@media(max-width:780px){.insight-grid{grid-template-columns:1fr}}
+.profile-option .profile-summary {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  min-height: 1.4em;
+}
