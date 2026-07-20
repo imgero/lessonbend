@@ -1,26 +1,45 @@
 # LessonBend
 
-LessonBend turns one learning goal into distinct, anonymous support routes. The public build is a static, playable gallery; live generation and profile preparation remain local-only during the pilot.
+LessonBend bends one learning goal into distinct, anonymous support routes. It is built for teachers who need the lesson to adapt—not the learner to be labelled. The public site is a playable gallery of validated lessons; it stores no learner identities.
+
+## Start here: the live gallery
+
+Open **[lessonbend.com](https://lessonbend.com)** first. It contains the ready-to-play fractions, science, and reading routes, including fullscreen lessons and embedded audio where available.
+
+## Architecture, briefly
+
+The local engine uses two model roles: one creates a structured lesson specification; another authors a constrained lesson module. A trusted shell—not the model—owns sandboxing, interaction rendering, accessibility, feedback, progress, and audio playback. Each module is statically checked, browser-rendered without outbound network access, screenshot-validated, and judged before it can enter the gallery.
+
+The public deployment is intentionally static: validated artifact HTML and audio are baked into the build. It has no runtime database dependency, no learner data, and no production OpenAI calls.
 
 ## Run the local engine
 
-1. Copy `.env.example` to `.env.local` and add `OPENAI_API_KEY`.
-2. Run `npm install` and `npm run dev`.
-3. Open `http://localhost:3000`.
+1. Copy `.env.example` to `.env.local`.
+2. Set `OPENAI_API_KEY` to your own key.
+3. Run `npm install`, then `npm run dev`.
+4. Open `http://localhost:3000`.
 
-The local engine uses SQLite (`lessonbend.db`, ignored by Git), validates generated modules in a sandboxed browser, and can make model/TTS calls. Do not use real learner names or identifying details.
+The local engine uses SQLite (`lessonbend.db`, ignored by Git), calls OpenAI for planning, module authoring, evaluation, and optional TTS, and validates artifacts in a sandboxed browser. Do not enter real learner names or identifying details.
 
-## Build the public gallery
+## Production / Vercel
 
-The gallery is generated from validated local artifacts and contains no database reads or writes at runtime.
+The public deployment needs exactly one environment variable:
+
+```bash
+NEXT_PUBLIC_STATIC_GALLERY=true
+```
+
+`OPENAI_API_KEY` is deliberately **not** required or used by the public gallery. No other production variables are needed for the static experience. Deploy with the same build command Vercel runs normally (`npm run build`); the environment variable selects the baked gallery UI.
+
+To refresh the gallery locally after validating new artifacts:
 
 ```bash
 node scripts/export-static-gallery.mjs
 NEXT_PUBLIC_STATIC_GALLERY=true npm run build
 ```
 
-Deploy the resulting Next build to Vercel with `NEXT_PUBLIC_STATIC_GALLERY=true`. The site presents only baked lesson artifacts. The client does not mount generation or profile-prep controls, so production requires neither an OpenAI key nor a SQLite database.
+SQLite is suitable for this local pilot but not for persistent serverless writes. If live generation is enabled in production later, move run/profile storage and artifact/audio persistence to managed storage first.
 
-## Vercel note
+## Experimental local feature: Profile Prep
 
-SQLite is suitable for the local pilot but not for persistent serverless writes. The static gallery avoids that limitation entirely. If live generation is later enabled in production, move run/profile storage and artifact/audio persistence to managed storage first.
+Profile Prep lets a teacher enter an anonymous observation and receive suggested supports, constraints, lesson mix, and source links. The brief is processed once and is never saved; only a teacher-approved anonymous profile may be saved locally. This feature is experimental and local-only for the pilot. It is not included in the public gallery build.
