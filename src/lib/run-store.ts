@@ -12,6 +12,7 @@ async function init() {
       "CREATE TABLE IF NOT EXISTS artifacts (id TEXT PRIMARY KEY, run_id TEXT NOT NULL, profile_id TEXT NOT NULL, html TEXT, screenshot_path TEXT, validation_json TEXT, status TEXT NOT NULL, created_at TEXT NOT NULL)",
       "CREATE TABLE IF NOT EXISTS support_profiles (id TEXT PRIMARY KEY, label TEXT NOT NULL, supports_json TEXT NOT NULL, constraints_json TEXT NOT NULL, created_at TEXT NOT NULL)",
     ], "write");
+    for (const column of ["emoji TEXT", "accent TEXT"]) { try { await db.execute(`ALTER TABLE support_profiles ADD COLUMN ${column}`); } catch { /* existing local database already has it */ } }
   })();
   return initialized;
 }
@@ -22,10 +23,10 @@ export async function listProfiles() {
     { sql: "INSERT OR IGNORE INTO support_profiles (id,label,supports_json,constraints_json,created_at) VALUES (?,?,?,?,?)", args: ["audio-first", "Blueberry", '["spoken directions","replay"]', '["minimal text"]', new Date().toISOString()] },
     { sql: "INSERT OR IGNORE INTO support_profiles (id,label,supports_json,constraints_json,created_at) VALUES (?,?,?,?,?)", args: ["math-language-support", "Mango", '["worked example","vocabulary"]', '[]', new Date().toISOString()] },
   ], "write");
-  const rows = await db.execute("SELECT id,label,supports_json,constraints_json FROM support_profiles ORDER BY created_at");
-  return rows.rows.map((row) => ({ id: String(row.id), label: String(row.label), supports: JSON.parse(String(row.supports_json)), constraints: JSON.parse(String(row.constraints_json)) }));
+  const rows = await db.execute("SELECT id,label,supports_json,constraints_json,emoji,accent FROM support_profiles ORDER BY created_at");
+  return rows.rows.map((row) => ({ id: String(row.id), label: String(row.label), supports: JSON.parse(String(row.supports_json)), constraints: JSON.parse(String(row.constraints_json)), emoji: row.emoji ? String(row.emoji) : undefined, accent: row.accent ? String(row.accent) : undefined }));
 }
-export async function saveProfile(profile: { id: string; label: string; supports: string[]; constraints: string[] }) { await init(); await db.execute({ sql: "INSERT OR REPLACE INTO support_profiles (id,label,supports_json,constraints_json,created_at) VALUES (?,?,?,?,?)", args: [profile.id, profile.label, JSON.stringify(profile.supports), JSON.stringify(profile.constraints), new Date().toISOString()] }); }
+export async function saveProfile(profile: { id: string; label: string; supports: string[]; constraints: string[]; emoji?: string; accent?: string }) { await init(); await db.execute({ sql: "INSERT OR REPLACE INTO support_profiles (id,label,supports_json,constraints_json,emoji,accent,created_at) VALUES (?,?,?,?,?,?,?)", args: [profile.id, profile.label, JSON.stringify(profile.supports), JSON.stringify(profile.constraints), profile.emoji ?? null, profile.accent ?? null, new Date().toISOString()] }); }
 
 export async function createRun(input: { id: string; lessonText: string; profilesJson: string }) {
   await init();

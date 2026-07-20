@@ -16,6 +16,14 @@ const researchSchema = {
     references: { type: "array", items: { type: "object", additionalProperties: false, required: ["title", "url", "source"], properties: { title: { type: "string" }, url: { type: "string" }, source: { type: "string" } } } },
   },
 };
+const clip = (value: unknown, max: number) => `${typeof value === "string" ? value : ""}`.trim().slice(0, max).replace(/\s+(\S*)$/, "").trimEnd() + (`${typeof value === "string" ? value : ""}`.trim().length > max ? "…" : "");
+const clipSentence = (value: unknown, max: number) => { const text = clip(value, max); return text && !/[.!?…]$/.test(text) ? `${text.slice(0, max - 1).trimEnd()}…` : text; };
+function normalizeProposal(value: unknown, suggestedLabel?: string) {
+  const raw = value && typeof value === "object" ? value as Record<string, unknown> : {};
+  const list = (key: string, limit: number) => Array.isArray(raw[key]) ? raw[key].map((item) => clip(item, 100)).filter(Boolean).slice(0, limit) : [];
+  const references = (Array.isArray(raw.references) ? raw.references : []).map((item) => item && typeof item === "object" ? item as Record<string, unknown> : {}).map((item) => ({ title: clip(item.title, 160), url: typeof item.url === "string" ? item.url.trim() : "", source: clip(item.source, 100) })).filter((item) => /^https?:\/\//.test(item.url) && item.title).slice(0, 6);
+  return { label: clip(suggestedLabel || raw.label, 50) || "Banana", supports: list("supports", 8), constraints: list("constraints", 8), lessonMix: clipSentence(raw.lessonMix, 240), references };
+}
 
 export async function POST(request: Request) {
   const parsed = requestSchema.safeParse(await request.json());
@@ -34,10 +42,11 @@ export async function POST(request: Request) {
       tools: [{ type: "web_search_preview", search_context_size: "medium" }],
       tool_choice: "required",
       text: { format: { type: "json_schema", name: "anonymous_support_profile", strict: true, schema: researchSchema } },
-      input: `Research an anonymous classroom-support profile from this teacher observation. You MUST use web search. Prefer recent meta-analyses, education-government sources, and accredited research. Do not diagnose or use medical labels. Provide direct, checkable source links. Return the required JSON only. Use this suggested neutral fruit name if suitable: ${parsed.data.suggestedLabel ?? "Banana"}. Observation: ${parsed.data.brief}`,
+      input: `Research an anonymous classroom-support profile from this teacher observation. You MUST use web search. Prefer recent meta-analyses, education-government sources, and accredited research. Do not diagnose or use medical labels. Provide direct, checkable source links. HARD LIMITS: at most 8 supports; at most 8 constraints; lessonMix under 240 characters; at most 6 references; source names under 100 characters and short (for example IES, EEF, CAST). Return the required JSON only. Use this suggested neutral fruit name: ${parsed.data.suggestedLabel ?? "Banana"}. Observation: ${parsed.data.brief}`,
     }, { signal: controller.signal });
-    const result = resultSchema.parse(JSON.parse(response.output_text));
-    return NextResponse.json(result);
+    const result = resultSchema.safeParse(normalizeProposal(JSON.parse(response.output_text), parsed.data.suggestedLabel));
+    if (!result.success) return NextResponse.json({ error: "Research returned incomplete sources. Please try again; no notes or profile were saved." }, { status: 502 });
+    return NextResponse.json(result.data);
   } catch (cause) {
     const message = cause instanceof Error ? cause.message : "Unknown research error";
     const timedOut = controller.signal.aborted || /timeout|timed out|aborted/i.test(message);

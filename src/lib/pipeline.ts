@@ -87,7 +87,7 @@ async function authorArtifact(runId: string, lessonSpec: unknown, profile: Suppo
   const finalFailures = moduleContentFailures(repairedModule);
   if (finalFailures.length) throw new Error(`${profile.label}: ${finalFailures.join(" ")}`);
   const adaptations = profile.id === "short-concrete-loops" ? { audio: false, minimalText: true, workedExample: false } : profile.id === "audio-first" ? { audio: true, minimalText: true, workedExample: false } : { audio: false, minimalText: false, workedExample: true };
-  return renderTrustedArtifactV7({ ...repairedModule, adaptations, audioText: repairedModule.audioText ?? repairedModule.intro });
+  return renderTrustedArtifactV7({ ...repairedModule, adaptations, audioText: repairedModule.audioText ?? repairedModule.intro }, profile.accent);
 }
 
 async function gradeArtifact(runId: string, lessonSpec: unknown, profile: SupportProfile, html: string, staticResults: unknown, browserResults: unknown) {
