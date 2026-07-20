@@ -43,3 +43,5 @@ SQLite is suitable for this local pilot but not for persistent serverless writes
 ## Experimental local feature: Profile Prep
 
 Profile Prep lets a teacher enter an anonymous observation and receive suggested supports, constraints, lesson mix, and source links. The brief is processed once and is never saved; only a teacher-approved anonymous profile may be saved locally. This feature is experimental and local-only for the pilot. It is not included in the public gallery build.
+
+To try it locally, open **Learner profiles**, choose **+ Add profile**, use a fruit-like name such as Banana, add an anonymous observation, and select **Research & suggest**. The proposal’s supports, constraints, lesson mix, and reference links remain editable before saving. A valid `OPENAI_API_KEY` with available API quota is required for this local research call.
