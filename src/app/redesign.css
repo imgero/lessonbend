@@ -26,3 +26,61 @@ h1{font-size:clamp(2.7rem,6vw,5rem)}
   .profile-picker .profiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .profile-picker .profile-option article { min-height: 132px; }
 }
+
+/* A quieter masthead: the bent L/B stays as the mark, while the lesson is the focus. */
+main > header {
+  max-width: 700px;
+  padding: 8px 0 4px;
+}
+
+main > header .wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  margin-bottom: 22px;
+  color: #33435c;
+  font-size: 1.18rem;
+  font-weight: 760;
+  letter-spacing: -.055em;
+}
+
+main > header .wordmark-bend {
+  margin-right: -.015em;
+  color: #e47848;
+  font-size: 1.2em;
+  line-height: 1;
+  transform: rotate(-10deg) translateY(-1px);
+}
+
+main > header .wordmark span:last-child {
+  color: #5d70bd;
+  font-weight: 820;
+}
+
+main > header .eyebrow {
+  margin-bottom: 12px;
+  color: #78889a;
+  font-size: .66rem;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
+
+main > header h1 {
+  max-width: 10.5ch;
+  font-size: clamp(2.4rem, 5.25vw, 4.55rem);
+  font-weight: 760;
+  line-height: .98;
+  letter-spacing: -.065em;
+}
+
+main > header .intro {
+  max-width: 48ch;
+  margin: 18px 0 36px;
+  color: #66758b;
+  font-size: 1.04rem;
+  line-height: 1.58;
+}
+
+@media (max-width: 780px) {
+  main > header h1 { font-size: clamp(2.3rem, 11vw, 3.3rem); }
+  main > header .wordmark { margin-bottom: 18px; }
+}
