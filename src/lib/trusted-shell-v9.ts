@@ -1,7 +1,7 @@
 import type { LessonModule } from "@/lib/contracts";
 import { renderTrustedArtifactV8 } from "@/lib/trusted-shell-v8";
 
-export const SHELL_V9 = "trusted-shell-v26";
+export const SHELL_V9 = "trusted-shell-v27";
 
 /** Layout and interaction polish layered over the v23 trusted shell. */
 export function renderTrustedArtifactV9(module: LessonModule, accent?: string | null) {
@@ -15,7 +15,7 @@ export function renderTrustedArtifactV9(module: LessonModule, accent?: string | 
       .card>#intro{grid-column:1;grid-row:4}.card>.audio-btn{grid-column:1;grid-row:5}.card>.worked{grid-column:1;grid-row:6}.card>.passage-player{grid-column:1;grid-row:7}
       .card>#stage{grid-column:2;grid-row:4 / span 4;min-height:300px}
     }
-  </style>`;
+  </style><script>(()=>{const post=MessagePort.prototype.postMessage;MessagePort.prototype.postMessage=function(message,...args){if(message&&(message.type==='lessonbend.checkpoint'||message.type==='lessonbend.complete')){const match=document.querySelector('#level')?.textContent?.match(/Level (\\d+) of (\\d+)/);message={...message,timestamp:Date.now(),stepIndex:match?Number(match[1]):undefined,totalSteps:match?Number(match[2]):undefined}}return post.call(this,message,...args)}})()</script>`;
   return renderTrustedArtifactV8(module, accent)
     .replace(/data-lessonbend-shell="[^"]+"/, `data-lessonbend-shell="${SHELL_V9}"`)
     .replace("</head>", `${css}</head>`);

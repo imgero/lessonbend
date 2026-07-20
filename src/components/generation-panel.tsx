@@ -18,10 +18,10 @@ function GeneratedFrame({ html, label, profileId, accent, runId }: { html: strin
       const parsed = artifactEventSchema.safeParse(event.data);
       if (!parsed.success || parsed.data.token !== token) return;
       setState(parsed.data.type.replace("lessonbend.", ""));
-      if (runId && parsed.data.type === "lessonbend.checkpoint") {
+      if (runId && (parsed.data.type === "lessonbend.checkpoint" || parsed.data.type === "lessonbend.complete")) {
         const key = `lessonbend-insights:${runId}`;
         const rows = JSON.parse(localStorage.getItem(key) ?? "[]");
-        rows.push({ profileId, checkpointId: parsed.data.checkpointId, outcome: parsed.data.outcome, at: Date.now() });
+        rows.push({ profileId, type: parsed.data.type, checkpointId: parsed.data.type === "lessonbend.checkpoint" ? parsed.data.checkpointId : null, outcome: parsed.data.type === "lessonbend.checkpoint" ? parsed.data.outcome : null, stepIndex: parsed.data.stepIndex ?? null, totalSteps: parsed.data.totalSteps ?? null, at: parsed.data.timestamp ?? Date.now() });
         localStorage.setItem(key, JSON.stringify(rows));
       }
     };
