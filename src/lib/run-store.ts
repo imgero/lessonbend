@@ -26,7 +26,7 @@ export async function listProfiles() {
   const rows = await db.execute("SELECT id,label,supports_json,constraints_json,emoji,accent FROM support_profiles ORDER BY created_at");
   return rows.rows.map((row) => ({ id: String(row.id), label: String(row.label), supports: JSON.parse(String(row.supports_json)), constraints: JSON.parse(String(row.constraints_json)), emoji: row.emoji ? String(row.emoji) : undefined, accent: row.accent ? String(row.accent) : undefined }));
 }
-export async function saveProfile(profile: { id: string; label: string; supports: string[]; constraints: string[]; emoji?: string; accent?: string }) { await init(); await db.execute({ sql: "INSERT OR REPLACE INTO support_profiles (id,label,supports_json,constraints_json,emoji,accent,created_at) VALUES (?,?,?,?,?,?,?)", args: [profile.id, profile.label, JSON.stringify(profile.supports), JSON.stringify(profile.constraints), profile.emoji ?? null, profile.accent ?? null, new Date().toISOString()] }); }
+export async function saveProfile(profile: { id: string; label: string; supports: string[]; constraints: string[]; emoji?: string | null; accent?: string | null }) { await init(); await db.execute({ sql: "INSERT OR REPLACE INTO support_profiles (id,label,supports_json,constraints_json,emoji,accent,created_at) VALUES (?,?,?,?,?,?,?)", args: [profile.id, profile.label, JSON.stringify(profile.supports), JSON.stringify(profile.constraints), profile.emoji ?? null, profile.accent ?? null, new Date().toISOString()] }); }
 
 export async function createRun(input: { id: string; lessonText: string; profilesJson: string }) {
   await init();
@@ -74,7 +74,7 @@ export async function getLatestComparisonRun() {
 }
 export async function listGalleryRuns() {
   await init();
-  const rows = await db.execute("SELECT r.id, r.lesson_text, r.created_at FROM runs r WHERE (SELECT COUNT(*) FROM artifacts a WHERE a.run_id = r.id) >= 3 ORDER BY r.created_at DESC LIMIT 20");
+  const rows = await db.execute("SELECT r.id, r.lesson_text, r.created_at, (SELECT COUNT(*) FROM artifacts a WHERE a.run_id = r.id) AS profile_count FROM runs r WHERE (SELECT COUNT(*) FROM artifacts a WHERE a.run_id = r.id) >= 3 ORDER BY r.created_at DESC LIMIT 20");
   return rows.rows;
 }
 export async function approveRun(id: string) { await event(id, "approved", "Teacher approved this artifact set."); }

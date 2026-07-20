@@ -5,8 +5,8 @@ export const supportProfileSchema = z.object({
   label: z.string().min(1).max(50),
   supports: z.array(z.string().min(1)).min(1).max(12),
   constraints: z.array(z.string().min(1)).max(12),
-  emoji: z.string().max(8).optional(),
-  accent: z.string().regex(/^#[0-9a-fA-F]{6}$/).optional(),
+  emoji: z.string().max(8).nullable().default(null),
+  accent: z.string().regex(/^#[0-9a-fA-F]{6}$/).nullable().default(null),
 });
 
 export const lessonSpecSchema = z.object({

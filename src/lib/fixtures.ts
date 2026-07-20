@@ -6,18 +6,21 @@ export const fractionProfiles: SupportProfile[] = [
     label: "Pineapple",
     supports: ["one action per screen", "concrete visual manipulation", "immediate action-oriented feedback"],
     constraints: ["short loops", "low distraction"],
+    emoji: "🍍", accent: "#c68000",
   },
   {
     id: "audio-first",
     label: "Blueberry",
     supports: ["audio-capable directions", "minimal text", "visual symbols paired with language"],
     constraints: ["never depend on reading a paragraph"],
+    emoji: "🫐", accent: "#5663d8",
   },
   {
     id: "math-language-support",
     label: "Mango",
     supports: ["explicit vocabulary", "worked example", "representations alongside symbols"],
     constraints: ["explain terms before asking for transfer"],
+    emoji: "🥭", accent: "#d75a25",
   },
 ];
 

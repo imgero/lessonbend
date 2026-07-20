@@ -10,7 +10,7 @@ type Proposal = { label: string; supports: string[]; constraints: string[]; less
 function Chips({ label, values, onChange, placeholder }: { label: string; values: string[]; onChange: (next: string[]) => void; placeholder: string }) {
   const [draft, setDraft] = useState("");
   const add = () => { const next = draft.trim(); if (next && !values.includes(next)) onChange([...values, next]); setDraft(""); };
-  return <div className="chip-editor"><b>{label}</b><div className="chips">{values.map((value, index) => <span className="edit-chip" key={`${value}-${index}`}>{value}<button aria-label={`Remove ${value}`} onClick={() => onChange(values.filter((_, itemIndex) => itemIndex !== index))}>×</button></span>)}<input value={draft} placeholder={placeholder} onChange={(event) => setDraft(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter") { event.preventDefault(); add(); } }} onBlur={add} /></div></div>;
+  return <div className="chip-editor"><b>{label}</b><div className="chips">{values.map((value, index) => <details className="edit-chip" key={`${value}-${index}`}><summary>{value.split(/[,:;]/)[0]}</summary><span>{value}</span><button aria-label={`Remove ${value}`} onClick={() => onChange(values.filter((_, itemIndex) => itemIndex !== index))}>×</button></details>)}<input value={draft} placeholder={placeholder} onChange={(event) => setDraft(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter") { event.preventDefault(); add(); } }} onBlur={add} /></div></div>;
 }
 
 export function ProfilePrep({ onSaved, usedIds }: { onSaved: (profile: SupportProfile) => void; usedIds: string[] }) {

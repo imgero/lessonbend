@@ -7,7 +7,7 @@ export const runtime = "nodejs";
 export const maxDuration = 120;
 
 const requestSchema = z.object({ brief: z.string().min(20).max(1600), suggestedLabel: z.string().min(1).max(50).optional() });
-const resultSchema = z.object({ label: z.string().min(3).max(50), supports: z.array(z.string()).min(2).max(8), constraints: z.array(z.string()).max(8), lessonMix: z.string().min(10).max(240), references: z.array(z.object({ title: z.string().min(3), url: z.string().url(), source: z.string().min(2).max(100).optional() })).min(2).max(6) });
+const resultSchema = z.object({ label: z.string().min(3).max(50), supports: z.array(z.string()).min(2).max(8), constraints: z.array(z.string()).max(8), lessonMix: z.string().min(10).max(240), references: z.array(z.object({ title: z.string().min(3), url: z.string().url(), source: z.string().min(2).max(100) })).min(2).max(6) });
 // The Responses JSON-schema validator does not accept Zod's emitted `format: uri`.
 // Keep URL validation at the server boundary, but make the model-facing field a string.
 const researchSchema = {
@@ -20,7 +20,7 @@ const clip = (value: unknown, max: number) => `${typeof value === "string" ? val
 const clipSentence = (value: unknown, max: number) => { const text = clip(value, max); return text && !/[.!?…]$/.test(text) ? `${text.slice(0, max - 1).trimEnd()}…` : text; };
 function normalizeProposal(value: unknown, suggestedLabel?: string) {
   const raw = value && typeof value === "object" ? value as Record<string, unknown> : {};
-  const list = (key: string, limit: number) => Array.isArray(raw[key]) ? raw[key].map((item) => clip(item, 100)).filter(Boolean).slice(0, limit) : [];
+  const list = (key: string, limit: number) => Array.isArray(raw[key]) ? raw[key].map((item) => `${typeof item === "string" ? item : ""}`.trim()).filter(Boolean).slice(0, limit) : [];
   const references = (Array.isArray(raw.references) ? raw.references : []).map((item) => item && typeof item === "object" ? item as Record<string, unknown> : {}).map((item) => ({ title: clip(item.title, 160), url: typeof item.url === "string" ? item.url.trim() : "", source: clip(item.source, 100) })).filter((item) => /^https?:\/\//.test(item.url) && item.title).slice(0, 6);
   return { label: clip(suggestedLabel || raw.label, 50) || "Banana", supports: list("supports", 8), constraints: list("constraints", 8), lessonMix: clipSentence(raw.lessonMix, 240), references };
 }
