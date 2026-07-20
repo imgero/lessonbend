@@ -1,7 +1,7 @@
 import { mkdir } from "node:fs/promises";
 import { join } from "node:path";
 import { chromium } from "playwright";
-import { SHELL_V8 } from "@/lib/trusted-shell-v8";
+import { SHELL_V9 } from "@/lib/trusted-shell-v9";
 
 export async function validateInBrowser(html: string, artifactId: string) {
   const browser = await chromium.launch({ headless: true });
@@ -48,7 +48,7 @@ export async function validateInBrowser(html: string, artifactId: string) {
       stepScreenshots.push(path);
     }
     const blank = visible.text < 40 || visible.controls < 1 || visible.area < 10_000;
-    const staleShell = visible.shellVersion !== SHELL_V8;
+    const staleShell = visible.shellVersion !== SHELL_V9;
     const requiresFractionCircle = /"kind":"(?:shade|build|match|find-mistake)"/.test(html);
     const missingCircle = requiresFractionCircle && visible.circles < 1;
     return { passed: consoleErrors.length === 0 && outboundRequests.length === 0 && !blank && !staleShell && !missingCircle && emptySteps.length === 0, consoleErrors, outboundRequests, visible, blank, staleShell, missingCircle, emptySteps, screenshotPath, stepScreenshots };
