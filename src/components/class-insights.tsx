@@ -15,7 +15,8 @@ export function ClassInsights({ runId, profiles, demo = runId === "gallery-demo"
   const events = useMemo(() => {
     try {
       const saved = JSON.parse(localStorage.getItem(`lessonbend-insights:${runId}`) ?? "[]") as Event[];
-      return saved.length ? saved : demo ? demoEvents(profiles) : [];
+      const live = saved.filter(event => demo || Boolean(event.stepIndex));
+      return live.length ? live : demo ? demoEvents(profiles) : [];
     } catch { return demo ? demoEvents(profiles) : []; }
   }, [runId, profiles, demo]);
   const totalSteps = Math.max(0, ...events.map(event => event.totalSteps ?? event.stepIndex ?? 0));
