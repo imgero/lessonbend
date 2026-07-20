@@ -7,7 +7,7 @@ import { evaluateMultichannelFeedback } from "@/lib/artifact-evaluator";
 import { lintArtifactSource } from "@/lib/artifact-policy";
 import { validateInBrowser } from "@/lib/browser-validator";
 import * as store from "@/lib/run-store";
-import { renderTrustedArtifactV7 } from "@/lib/trusted-shell-v7";
+import { renderTrustedArtifactV8 } from "@/lib/trusted-shell-v8";
 
 const model = "gpt-5.6";
 const MAX_REPAIRS = 1;
@@ -87,7 +87,7 @@ async function authorArtifact(runId: string, lessonSpec: unknown, profile: Suppo
   const finalFailures = moduleContentFailures(repairedModule);
   if (finalFailures.length) throw new Error(`${profile.label}: ${finalFailures.join(" ")}`);
   const adaptations = profile.id === "short-concrete-loops" ? { audio: false, minimalText: true, workedExample: false } : profile.id === "audio-first" ? { audio: true, minimalText: true, workedExample: false } : { audio: false, minimalText: false, workedExample: true };
-  return renderTrustedArtifactV7({ ...repairedModule, adaptations, audioText: repairedModule.audioText ?? repairedModule.intro }, profile.accent);
+  return renderTrustedArtifactV8({ ...repairedModule, adaptations, audioText: repairedModule.audioText ?? repairedModule.intro }, profile.accent);
 }
 
 async function gradeArtifact(runId: string, lessonSpec: unknown, profile: SupportProfile, html: string, staticResults: unknown, browserResults: unknown) {
@@ -194,9 +194,24 @@ export async function repairStoredTextArtifact(artifactId: string) {
   if (contentFailures.length) throw new Error(`Stored repair still violates contract: ${contentFailures.join(" ")}`);
   const profileId = String(artifact.profile_id);
   const adaptations = profileId === "short-concrete-loops" ? { audio: false, minimalText: true, workedExample: false } : profileId === "audio-first" ? { audio: true, minimalText: true, workedExample: false } : { audio: false, minimalText: false, workedExample: true };
-  const html = renderTrustedArtifactV7({ ...repairedModule, adaptations });
+  const html = renderTrustedArtifactV8({ ...repairedModule, adaptations });
   const browser = await validateInBrowser(html, artifactId);
   const staticFailures = lintArtifactSource(html);
   await store.saveArtifact({ id: artifactId, runId: String(artifact.run_id), profileId, html, screenshotPath: browser.screenshotPath, validation: { browser, staticFailures, repaired: "text-and-prompt" }, status: browser.passed && !staticFailures.length ? "ready_for_review" : "browser_validation_failed" });
+  return { passed: browser.passed && !staticFailures.length, artifactId, browser, staticFailures };
+}
+
+export async function refreshStoredArtifactShell(artifactId: string) {
+  const artifact = await store.getArtifact(artifactId);
+  if (!artifact?.html || !artifact.run_id || !artifact.profile_id) throw new Error("Stored artifact is unavailable for refresh.");
+  const match = String(artifact.html).match(/const m=(\{[\s\S]*?\});let step=/);
+  if (!match) throw new Error("Stored lesson module is unavailable for refresh.");
+  const parsed = lessonModuleSchema.parse(JSON.parse(match[1]));
+  const profileId = String(artifact.profile_id);
+  const adaptations = profileId === "short-concrete-loops" ? { audio: false, minimalText: true, workedExample: false } : profileId === "audio-first" ? { audio: true, minimalText: true, workedExample: false } : { audio: false, minimalText: false, workedExample: true };
+  const html = renderTrustedArtifactV8({ ...parsed, adaptations });
+  const browser = await validateInBrowser(html, artifactId);
+  const staticFailures = lintArtifactSource(html);
+  await store.saveArtifact({ id: artifactId, runId: String(artifact.run_id), profileId, html, screenshotPath: browser.screenshotPath, validation: { browser, staticFailures, refreshedShell: true }, status: browser.passed && !staticFailures.length ? "ready_for_review" : "browser_validation_failed" });
   return { passed: browser.passed && !staticFailures.length, artifactId, browser, staticFailures };
 }

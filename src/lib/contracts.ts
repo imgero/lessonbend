@@ -24,7 +24,7 @@ export const lessonSpecSchema = z.object({
 
 export const artifactEventSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("lessonbend.ready"), token: z.string().uuid() }),
-  z.object({ type: z.literal("lessonbend.checkpoint"), token: z.string().uuid(), checkpointId: z.string(), outcome: z.enum(["retry", "mastered"]) }),
+  z.object({ type: z.literal("lessonbend.checkpoint"), token: z.string().uuid(), checkpointId: z.string(), outcome: z.enum(["retry", "mastered"]), timestamp: z.number().optional() }),
   z.object({ type: z.literal("lessonbend.complete"), token: z.string().uuid() }),
   z.object({ type: z.literal("lessonbend.error"), token: z.string().uuid(), message: z.string().max(200) }),
 ]);
