@@ -1,0 +1,562 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; img-src 'none'; media-src 'none'; font-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Equal Circles, Equivalent Fractions</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17324d;
+      --muted: #536779;
+      --blue: #2368a2;
+      --blue-soft: #eaf5ff;
+      --shade: #5b8fc9;
+      --paper: #fff;
+      --line: #b9c7d3;
+      --green: #176b3a;
+      --green-soft: #e8f7ee;
+      --amber: #8a5500;
+      --amber-soft: #fff4d6;
+      --focus: #7a35b1;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f4f8fb;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    button {
+      min-height: 44px;
+      border: 2px solid var(--blue);
+      border-radius: 10px;
+      padding: 0.65rem 1rem;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: var(--blue-soft);
+    }
+
+    button:focus-visible {
+      outline: 4px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    button:disabled {
+      cursor: default;
+      opacity: 0.68;
+    }
+
+    .primary {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .primary:hover {
+      background: #174f7e;
+    }
+
+    header {
+      padding: 1rem;
+      background: #123d62;
+      color: #fff;
+    }
+
+    header h1 {
+      max-width: 1100px;
+      margin: 0 auto;
+      font-size: clamp(1.45rem, 4vw, 2.1rem);
+    }
+
+    main {
+      width: min(1100px, calc(100% - 1.5rem));
+      margin: 1rem auto 2rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .panel,
+    .example {
+      border: 1px solid #cfdae3;
+      border-radius: 14px;
+      background: var(--paper);
+      box-shadow: 0 3px 12px rgba(20, 52, 76, 0.08);
+    }
+
+    .panel {
+      padding: clamp(1rem, 3vw, 1.5rem);
+      min-height: 540px;
+    }
+
+    .example {
+      padding: 1rem;
+      position: sticky;
+      top: 0.75rem;
+    }
+
+    h2,
+    h3 {
+      line-height: 1.2;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .progress {
+      margin: 0 0 0.8rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .audio-row,
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin: 1rem 0;
+    }
+
+    .audio-button {
+      border-color: #48688a;
+    }
+
+    .direction {
+      padding: 0.85rem 1rem;
+      border-left: 5px solid var(--blue);
+      background: var(--blue-soft);
+    }
+
+    .key-idea {
+      border: 2px solid #7aa5c8;
+      border-radius: 12px;
+      padding: 0.85rem;
+      background: #f7fbff;
+    }
+
+    .model-row,
+    .choices,
+    .worked-models {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .choice {
+      min-width: 160px;
+      padding: 0.8rem;
+      display: grid;
+      justify-items: center;
+      gap: 0.45rem;
+      background: #fff;
+    }
+
+    .choice .fraction-label {
+      font-size: 1.15rem;
+    }
+
+    .circle {
+      width: 136px;
+      height: 136px;
+      flex: 0 0 136px;
+      border: 4px solid var(--ink);
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: inset 0 0 0 1px #fff;
+    }
+
+    .circle.small {
+      width: 102px;
+      height: 102px;
+      flex-basis: 102px;
+      border-width: 3px;
+    }
+
+    .circle.large-example {
+      width: 122px;
+      height: 122px;
+      flex-basis: 122px;
+    }
+
+    .model-block {
+      display: grid;
+      justify-items: center;
+      gap: 0.35rem;
+      text-align: center;
+    }
+
+    .equals {
+      font-size: 2rem;
+      font-weight: 900;
+    }
+
+    .fraction-label {
+      font-weight: 800;
+    }
+
+    .feedback {
+      position: relative;
+      margin-top: 1rem;
+      border: 2px solid;
+      border-radius: 12px;
+      padding: 1rem;
+      overflow: hidden;
+    }
+
+    .feedback.success {
+      border-color: var(--green);
+      background: var(--green-soft);
+      color: #124c2c;
+    }
+
+    .feedback.retry {
+      border-color: var(--amber);
+      background: var(--amber-soft);
+      color: #684100;
+    }
+
+    .feedback-title {
+      display: flex;
+      gap: 0.55rem;
+      align-items: center;
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .feedback-icon {
+      display: inline-grid;
+      width: 1.8rem;
+      height: 1.8rem;
+      place-items: center;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      font-size: 1.15rem;
+      flex: 0 0 auto;
+    }
+
+    .cue {
+      margin-top: 0.6rem;
+      font-weight: 700;
+    }
+
+    .inspect {
+      animation: inspect 1.2s ease-in-out 2;
+      outline: 5px solid #e5a62b;
+      outline-offset: 5px;
+    }
+
+    .celebration {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .celebration span {
+      position: absolute;
+      top: -10px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #26884b;
+      animation: fall 1.35s ease-out forwards;
+    }
+
+    .celebration span:nth-child(1) { left: 12%; animation-delay: 0.05s; }
+    .celebration span:nth-child(2) { left: 28%; animation-delay: 0.18s; background: #e0a420; }
+    .celebration span:nth-child(3) { left: 49%; animation-delay: 0.08s; background: #337fbc; }
+    .celebration span:nth-child(4) { left: 67%; animation-delay: 0.22s; }
+    .celebration span:nth-child(5) { left: 84%; animation-delay: 0.12s; background: #e0a420; }
+
+    .terms {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    .terms strong {
+      color: #133f65;
+    }
+
+    .warning {
+      border-left: 5px solid var(--amber);
+      background: var(--amber-soft);
+      padding: 0.8rem;
+      margin: 1rem 0;
+    }
+
+    .summary-list li {
+      margin-bottom: 0.55rem;
+    }
+
+    .sr-status {
+      position: fixed;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    @keyframes inspect {
+      50% {
+        transform: translateY(-3px);
+        outline-width: 8px;
+      }
+    }
+
+    @keyframes fall {
+      0% {
+        opacity: 0;
+        transform: translateY(0) rotate(0);
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(105px) rotate(180deg);
+      }
+    }
+
+    @media (max-width: 820px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .example {
+        position: static;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Equal Circles, Equivalent Fractions</h1>
+  </header>
+
+  <main>
+    <div class="layout">
+      <section id="lesson" class="panel" aria-labelledby="lesson-title"></section>
+
+      <aside class="example" aria-labelledby="example-title">
+        <h2 id="example-title">Keep this example visible</h2>
+        <div class="worked-models" id="worked-models"></div>
+        <p><strong>1/2 = 2/4</strong></p>
+        <ul class="terms">
+          <li><strong>Equal whole:</strong> both circle boundaries are the same size.</li>
+          <li><strong>Equal parts:</strong> each circle is divided into regions of equal area.</li>
+          <li><strong>Numerator:</strong> the top number counts shaded parts.</li>
+          <li><strong>Denominator:</strong> the bottom number counts all equal regions, not partition lines.</li>
+          <li><strong>Same shaded area:</strong> both models cover one half of the whole.</li>
+        </ul>
+        <div class="warning">
+          Only compare shaded areas when the circles represent <strong>same-sized wholes</strong>.
+        </div>
+        <button type="button" class="audio-button" id="example-audio">🔊 Hear the example</button>
+      </aside>
+    </div>
+
+    <div id="audio-status" class="sr-status" role="status" aria-live="polite"></div>
+  </main>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var lesson = document.getElementById("lesson");
+      var audioStatus = document.getElementById("audio-status");
+      var bridgePort = null;
+      var bridgeToken = null;
+      var pendingEvents = [];
+      var completeSent = false;
+
+      function eventObject(type, details) {
+        var obj = { type: type };
+        if (bridgeToken !== null) obj.token = bridgeToken;
+        if (details) {
+          Object.keys(details).forEach(function (key) {
+            obj[key] = details[key];
+          });
+        }
+        return obj;
+      }
+
+      function emit(type, details) {
+        var obj = eventObject(type, details);
+        if (bridgePort) {
+          bridgePort.postMessage(obj);
+        } else {
+          pendingEvents.push(obj);
+        }
+      }
+
+      window.addEventListener("message", function (event) {
+        var data = event.data;
+        if (!data || data.type !== "lessonbend.init" || !event.ports || !event.ports[0] || bridgePort) return;
+        bridgePort = event.ports[0];
+        bridgeToken = data.token;
+        bridgePort.start();
+        bridgePort.postMessage(eventObject("lessonbend.ready"));
+
+        while (pendingEvents.length) {
+          var queued = pendingEvents.shift();
+          if (bridgeToken !== null) queued.token = bridgeToken;
+          bridgePort.postMessage(queued);
+        }
+      });
+
+      window.addEventListener("error", function (event) {
+        emit("lessonbend.error", {
+          message: event.message || "An unexpected lesson error occurred."
+        });
+      });
+
+      function speak(text) {
+        if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+          audioStatus.textContent = "Audio is unavailable in this browser. The same directions are visible on screen.";
+          return;
+        }
+        window.speechSynthesis.cancel();
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+        utterance.onstart = function () {
+          audioStatus.textContent = "Audio directions are playing.";
+        };
+        utterance.onend = function () {
+          audioStatus.textContent = "Audio directions finished.";
+        };
+        utterance.onerror = function () {
+          audioStatus.textContent = "Audio could not play. The same directions are visible on screen.";
+        };
+        window.speechSynthesis.speak(utterance);
+      }
+
+      function circleHTML(num, den, label, sizeClass) {
+        var step = 360 / den;
+        var lineWidth = Math.min(2.4, step / 10);
+        var shadeEnd = step * num;
+        var background =
+          "repeating-conic-gradient(from -90deg, transparent 0deg " +
+          (step - lineWidth) + "deg, #17324d " + (step - lineWidth) +
+          "deg " + step + "deg), conic-gradient(from -90deg, #5b8fc9 0deg " +
+          shadeEnd + "deg, #ffffff " + shadeEnd + "deg 360deg)";
+
+        return '<div class="circle ' + (sizeClass || "") + '" role="img" aria-label="' +
+          label + '" style="background:' + background + '"></div>';
+      }
+
+      document.getElementById("worked-models").innerHTML =
+        '<div class="model-block">' +
+          circleHTML(1, 2, "One half: one of two equal regions is shaded", "small") +
+          '<span class="fraction-label">1/2</span>' +
+        '</div>' +
+        '<span class="equals" aria-hidden="true">=</span>' +
+        '<div class="model-block">' +
+          circleHTML(2, 4, "Two fourths: two of four equal regions are shaded", "small") +
+          '<span class="fraction-label">2/4</span>' +
+        '</div>';
+
+      document.getElementById("example-audio").addEventListener("click", function () {
+        speak("Worked example. Both circles are the same size; both have the same shaded area. One half becomes two fourths when every half is divided into two equal parts. The numerator and denominator are both multiplied by two. One half equals two fourths.");
+      });
+
+      var stages = [
+        {
+          id: "partition-and-represent",
+          title: "Cycle 1: Partition and shade",
+          direction: "Choose the circle that is partitioned into the correct number of equal regions and has the correct number shaded.",
+          audio: "First, listen for the denominator. It tells how many equal regions make the whole. Then listen for the numerator. It tells how many regions to shade.",
+          rounds: [
+            {
+              prompt: "Represent 1/2.",
+              audio: "Represent one half. Partition the equal-sized circle into two equal regions and shade one region.",
+              options: [[1,2],[1,3],[2,3]],
+              answer: 0
+            },
+            {
+              prompt: "Represent 2/3.",
+              audio: "Represent two thirds. Partition the equal-sized circle into three equal regions and shade two regions.",
+              options: [[1,3],[2,3],[3,4]],
+              answer: 1
+            },
+            {
+              prompt: "Represent 3/4.",
+              audio: "Represent three fourths. Partition the equal-sized circle into four equal regions and shade three regions.",
+              options: [[2,3],[2,4],[3,4]],
+              answer: 2
+            }
+          ]
+        },
+        {
+          id: "match-equivalent-models",
+          title: "Cycle 2: Match equal shaded areas",
+          direction: "Compare same-sized circles. Choose the model with the same total shaded area as the model on the left.",
+          audio: "Both circles must be the same size. Compare the total shaded area, not just the number of shaded pieces.",
+          rounds: [
+            {
+              prompt: "Which model is equivalent to 1/2?",
+              audio: "Both circles are the same size. Find the model with the same shaded area as one half.",
+              base: [1,2],
+              options: [[2,4],[2,3],[1,4]],
+              answer: 0
+            },
+            {
+              prompt: "Which model is equivalent to 2/3?",
+              audio: "Both circles are the same size. Find the model with the same shaded area as two thirds.",
+              base: [2,3],
+              options: [[3,6],[4,6],[5,6]],
+              answer: 1
+            },
+            {
+              prompt: "Which model is equivalent to 3/4?",
+              audio: "Both circles are the same size. Find the model with the same shaded area as three fourths.",
+              base: [3,4],
+              options: [[4,8],[5,8],[6,8]],
+              answer: 2
+            }
+          ]
+        },
+        {
+          id: "generate-by-subdivision",
+          title: "Cycle 3: Generate by subdivision",
+          direction: "Start with 1/2. Subdivide every existing part in the same way. Choose the new fraction name.",
+          audio: "Subdivide every part, including shaded and unshaded parts, in the same way. This multiplies both the numerator and denominator by the same whole number.",
+          rounds: [
+            {
+              prompt: "Split each half into 2 equal pieces. What fraction names the same shaded area?",
+              audio: "One of two parts is shaded. Split each half into two equal pieces. The shaded half becomes two shaded pieces, and the whole has four pieces.",
+              base: [1,2],
+              options: [[1,4],[2,4],[2,3]],
+              answer: 1

@@ -1,0 +1,1369 @@
+{
+  "run": {
+    "id": "c145121a-8478-4995-beca-7e82ff587f1b",
+    "lesson_text": "Teach equivalent fractions using equal circles.",
+    "profiles_json": "[{\"id\":\"short-concrete-loops\",\"label\":\"Pineapple\",\"supports\":[\"short loops\"],\"constraints\":[]},{\"id\":\"audio-first\",\"label\":\"Blueberry\",\"supports\":[\"audio\"],\"constraints\":[]},{\"id\":\"math-language-support\",\"label\":\"Mango\",\"supports\":[\"worked example\"],\"constraints\":[]}]",
+    "lesson_spec_json": "{\"goal\":\"Students will use equal-sized circle models to recognize, generate, and explain equivalent fractions by showing that different fraction names can represent the same area of one whole.\",\"successCriteria\":[\"Partition equal-sized circles into equal parts.\",\"Shade circle models to represent given fractions.\",\"Compare shaded areas only when the circles represent equal-sized wholes.\",\"Identify equivalent fractions when their shaded areas cover the same amount of equal-sized circles.\",\"Generate a simple equivalent fraction by subdividing every part of a circle in the same way.\",\"Explain equivalence using a model and a statement such as “1/2 equals 2/4 because both shade the same amount of an equal-sized whole.”\"],\"prerequisiteKnowledge\":[\"A fraction describes equal parts of one whole.\",\"The denominator tells how many equal parts make the whole.\",\"The numerator tells how many equal parts are being considered.\",\"A circle can represent one whole when its boundary and size remain fixed.\",\"Equal parts must have equal area, even if their shapes do not look identical.\"],\"misconceptions\":[{\"signal\":\"The student compares fractions modeled with circles of different sizes and decides equivalence from the visible shaded size alone.\",\"response\":\"Provide equal-sized circle templates and restate that equivalent fractions must refer to the same-sized whole. Have the student overlay or align the circles before comparing.\"},{\"signal\":\"The student treats any collection of slices as fractional parts, even when the parts are unequal.\",\"response\":\"Ask whether each part has the same area. Repartition the circle with clear diameters or fold lines, then identify how many equal parts make the whole.\"},{\"signal\":\"The student says 2/4 is greater than 1/2 because 2 is greater than 1.\",\"response\":\"Place equal-sized models of 1/2 and 2/4 side by side or overlay them. Focus attention on the total shaded area rather than the number of shaded pieces.\"},{\"signal\":\"The student changes only the numerator or only the denominator when generating an equivalent fraction.\",\"response\":\"Demonstrate subdividing every existing section equally. Connect the visual change to multiplying both numerator and denominator by the same whole number.\"},{\"signal\":\"The student counts partition lines instead of counting equal regions.\",\"response\":\"Trace and count the enclosed regions one at a time, then use that count as the denominator.\"},{\"signal\":\"The student assumes fractions are equivalent because they have the same numerator or denominator.\",\"response\":\"Have the student shade both fractions on equal-sized circles and compare the covered area, then state equivalence or non-equivalence from the models.\"}],\"checkpoints\":[{\"id\":\"partition-and-represent\",\"skill\":\"Represent a fraction with an equal-circle model.\",\"evidenceOfMastery\":\"Given three equal-sized blank circles and fractions such as 1/2, 2/3, and 3/4, the student partitions each circle into the correct number of equal-area parts and shades the correct number.\"},{\"id\":\"match-equivalent-models\",\"skill\":\"Recognize equivalent fractions from visual models.\",\"evidenceOfMastery\":\"From a set of equal-sized circle models, the student correctly matches at least three equivalent pairs, including 1/2 and 2/4, and explains that each pair covers the same amount of the whole.\"},{\"id\":\"generate-by-subdivision\",\"skill\":\"Generate an equivalent fraction by subdividing a circle.\",\"evidenceOfMastery\":\"Starting with a shaded model such as 1/2, the student divides every part in the same way to create 2/4 or 3/6 and records a correct equality statement.\"},{\"id\":\"distinguish-nonexamples\",\"skill\":\"Determine when two modeled fractions are not equivalent.\",\"evidenceOfMastery\":\"Given equivalent and non-equivalent pairs on equal-sized circles, the student classifies at least four of five pairs correctly and cites unequal shaded area for each nonexample.\"},{\"id\":\"explain-equivalence\",\"skill\":\"Justify fraction equivalence with mathematical language and a circle model.\",\"evidenceOfMastery\":\"The student completes an oral or written explanation: “___/___ is equivalent to ___/___ because the equal-sized circles show the same shaded area,” while accurately identifying numerators, denominators, and equal parts.\"}],\"profiles\":[{\"id\":\"short-concrete-loops\",\"label\":\"Pineapple\",\"supports\":[\"Use brief cycles of model, shade, compare, and explain.\",\"Present one fraction pair at a time with immediate feedback.\",\"Use movable circle pieces or foldable paper circles before recording equations.\",\"Include a quick mastery check after each cycle.\"],\"constraints\":[]},{\"id\":\"audio-first\",\"label\":\"Blueberry\",\"supports\":[\"State directions and fraction comparisons aloud before showing written notation.\",\"Offer oral descriptions of models and allow spoken explanations of equivalence.\",\"Use a consistent verbal frame: “Both circles are the same size; both have the same shaded area.”\",\"Pair spoken numerator and denominator language with pointing to the corresponding model parts.\"],\"constraints\":[]},{\"id\":\"math-language-support\",\"label\":\"Mango\",\"supports\":[\"Begin with a worked example showing 1/2 becoming 2/4 through equal subdivision.\",\"Annotate the worked example with “equal whole,” “equal parts,” “numerator,” “denominator,” and “same shaded area.”\",\"Provide sentence frames for comparisons and justifications.\",\"Keep a completed example visible while the student solves a parallel problem.\"],\"constraints\":[]}]}",
+    "status": "repaired",
+    "error": "Blueberry: browser validation failed after 2 repairs.",
+    "created_at": "2026-07-18T13:01:47.354Z"
+  },
+  "events": [
+    {
+      "status": "decomposition_started",
+      "detail": "Creating a structured lesson specification.",
+      "created_at": "2026-07-18T13:01:47.359Z"
+    },
+    {
+      "status": "decomposition_running",
+      "detail": "Planner is generating the lesson specification. Still running: 5s.",
+      "created_at": "2026-07-18T13:01:52.366Z"
+    },
+    {
+      "status": "decomposition_running",
+      "detail": "Planner is generating the lesson specification. Still running: 10s.",
+      "created_at": "2026-07-18T13:01:57.368Z"
+    },
+    {
+      "status": "decomposition_running",
+      "detail": "Planner is generating the lesson specification. Still running: 15s.",
+      "created_at": "2026-07-18T13:02:02.370Z"
+    },
+    {
+      "status": "decomposition_running",
+      "detail": "Planner is generating the lesson specification. Still running: 20s.",
+      "created_at": "2026-07-18T13:02:07.371Z"
+    },
+    {
+      "status": "decomposition_running",
+      "detail": "Planner is generating the lesson specification. Still running: 25s.",
+      "created_at": "2026-07-18T13:02:12.372Z"
+    },
+    {
+      "status": "decomposition_running",
+      "detail": "Planner is generating the lesson specification. Still running: 30s.",
+      "created_at": "2026-07-18T13:02:17.374Z"
+    },
+    {
+      "status": "decomposition_running",
+      "detail": "Planner is generating the lesson specification. Still running: 35s.",
+      "created_at": "2026-07-18T13:02:22.375Z"
+    },
+    {
+      "status": "decomposed",
+      "detail": "LessonSpec validated against Zod.",
+      "created_at": "2026-07-18T13:02:25.268Z"
+    },
+    {
+      "status": "artifact_generation_started",
+      "detail": "Pineapple: initial generation.",
+      "created_at": "2026-07-18T13:02:25.271Z"
+    },
+    {
+      "status": "artifact_generation_started",
+      "detail": "Blueberry: initial generation.",
+      "created_at": "2026-07-18T13:02:25.272Z"
+    },
+    {
+      "status": "artifact_generation_started",
+      "detail": "Mango: initial generation.",
+      "created_at": "2026-07-18T13:02:25.273Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 5s.",
+      "created_at": "2026-07-18T13:02:30.278Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 5s.",
+      "created_at": "2026-07-18T13:02:30.282Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 5s.",
+      "created_at": "2026-07-18T13:02:30.284Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 10s.",
+      "created_at": "2026-07-18T13:02:35.278Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 10s.",
+      "created_at": "2026-07-18T13:02:35.282Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 10s.",
+      "created_at": "2026-07-18T13:02:35.284Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 15s.",
+      "created_at": "2026-07-18T13:02:40.280Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 15s.",
+      "created_at": "2026-07-18T13:02:40.283Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 15s.",
+      "created_at": "2026-07-18T13:02:40.285Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 20s.",
+      "created_at": "2026-07-18T13:02:45.280Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 20s.",
+      "created_at": "2026-07-18T13:02:45.283Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 20s.",
+      "created_at": "2026-07-18T13:02:45.285Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 25s.",
+      "created_at": "2026-07-18T13:02:50.282Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 25s.",
+      "created_at": "2026-07-18T13:02:50.285Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 25s.",
+      "created_at": "2026-07-18T13:02:50.286Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 30s.",
+      "created_at": "2026-07-18T13:02:55.284Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 30s.",
+      "created_at": "2026-07-18T13:02:55.286Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 30s.",
+      "created_at": "2026-07-18T13:02:55.288Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 35s.",
+      "created_at": "2026-07-18T13:03:00.284Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 35s.",
+      "created_at": "2026-07-18T13:03:00.287Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 35s.",
+      "created_at": "2026-07-18T13:03:00.289Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 40s.",
+      "created_at": "2026-07-18T13:03:05.285Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 40s.",
+      "created_at": "2026-07-18T13:03:05.287Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 40s.",
+      "created_at": "2026-07-18T13:03:05.289Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 45s.",
+      "created_at": "2026-07-18T13:03:10.286Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 45s.",
+      "created_at": "2026-07-18T13:03:10.288Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 45s.",
+      "created_at": "2026-07-18T13:03:10.290Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 50s.",
+      "created_at": "2026-07-18T13:03:15.286Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 50s.",
+      "created_at": "2026-07-18T13:03:15.289Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 50s.",
+      "created_at": "2026-07-18T13:03:15.291Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 55s.",
+      "created_at": "2026-07-18T13:03:20.287Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 55s.",
+      "created_at": "2026-07-18T13:03:20.290Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 55s.",
+      "created_at": "2026-07-18T13:03:20.294Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 60s.",
+      "created_at": "2026-07-18T13:03:25.288Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 60s.",
+      "created_at": "2026-07-18T13:03:25.291Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 60s.",
+      "created_at": "2026-07-18T13:03:25.294Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 65s.",
+      "created_at": "2026-07-18T13:03:30.290Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 65s.",
+      "created_at": "2026-07-18T13:03:30.293Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 65s.",
+      "created_at": "2026-07-18T13:03:30.295Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 70s.",
+      "created_at": "2026-07-18T13:03:35.291Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 70s.",
+      "created_at": "2026-07-18T13:03:35.294Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 70s.",
+      "created_at": "2026-07-18T13:03:35.295Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 75s.",
+      "created_at": "2026-07-18T13:03:40.292Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 75s.",
+      "created_at": "2026-07-18T13:03:40.295Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 75s.",
+      "created_at": "2026-07-18T13:03:40.297Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 80s.",
+      "created_at": "2026-07-18T13:03:45.293Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 80s.",
+      "created_at": "2026-07-18T13:03:45.296Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 80s.",
+      "created_at": "2026-07-18T13:03:45.298Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 85s.",
+      "created_at": "2026-07-18T13:03:50.294Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 85s.",
+      "created_at": "2026-07-18T13:03:50.297Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 85s.",
+      "created_at": "2026-07-18T13:03:50.299Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 90s.",
+      "created_at": "2026-07-18T13:03:55.296Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 90s.",
+      "created_at": "2026-07-18T13:03:55.299Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 90s.",
+      "created_at": "2026-07-18T13:03:55.301Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 95s.",
+      "created_at": "2026-07-18T13:04:00.297Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 95s.",
+      "created_at": "2026-07-18T13:04:00.300Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 95s.",
+      "created_at": "2026-07-18T13:04:00.302Z"
+    },
+    {
+      "status": "artifact_generated",
+      "detail": "Mango: HTML generated.",
+      "created_at": "2026-07-18T13:04:01.991Z"
+    },
+    {
+      "status": "static_policy_passed",
+      "detail": "Mango: static policy and feedback checks passed.",
+      "created_at": "2026-07-18T13:04:01.997Z"
+    },
+    {
+      "status": "browser_validation_started",
+      "detail": "Mango: launching isolated browser.",
+      "created_at": "2026-07-18T13:04:01.999Z"
+    },
+    {
+      "status": "browser_validation_passed",
+      "detail": "Mango: screenshot captured with no console or network errors.",
+      "created_at": "2026-07-18T13:04:02.809Z"
+    },
+    {
+      "status": "evaluation_started",
+      "detail": "Mango: scoring against lesson spec.",
+      "created_at": "2026-07-18T13:04:02.810Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 100s.",
+      "created_at": "2026-07-18T13:04:05.298Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 100s.",
+      "created_at": "2026-07-18T13:04:05.302Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 105s.",
+      "created_at": "2026-07-18T13:04:10.299Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 105s.",
+      "created_at": "2026-07-18T13:04:10.303Z"
+    },
+    {
+      "status": "artifact_generated",
+      "detail": "Pineapple: HTML generated.",
+      "created_at": "2026-07-18T13:04:15.097Z"
+    },
+    {
+      "status": "static_policy_passed",
+      "detail": "Pineapple: static policy and feedback checks passed.",
+      "created_at": "2026-07-18T13:04:15.100Z"
+    },
+    {
+      "status": "browser_validation_started",
+      "detail": "Pineapple: launching isolated browser.",
+      "created_at": "2026-07-18T13:04:15.102Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 110s.",
+      "created_at": "2026-07-18T13:04:15.303Z"
+    },
+    {
+      "status": "browser_validation_passed",
+      "detail": "Pineapple: screenshot captured with no console or network errors.",
+      "created_at": "2026-07-18T13:04:15.353Z"
+    },
+    {
+      "status": "evaluation_started",
+      "detail": "Pineapple: scoring against lesson spec.",
+      "created_at": "2026-07-18T13:04:15.355Z"
+    },
+    {
+      "status": "artifact_generated",
+      "detail": "Blueberry: HTML generated.",
+      "created_at": "2026-07-18T13:04:18.464Z"
+    },
+    {
+      "status": "static_policy_passed",
+      "detail": "Blueberry: static policy and feedback checks passed.",
+      "created_at": "2026-07-18T13:04:18.468Z"
+    },
+    {
+      "status": "browser_validation_started",
+      "detail": "Blueberry: launching isolated browser.",
+      "created_at": "2026-07-18T13:04:18.470Z"
+    },
+    {
+      "status": "repair_started",
+      "detail": "Blueberry: repair 1 of 2.",
+      "created_at": "2026-07-18T13:04:18.729Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 5s.",
+      "created_at": "2026-07-18T13:04:23.732Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 10s.",
+      "created_at": "2026-07-18T13:04:28.732Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 15s.",
+      "created_at": "2026-07-18T13:04:33.734Z"
+    },
+    {
+      "status": "repair_started",
+      "detail": "Mango: repair 1 of 2.",
+      "created_at": "2026-07-18T13:04:35.304Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 20s.",
+      "created_at": "2026-07-18T13:04:38.735Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 5s.",
+      "created_at": "2026-07-18T13:04:40.308Z"
+    },
+    {
+      "status": "repair_started",
+      "detail": "Pineapple: repair 1 of 2.",
+      "created_at": "2026-07-18T13:04:43.407Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 25s.",
+      "created_at": "2026-07-18T13:04:43.737Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 10s.",
+      "created_at": "2026-07-18T13:04:45.310Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 5s.",
+      "created_at": "2026-07-18T13:04:48.412Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 30s.",
+      "created_at": "2026-07-18T13:04:48.736Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 15s.",
+      "created_at": "2026-07-18T13:04:50.309Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 10s.",
+      "created_at": "2026-07-18T13:04:53.413Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 35s.",
+      "created_at": "2026-07-18T13:04:53.738Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 20s.",
+      "created_at": "2026-07-18T13:04:55.310Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 15s.",
+      "created_at": "2026-07-18T13:04:58.414Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 40s.",
+      "created_at": "2026-07-18T13:04:58.739Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 25s.",
+      "created_at": "2026-07-18T13:05:00.311Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 20s.",
+      "created_at": "2026-07-18T13:05:03.415Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 45s.",
+      "created_at": "2026-07-18T13:05:03.740Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 30s.",
+      "created_at": "2026-07-18T13:05:05.312Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 25s.",
+      "created_at": "2026-07-18T13:05:08.417Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 50s.",
+      "created_at": "2026-07-18T13:05:08.741Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 35s.",
+      "created_at": "2026-07-18T13:05:10.313Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 30s.",
+      "created_at": "2026-07-18T13:05:13.418Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 55s.",
+      "created_at": "2026-07-18T13:05:13.742Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 40s.",
+      "created_at": "2026-07-18T13:05:15.314Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 35s.",
+      "created_at": "2026-07-18T13:05:18.419Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 60s.",
+      "created_at": "2026-07-18T13:05:18.744Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 45s.",
+      "created_at": "2026-07-18T13:05:20.315Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 40s.",
+      "created_at": "2026-07-18T13:05:23.420Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 65s.",
+      "created_at": "2026-07-18T13:05:23.745Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 50s.",
+      "created_at": "2026-07-18T13:05:25.316Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 45s.",
+      "created_at": "2026-07-18T13:05:28.421Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 70s.",
+      "created_at": "2026-07-18T13:05:28.746Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 55s.",
+      "created_at": "2026-07-18T13:05:30.317Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 50s.",
+      "created_at": "2026-07-18T13:05:33.421Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 75s.",
+      "created_at": "2026-07-18T13:05:33.746Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 60s.",
+      "created_at": "2026-07-18T13:05:35.318Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 55s.",
+      "created_at": "2026-07-18T13:05:38.423Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 80s.",
+      "created_at": "2026-07-18T13:05:38.748Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 65s.",
+      "created_at": "2026-07-18T13:05:40.319Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 60s.",
+      "created_at": "2026-07-18T13:05:43.423Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 85s.",
+      "created_at": "2026-07-18T13:05:43.749Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 70s.",
+      "created_at": "2026-07-18T13:05:45.320Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 65s.",
+      "created_at": "2026-07-18T13:05:48.425Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 90s.",
+      "created_at": "2026-07-18T13:05:48.751Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 75s.",
+      "created_at": "2026-07-18T13:05:50.320Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 70s.",
+      "created_at": "2026-07-18T13:05:53.426Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 95s.",
+      "created_at": "2026-07-18T13:05:53.751Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 80s.",
+      "created_at": "2026-07-18T13:05:55.322Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 75s.",
+      "created_at": "2026-07-18T13:05:58.427Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 100s.",
+      "created_at": "2026-07-18T13:05:58.753Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 85s.",
+      "created_at": "2026-07-18T13:06:00.323Z"
+    },
+    {
+      "status": "artifact_generated",
+      "detail": "Blueberry: HTML generated.",
+      "created_at": "2026-07-18T13:06:02.644Z"
+    },
+    {
+      "status": "static_policy_passed",
+      "detail": "Blueberry: static policy and feedback checks passed.",
+      "created_at": "2026-07-18T13:06:02.647Z"
+    },
+    {
+      "status": "browser_validation_started",
+      "detail": "Blueberry: launching isolated browser.",
+      "created_at": "2026-07-18T13:06:02.649Z"
+    },
+    {
+      "status": "repair_started",
+      "detail": "Blueberry: repair 2 of 2.",
+      "created_at": "2026-07-18T13:06:03.259Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 80s.",
+      "created_at": "2026-07-18T13:06:03.427Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 90s.",
+      "created_at": "2026-07-18T13:06:05.324Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 5s.",
+      "created_at": "2026-07-18T13:06:08.261Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 85s.",
+      "created_at": "2026-07-18T13:06:08.428Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 95s.",
+      "created_at": "2026-07-18T13:06:10.324Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 10s.",
+      "created_at": "2026-07-18T13:06:13.262Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 90s.",
+      "created_at": "2026-07-18T13:06:13.428Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 100s.",
+      "created_at": "2026-07-18T13:06:15.326Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 15s.",
+      "created_at": "2026-07-18T13:06:18.263Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 95s.",
+      "created_at": "2026-07-18T13:06:18.428Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 105s.",
+      "created_at": "2026-07-18T13:06:20.327Z"
+    },
+    {
+      "status": "artifact_generated",
+      "detail": "Mango: HTML generated.",
+      "created_at": "2026-07-18T13:06:21.067Z"
+    },
+    {
+      "status": "static_policy_passed",
+      "detail": "Mango: static policy and feedback checks passed.",
+      "created_at": "2026-07-18T13:06:21.071Z"
+    },
+    {
+      "status": "browser_validation_started",
+      "detail": "Mango: launching isolated browser.",
+      "created_at": "2026-07-18T13:06:21.074Z"
+    },
+    {
+      "status": "browser_validation_passed",
+      "detail": "Mango: screenshot captured with no console or network errors.",
+      "created_at": "2026-07-18T13:06:21.323Z"
+    },
+    {
+      "status": "evaluation_started",
+      "detail": "Mango: scoring against lesson spec.",
+      "created_at": "2026-07-18T13:06:21.324Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 20s.",
+      "created_at": "2026-07-18T13:06:23.264Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 100s.",
+      "created_at": "2026-07-18T13:06:23.428Z"
+    },
+    {
+      "status": "artifact_generated",
+      "detail": "Pineapple: HTML generated.",
+      "created_at": "2026-07-18T13:06:25.778Z"
+    },
+    {
+      "status": "static_policy_passed",
+      "detail": "Pineapple: static policy and feedback checks passed.",
+      "created_at": "2026-07-18T13:06:25.782Z"
+    },
+    {
+      "status": "browser_validation_started",
+      "detail": "Pineapple: launching isolated browser.",
+      "created_at": "2026-07-18T13:06:25.785Z"
+    },
+    {
+      "status": "browser_validation_passed",
+      "detail": "Pineapple: screenshot captured with no console or network errors.",
+      "created_at": "2026-07-18T13:06:26.055Z"
+    },
+    {
+      "status": "evaluation_started",
+      "detail": "Pineapple: scoring against lesson spec.",
+      "created_at": "2026-07-18T13:06:26.056Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 25s.",
+      "created_at": "2026-07-18T13:06:28.265Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 30s.",
+      "created_at": "2026-07-18T13:06:33.266Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 35s.",
+      "created_at": "2026-07-18T13:06:38.267Z"
+    },
+    {
+      "status": "repair_started",
+      "detail": "Mango: repair 2 of 2.",
+      "created_at": "2026-07-18T13:06:42.249Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 40s.",
+      "created_at": "2026-07-18T13:06:43.268Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 5s.",
+      "created_at": "2026-07-18T13:06:47.252Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 45s.",
+      "created_at": "2026-07-18T13:06:48.270Z"
+    },
+    {
+      "status": "repair_started",
+      "detail": "Pineapple: repair 2 of 2.",
+      "created_at": "2026-07-18T13:06:51.214Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 10s.",
+      "created_at": "2026-07-18T13:06:52.253Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 50s.",
+      "created_at": "2026-07-18T13:06:53.271Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 5s.",
+      "created_at": "2026-07-18T13:06:56.218Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 15s.",
+      "created_at": "2026-07-18T13:06:57.254Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 55s.",
+      "created_at": "2026-07-18T13:06:58.271Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 10s.",
+      "created_at": "2026-07-18T13:07:01.220Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 20s.",
+      "created_at": "2026-07-18T13:07:02.255Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 60s.",
+      "created_at": "2026-07-18T13:07:03.272Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 15s.",
+      "created_at": "2026-07-18T13:07:06.221Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 25s.",
+      "created_at": "2026-07-18T13:07:07.256Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 65s.",
+      "created_at": "2026-07-18T13:07:08.273Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 20s.",
+      "created_at": "2026-07-18T13:07:11.222Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 30s.",
+      "created_at": "2026-07-18T13:07:12.257Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 70s.",
+      "created_at": "2026-07-18T13:07:13.273Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 25s.",
+      "created_at": "2026-07-18T13:07:16.223Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 35s.",
+      "created_at": "2026-07-18T13:07:17.257Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 75s.",
+      "created_at": "2026-07-18T13:07:18.274Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 30s.",
+      "created_at": "2026-07-18T13:07:21.224Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 40s.",
+      "created_at": "2026-07-18T13:07:22.258Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 80s.",
+      "created_at": "2026-07-18T13:07:23.274Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 35s.",
+      "created_at": "2026-07-18T13:07:26.225Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 45s.",
+      "created_at": "2026-07-18T13:07:27.259Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 85s.",
+      "created_at": "2026-07-18T13:07:28.275Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 40s.",
+      "created_at": "2026-07-18T13:07:31.226Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 50s.",
+      "created_at": "2026-07-18T13:07:32.259Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 90s.",
+      "created_at": "2026-07-18T13:07:33.275Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 45s.",
+      "created_at": "2026-07-18T13:07:36.228Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 55s.",
+      "created_at": "2026-07-18T13:07:37.261Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 95s.",
+      "created_at": "2026-07-18T13:07:38.277Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 50s.",
+      "created_at": "2026-07-18T13:07:41.229Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 60s.",
+      "created_at": "2026-07-18T13:07:42.263Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating artifact. Still running: 100s.",
+      "created_at": "2026-07-18T13:07:43.277Z"
+    },
+    {
+      "status": "artifact_generated",
+      "detail": "Blueberry: HTML generated.",
+      "created_at": "2026-07-18T13:07:45.639Z"
+    },
+    {
+      "status": "static_policy_passed",
+      "detail": "Blueberry: static policy and feedback checks passed.",
+      "created_at": "2026-07-18T13:07:45.642Z"
+    },
+    {
+      "status": "browser_validation_started",
+      "detail": "Blueberry: launching isolated browser.",
+      "created_at": "2026-07-18T13:07:45.645Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 55s.",
+      "created_at": "2026-07-18T13:07:46.229Z"
+    },
+    {
+      "status": "failed",
+      "detail": "Blueberry: browser validation failed after 2 repairs.",
+      "created_at": "2026-07-18T13:07:46.232Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 65s.",
+      "created_at": "2026-07-18T13:07:47.263Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 60s.",
+      "created_at": "2026-07-18T13:07:51.231Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 70s.",
+      "created_at": "2026-07-18T13:07:52.265Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 65s.",
+      "created_at": "2026-07-18T13:07:56.230Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 75s.",
+      "created_at": "2026-07-18T13:07:57.264Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 70s.",
+      "created_at": "2026-07-18T13:08:01.230Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 80s.",
+      "created_at": "2026-07-18T13:08:02.266Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 75s.",
+      "created_at": "2026-07-18T13:08:06.232Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 85s.",
+      "created_at": "2026-07-18T13:08:07.266Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 80s.",
+      "created_at": "2026-07-18T13:08:11.233Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 90s.",
+      "created_at": "2026-07-18T13:08:12.267Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 85s.",
+      "created_at": "2026-07-18T13:08:16.234Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 95s.",
+      "created_at": "2026-07-18T13:08:17.268Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating artifact. Still running: 90s.",
+      "created_at": "2026-07-18T13:08:21.235Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating artifact. Still running: 100s.",
+      "created_at": "2026-07-18T13:08:22.269Z"
+    },
+    {
+      "status": "artifact_generated",
+      "detail": "Mango: HTML generated.",
+      "created_at": "2026-07-18T13:08:23.284Z"
+    },
+    {
+      "status": "static_policy_passed",
+      "detail": "Mango: static policy and feedback checks passed.",
+      "created_at": "2026-07-18T13:08:23.286Z"
+    },
+    {
+      "status": "browser_validation_started",
+      "detail": "Mango: launching isolated browser.",
+      "created_at": "2026-07-18T13:08:23.289Z"
+    },
+    {
+      "status": "browser_validation_passed",
+      "detail": "Mango: screenshot captured with no console or network errors.",
+      "created_at": "2026-07-18T13:08:23.908Z"
+    },
+    {
+      "status": "evaluation_started",
+      "detail": "Mango: scoring against lesson spec.",
+      "created_at": "2026-07-18T13:08:23.909Z"
+    },
+    {
+      "status": "artifact_generated",
+      "detail": "Pineapple: HTML generated.",
+      "created_at": "2026-07-18T13:08:24.956Z"
+    },
+    {
+      "status": "static_policy_passed",
+      "detail": "Pineapple: static policy and feedback checks passed.",
+      "created_at": "2026-07-18T13:08:24.960Z"
+    },
+    {
+      "status": "browser_validation_started",
+      "detail": "Pineapple: launching isolated browser.",
+      "created_at": "2026-07-18T13:08:24.963Z"
+    },
+    {
+      "status": "browser_validation_passed",
+      "detail": "Pineapple: screenshot captured with no console or network errors.",
+      "created_at": "2026-07-18T13:08:25.200Z"
+    },
+    {
+      "status": "evaluation_started",
+      "detail": "Pineapple: scoring against lesson spec.",
+      "created_at": "2026-07-18T13:08:25.201Z"
+    },
+    {
+      "status": "repaired",
+      "detail": "Pineapple: repair path used.",
+      "created_at": "2026-07-18T13:08:44.991Z"
+    }
+  ],
+  "modelCalls": [
+    {
+      "stage": "lesson_planner",
+      "model": "gpt-5.6",
+      "input_tokens": 299,
+      "output_tokens": 1191,
+      "total_tokens": 1490,
+      "created_at": "2026-07-18T13:02:25.265Z"
+    },
+    {
+      "stage": "artifact_author",
+      "model": "gpt-5.6",
+      "input_tokens": 1429,
+      "output_tokens": 6000,
+      "total_tokens": 7429,
+      "created_at": "2026-07-18T13:04:01.985Z"
+    },
+    {
+      "stage": "artifact_author",
+      "model": "gpt-5.6",
+      "input_tokens": 1432,
+      "output_tokens": 6000,
+      "total_tokens": 7432,
+      "created_at": "2026-07-18T13:04:15.095Z"
+    },
+    {
+      "stage": "artifact_author",
+      "model": "gpt-5.6",
+      "input_tokens": 1427,
+      "output_tokens": 6000,
+      "total_tokens": 7427,
+      "created_at": "2026-07-18T13:04:18.462Z"
+    },
+    {
+      "stage": "artifact_evaluator",
+      "model": "gpt-5.6",
+      "input_tokens": 5905,
+      "output_tokens": 1220,
+      "total_tokens": 7125,
+      "created_at": "2026-07-18T13:04:35.299Z"
+    },
+    {
+      "stage": "artifact_evaluator",
+      "model": "gpt-5.6",
+      "input_tokens": 5183,
+      "output_tokens": 1202,
+      "total_tokens": 6385,
+      "created_at": "2026-07-18T13:04:43.402Z"
+    },
+    {
+      "stage": "repair_author",
+      "model": "gpt-5.6",
+      "input_tokens": 1519,
+      "output_tokens": 6000,
+      "total_tokens": 7519,
+      "created_at": "2026-07-18T13:06:02.641Z"
+    },
+    {
+      "stage": "repair_author",
+      "model": "gpt-5.6",
+      "input_tokens": 1707,
+      "output_tokens": 6000,
+      "total_tokens": 7707,
+      "created_at": "2026-07-18T13:06:21.064Z"
+    },
+    {
+      "stage": "repair_author",
+      "model": "gpt-5.6",
+      "input_tokens": 1679,
+      "output_tokens": 6000,
+      "total_tokens": 7679,
+      "created_at": "2026-07-18T13:06:25.775Z"
+    },
+    {
+      "stage": "artifact_evaluator",
+      "model": "gpt-5.6",
+      "input_tokens": 5041,
+      "output_tokens": 762,
+      "total_tokens": 5803,
+      "created_at": "2026-07-18T13:06:42.243Z"
+    },
+    {
+      "stage": "artifact_evaluator",
+      "model": "gpt-5.6",
+      "input_tokens": 5537,
+      "output_tokens": 945,
+      "total_tokens": 6482,
+      "created_at": "2026-07-18T13:06:51.210Z"
+    },
+    {
+      "stage": "repair_author",
+      "model": "gpt-5.6",
+      "input_tokens": 1519,
+      "output_tokens": 6000,
+      "total_tokens": 7519,
+      "created_at": "2026-07-18T13:07:45.637Z"
+    },
+    {
+      "stage": "repair_author",
+      "model": "gpt-5.6",
+      "input_tokens": 1735,
+      "output_tokens": 6000,
+      "total_tokens": 7735,
+      "created_at": "2026-07-18T13:08:23.282Z"
+    },
+    {
+      "stage": "repair_author",
+      "model": "gpt-5.6",
+      "input_tokens": 1763,
+      "output_tokens": 6000,
+      "total_tokens": 7763,
+      "created_at": "2026-07-18T13:08:24.953Z"
+    },
+    {
+      "stage": "artifact_evaluator",
+      "model": "gpt-5.6",
+      "input_tokens": 5950,
+      "output_tokens": 772,
+      "total_tokens": 6722,
+      "created_at": "2026-07-18T13:08:44.986Z"
+    },
+    {
+      "stage": "artifact_evaluator",
+      "model": "gpt-5.6",
+      "input_tokens": 5668,
+      "output_tokens": 908,
+      "total_tokens": 6576,
+      "created_at": "2026-07-18T13:08:49.210Z"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "9d4f9862-c401-4391-bb01-8e0ece92699b",
+      "profile_id": "audio-first",
+      "html": "```html\n<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; img-src 'none'; media-src 'none'; font-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Equal Circles, Equivalent Fractions</title>\n  <style>\n    :root {\n      color-scheme: light;\n      --ink: #17324d;\n      --muted: #536779;\n      --blue: #2368a2;\n      --blue-soft: #eaf5ff;\n      --shade: #5b8fc9;\n      --paper: #fff;\n      --line: #b9c7d3;\n      --green: #176b3a;\n      --green-soft: #e8f7ee;\n      --amber: #8a5500;\n      --amber-soft: #fff4d6;\n      --focus: #7a35b1;\n    }\n\n    * {\n      box-sizing: border-box;\n    }\n\n    body {\n      margin: 0;\n      background: #f4f8fb;\n      color: var(--ink);\n      font-family: Arial, Helvetica, sans-serif;\n      line-height: 1.5;\n    }\n\n    button {\n      min-height: 44px;\n      border: 2px solid var(--blue);\n      border-radius: 10px;\n      padding: 0.65rem 1rem;\n      background: #fff;\n      color: var(--ink);\n      font: inherit;\n      font-weight: 700;\n      cursor: pointer;\n    }\n\n    button:hover {\n      background: var(--blue-soft);\n    }\n\n    button:focus-visible {\n      outline: 4px solid var(--focus);\n      outline-offset: 3px;\n    }\n\n    button:disabled {\n      cursor: default;\n      opacity: 0.68;\n    }\n\n    .primary {\n      background: var(--blue);\n      color: #fff;\n    }\n\n    .primary:hover {\n      background: #174f7e;\n    }\n\n    header {\n      padding: 1rem;\n      background: #123d62;\n      color: #fff;\n    }\n\n    header h1 {\n      max-width: 1100px;\n      margin: 0 auto;\n      font-size: clamp(1.45rem, 4vw, 2.1rem);\n    }\n\n    main {\n      width: min(1100px, calc(100% - 1.5rem));\n      margin: 1rem auto 2rem;\n    }\n\n    .layout {\n      display: grid;\n      grid-template-columns: minmax(0, 1fr) 310px;\n      gap: 1rem;\n      align-items: start;\n    }\n\n    .panel,\n    .example {\n      border: 1px solid #cfdae3;\n      border-radius: 14px;\n      background: var(--paper);\n      box-shadow: 0 3px 12px rgba(20, 52, 76, 0.08);\n    }\n\n    .panel {\n      padding: clamp(1rem, 3vw, 1.5rem);\n      min-height: 540px;\n    }\n\n    .example {\n      padding: 1rem;\n      position: sticky;\n      top: 0.75rem;\n    }\n\n    h2,\n    h3 {\n      line-height: 1.2;\n    }\n\n    h2 {\n      margin-top: 0;\n    }\n\n    .progress {\n      margin: 0 0 0.8rem;\n      color: var(--muted);\n      font-weight: 700;\n    }\n\n    .audio-row,\n    .actions {\n      display: flex;\n      flex-wrap: wrap;\n      gap: 0.65rem;\n      margin: 1rem 0;\n    }\n\n    .audio-button {\n      border-color: #48688a;\n    }\n\n    .direction {\n      padding: 0.85rem 1rem;\n      border-left: 5px solid var(--blue);\n      background: var(--blue-soft);\n    }\n\n    .key-idea {\n      border: 2px solid #7aa5c8;\n      border-radius: 12px;\n      padding: 0.85rem;\n      background: #f7fbff;\n    }\n\n    .model-row,\n    .choices,\n    .worked-models {\n      display: flex;\n      flex-wrap: wrap;\n      justify-content: center;\n      align-items: center;\n      gap: 1rem;\n      margin: 1rem 0;\n    }\n\n    .choice {\n      min-width: 160px;\n      padding: 0.8rem;\n      display: grid;\n      justify-items: center;\n      gap: 0.45rem;\n      background: #fff;\n    }\n\n    .choice .fraction-label {\n      font-size: 1.15rem;\n    }\n\n    .circle {\n      width: 136px;\n      height: 136px;\n      flex: 0 0 136px;\n      border: 4px solid var(--ink);\n      border-radius: 50%;\n      background-color: #fff;\n      box-shadow: inset 0 0 0 1px #fff;\n    }\n\n    .circle.small {\n      width: 102px;\n      height: 102px;\n      flex-basis: 102px;\n      border-width: 3px;\n    }\n\n    .circle.large-example {\n      width: 122px;\n      height: 122px;\n      flex-basis: 122px;\n    }\n\n    .model-block {\n      display: grid;\n      justify-items: center;\n      gap: 0.35rem;\n      text-align: center;\n    }\n\n    .equals {\n      font-size: 2rem;\n      font-weight: 900;\n    }\n\n    .fraction-label {\n      font-weight: 800;\n    }\n\n    .feedback {\n      position: relative;\n      margin-top: 1rem;\n      border: 2px solid;\n      border-radius: 12px;\n      padding: 1rem;\n      overflow: hidden;\n    }\n\n    .feedback.success {\n      border-color: var(--green);\n      background: var(--green-soft);\n      color: #124c2c;\n    }\n\n    .feedback.retry {\n      border-color: var(--amber);\n      background: var(--amber-soft);\n      color: #684100;\n    }\n\n    .feedback-title {\n      display: flex;\n      gap: 0.55rem;\n      align-items: center;\n      font-size: 1.1rem;\n      font-weight: 900;\n    }\n\n    .feedback-icon {\n      display: inline-grid;\n      width: 1.8rem;\n      height: 1.8rem;\n      place-items: center;\n      border: 2px solid currentColor;\n      border-radius: 50%;\n      font-size: 1.15rem;\n      flex: 0 0 auto;\n    }\n\n    .cue {\n      margin-top: 0.6rem;\n      font-weight: 700;\n    }\n\n    .inspect {\n      animation: inspect 1.2s ease-in-out 2;\n      outline: 5px solid #e5a62b;\n      outline-offset: 5px;\n    }\n\n    .celebration {\n      position: absolute;\n      inset: 0;\n      pointer-events: none;\n    }\n\n    .celebration span {\n      position: absolute;\n      top: -10px;\n      width: 8px;\n      height: 8px;\n      border-radius: 50%;\n      background: #26884b;\n      animation: fall 1.35s ease-out forwards;\n    }\n\n    .celebration span:nth-child(1) { left: 12%; animation-delay: 0.05s; }\n    .celebration span:nth-child(2) { left: 28%; animation-delay: 0.18s; background: #e0a420; }\n    .celebration span:nth-child(3) { left: 49%; animation-delay: 0.08s; background: #337fbc; }\n    .celebration span:nth-child(4) { left: 67%; animation-delay: 0.22s; }\n    .celebration span:nth-child(5) { left: 84%; animation-delay: 0.12s; background: #e0a420; }\n\n    .terms {\n      margin: 0;\n      padding-left: 1.25rem;\n    }\n\n    .terms strong {\n      color: #133f65;\n    }\n\n    .warning {\n      border-left: 5px solid var(--amber);\n      background: var(--amber-soft);\n      padding: 0.8rem;\n      margin: 1rem 0;\n    }\n\n    .summary-list li {\n      margin-bottom: 0.55rem;\n    }\n\n    .sr-status {\n      position: fixed;\n      width: 1px;\n      height: 1px;\n      overflow: hidden;\n      clip-path: inset(50%);\n      white-space: nowrap;\n    }\n\n    @keyframes inspect {\n      50% {\n        transform: translateY(-3px);\n        outline-width: 8px;\n      }\n    }\n\n    @keyframes fall {\n      0% {\n        opacity: 0;\n        transform: translateY(0) rotate(0);\n      }\n      20% {\n        opacity: 1;\n      }\n      100% {\n        opacity: 0;\n        transform: translateY(105px) rotate(180deg);\n      }\n    }\n\n    @media (max-width: 820px) {\n      .layout {\n        grid-template-columns: 1fr;\n      }\n\n      .example {\n        position: static;\n      }\n    }\n\n    @media (prefers-reduced-motion: reduce) {\n      *,\n      *::before,\n      *::after {\n        scroll-behavior: auto !important;\n        animation-duration: 0.01ms !important;\n        animation-iteration-count: 1 !important;\n      }\n    }\n  </style>\n</head>\n<body>\n  <header>\n    <h1>Equal Circles, Equivalent Fractions</h1>\n  </header>\n\n  <main>\n    <div class=\"layout\">\n      <section id=\"lesson\" class=\"panel\" aria-labelledby=\"lesson-title\"></section>\n\n      <aside class=\"example\" aria-labelledby=\"example-title\">\n        <h2 id=\"example-title\">Keep this example visible</h2>\n        <div class=\"worked-models\" id=\"worked-models\"></div>\n        <p><strong>1/2 = 2/4</strong></p>\n        <ul class=\"terms\">\n          <li><strong>Equal whole:</strong> both circle boundaries are the same size.</li>\n          <li><strong>Equal parts:</strong> each circle is divided into regions of equal area.</li>\n          <li><strong>Numerator:</strong> the top number counts shaded parts.</li>\n          <li><strong>Denominator:</strong> the bottom number counts all equal regions, not partition lines.</li>\n          <li><strong>Same shaded area:</strong> both models cover one half of the whole.</li>\n        </ul>\n        <div class=\"warning\">\n          Only compare shaded areas when the circles represent <strong>same-sized wholes</strong>.\n        </div>\n        <button type=\"button\" class=\"audio-button\" id=\"example-audio\">🔊 Hear the example</button>\n      </aside>\n    </div>\n\n    <div id=\"audio-status\" class=\"sr-status\" role=\"status\" aria-live=\"polite\"></div>\n  </main>\n\n  <script>\n    (function () {\n      \"use strict\";\n\n      var lesson = document.getElementById(\"lesson\");\n      var audioStatus = document.getElementById(\"audio-status\");\n      var bridgePort = null;\n      var bridgeToken = null;\n      var pendingEvents = [];\n      var completeSent = false;\n\n      function eventObject(type, details) {\n        var obj = { type: type };\n        if (bridgeToken !== null) obj.token = bridgeToken;\n        if (details) {\n          Object.keys(details).forEach(function (key) {\n            obj[key] = details[key];\n          });\n        }\n        return obj;\n      }\n\n      function emit(type, details) {\n        var obj = eventObject(type, details);\n        if (bridgePort) {\n          bridgePort.postMessage(obj);\n        } else {\n          pendingEvents.push(obj);\n        }\n      }\n\n      window.addEventListener(\"message\", function (event) {\n        var data = event.data;\n        if (!data || data.type !== \"lessonbend.init\" || !event.ports || !event.ports[0] || bridgePort) return;\n        bridgePort = event.ports[0];\n        bridgeToken = data.token;\n        bridgePort.start();\n        bridgePort.postMessage(eventObject(\"lessonbend.ready\"));\n\n        while (pendingEvents.length) {\n          var queued = pendingEvents.shift();\n          if (bridgeToken !== null) queued.token = bridgeToken;\n          bridgePort.postMessage(queued);\n        }\n      });\n\n      window.addEventListener(\"error\", function (event) {\n        emit(\"lessonbend.error\", {\n          message: event.message || \"An unexpected lesson error occurred.\"\n        });\n      });\n\n      function speak(text) {\n        if (!(\"speechSynthesis\" in window) || typeof SpeechSynthesisUtterance === \"undefined\") {\n          audioStatus.textContent = \"Audio is unavailable in this browser. The same directions are visible on screen.\";\n          return;\n        }\n        window.speechSynthesis.cancel();\n        var utterance = new SpeechSynthesisUtterance(text);\n        utterance.rate = 0.9;\n        utterance.pitch = 1;\n        utterance.onstart = function () {\n          audioStatus.textContent = \"Audio directions are playing.\";\n        };\n        utterance.onend = function () {\n          audioStatus.textContent = \"Audio directions finished.\";\n        };\n        utterance.onerror = function () {\n          audioStatus.textContent = \"Audio could not play. The same directions are visible on screen.\";\n        };\n        window.speechSynthesis.speak(utterance);\n      }\n\n      function circleHTML(num, den, label, sizeClass) {\n        var step = 360 / den;\n        var lineWidth = Math.min(2.4, step / 10);\n        var shadeEnd = step * num;\n        var background =\n          \"repeating-conic-gradient(from -90deg, transparent 0deg \" +\n          (step - lineWidth) + \"deg, #17324d \" + (step - lineWidth) +\n          \"deg \" + step + \"deg), conic-gradient(from -90deg, #5b8fc9 0deg \" +\n          shadeEnd + \"deg, #ffffff \" + shadeEnd + \"deg 360deg)\";\n\n        return '<div class=\"circle ' + (sizeClass || \"\") + '\" role=\"img\" aria-label=\"' +\n          label + '\" style=\"background:' + background + '\"></div>';\n      }\n\n      document.getElementById(\"worked-models\").innerHTML =\n        '<div class=\"model-block\">' +\n          circleHTML(1, 2, \"One half: one of two equal regions is shaded\", \"small\") +\n          '<span class=\"fraction-label\">1/2</span>' +\n        '</div>' +\n        '<span class=\"equals\" aria-hidden=\"true\">=</span>' +\n        '<div class=\"model-block\">' +\n          circleHTML(2, 4, \"Two fourths: two of four equal regions are shaded\", \"small\") +\n          '<span class=\"fraction-label\">2/4</span>' +\n        '</div>';\n\n      document.getElementById(\"example-audio\").addEventListener(\"click\", function () {\n        speak(\"Worked example. Both circles are the same size; both have the same shaded area. One half becomes two fourths when every half is divided into two equal parts. The numerator and denominator are both multiplied by two. One half equals two fourths.\");\n      });\n\n      var stages = [\n        {\n          id: \"partition-and-represent\",\n          title: \"Cycle 1: Partition and shade\",\n          direction: \"Choose the circle that is partitioned into the correct number of equal regions and has the correct number shaded.\",\n          audio: \"First, listen for the denominator. It tells how many equal regions make the whole. Then listen for the numerator. It tells how many regions to shade.\",\n          rounds: [\n            {\n              prompt: \"Represent 1/2.\",\n              audio: \"Represent one half. Partition the equal-sized circle into two equal regions and shade one region.\",\n              options: [[1,2],[1,3],[2,3]],\n              answer: 0\n            },\n            {\n              prompt: \"Represent 2/3.\",\n              audio: \"Represent two thirds. Partition the equal-sized circle into three equal regions and shade two regions.\",\n              options: [[1,3],[2,3],[3,4]],\n              answer: 1\n            },\n            {\n              prompt: \"Represent 3/4.\",\n              audio: \"Represent three fourths. Partition the equal-sized circle into four equal regions and shade three regions.\",\n              options: [[2,3],[2,4],[3,4]],\n              answer: 2\n            }\n          ]\n        },\n        {\n          id: \"match-equivalent-models\",\n          title: \"Cycle 2: Match equal shaded areas\",\n          direction: \"Compare same-sized circles. Choose the model with the same total shaded area as the model on the left.\",\n          audio: \"Both circles must be the same size. Compare the total shaded area, not just the number of shaded pieces.\",\n          rounds: [\n            {\n              prompt: \"Which model is equivalent to 1/2?\",\n              audio: \"Both circles are the same size. Find the model with the same shaded area as one half.\",\n              base: [1,2],\n              options: [[2,4],[2,3],[1,4]],\n              answer: 0\n            },\n            {\n              prompt: \"Which model is equivalent to 2/3?\",\n              audio: \"Both circles are the same size. Find the model with the same shaded area as two thirds.\",\n              base: [2,3],\n              options: [[3,6],[4,6],[5,6]],\n              answer: 1\n            },\n            {\n              prompt: \"Which model is equivalent to 3/4?\",\n              audio: \"Both circles are the same size. Find the model with the same shaded area as three fourths.\",\n              base: [3,4],\n              options: [[4,8],[5,8],[6,8]],\n              answer: 2\n            }\n          ]\n        },\n        {\n          id: \"generate-by-subdivision\",\n          title: \"Cycle 3: Generate by subdivision\",\n          direction: \"Start with 1/2. Subdivide every existing part in the same way. Choose the new fraction name.\",\n          audio: \"Subdivide every part, including shaded and unshaded parts, in the same way. This multiplies both the numerator and denominator by the same whole number.\",\n          rounds: [\n            {\n              prompt: \"Split each half into 2 equal pieces. What fraction names the same shaded area?\",\n              audio: \"One of two parts is shaded. Split each half into two equal pieces. The shaded half becomes two shaded pieces, and the whole has four pieces.\",\n              base: [1,2],\n              options: [[1,4],[2,4],[2,3]],\n              answer: 1",
+      "screenshot_path": "/Users/alanany/Desktop/LessonBend/artifacts/9d4f9862-c401-4391-bb01-8e0ece92699b.png",
+      "validation_json": "{\"passed\":false,\"consoleErrors\":[\"The Content Security Policy 'default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; img-src 'none'; media-src 'none'; font-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'' was delivered via a <meta> element outside the document's <head>, which is disallowed. The policy has been ignored.\"],\"outboundRequests\":[],\"screenshotPath\":\"/Users/alanany/Desktop/LessonBend/artifacts/9d4f9862-c401-4391-bb01-8e0ece92699b.png\"}",
+      "status": "browser_validation_failed"
+    },
+    {
+      "id": "33472571-654c-4d2a-bdbd-0a0f23d4c7b8",
+      "profile_id": "short-concrete-loops",
+      "html": "```html\n<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n  <title>Equivalent Fractions with Equal-Sized Circles</title>\n  <style>\n    :root {\n      --ink: #17324d;\n      --muted: #526779;\n      --paper: #ffffff;\n      --page: #f4f8f4;\n      --line: #b9c8d2;\n      --blue: #1f6391;\n      --blue-soft: #e7f3fb;\n      --shade: #4f8f67;\n      --shade-dark: #316547;\n      --green-bg: #e6f5e9;\n      --green-line: #2f7d48;\n      --amber-bg: #fff3d7;\n      --amber-line: #a66b00;\n      --focus: #6d3fc0;\n    }\n\n    * { box-sizing: border-box; }\n\n    body {\n      margin: 0;\n      color: var(--ink);\n      background: var(--page);\n      font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;\n      line-height: 1.5;\n    }\n\n    button {\n      font: inherit;\n    }\n\n    button:focus-visible {\n      outline: 4px solid var(--focus);\n      outline-offset: 3px;\n    }\n\n    .shell {\n      width: min(100% - 24px, 1050px);\n      margin: 0 auto;\n      padding: 20px 0 48px;\n    }\n\n    header,\n    .example,\n    .lesson-panel {\n      background: var(--paper);\n      border: 1px solid var(--line);\n      border-radius: 18px;\n      box-shadow: 0 3px 12px rgba(23, 50, 77, 0.07);\n    }\n\n    header {\n      padding: 20px;\n      margin-bottom: 16px;\n    }\n\n    h1, h2, h3, p {\n      margin-top: 0;\n    }\n\n    h1 {\n      margin-bottom: 6px;\n      font-size: clamp(1.65rem, 5vw, 2.35rem);\n    }\n\n    h2 {\n      font-size: clamp(1.35rem, 4vw, 1.8rem);\n    }\n\n    .lede,\n    .muted {\n      color: var(--muted);\n    }\n\n    .progress-wrap {\n      margin-top: 16px;\n    }\n\n    .progress-label {\n      display: flex;\n      justify-content: space-between;\n      gap: 12px;\n      font-weight: 700;\n      margin-bottom: 6px;\n    }\n\n    .progress-track {\n      height: 13px;\n      overflow: hidden;\n      border: 1px solid #8094a4;\n      border-radius: 999px;\n      background: #edf1f4;\n    }\n\n    .progress-bar {\n      width: 0;\n      height: 100%;\n      background: var(--blue);\n      transition: width 250ms ease;\n    }\n\n    .example {\n      padding: 16px;\n      margin-bottom: 16px;\n    }\n\n    .example h2 {\n      margin-bottom: 8px;\n      font-size: 1.2rem;\n    }\n\n    .example-row,\n    .model-row,\n    .pair-models {\n      display: flex;\n      flex-wrap: wrap;\n      align-items: center;\n      gap: 12px;\n    }\n\n    .model-box {\n      text-align: center;\n      min-width: 112px;\n    }\n\n    .model-box strong {\n      display: block;\n    }\n\n    .equals {\n      font-size: 1.6rem;\n      font-weight: 900;\n    }\n\n    .annotation {\n      padding: 9px 12px;\n      border-left: 5px solid var(--blue);\n      border-radius: 8px;\n      background: var(--blue-soft);\n    }\n\n    .lesson-panel {\n      padding: clamp(16px, 4vw, 28px);\n    }\n\n    .step-label {\n      display: inline-block;\n      margin-bottom: 8px;\n      padding: 4px 10px;\n      border-radius: 999px;\n      color: #fff;\n      background: var(--blue);\n      font-weight: 800;\n    }\n\n    .instruction {\n      font-size: 1.08rem;\n      font-weight: 650;\n    }\n\n    .cards {\n      display: grid;\n      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));\n      gap: 14px;\n      margin: 18px 0;\n    }\n\n    .task-card,\n    .match-row,\n    .classify-row,\n    .choice-group {\n      padding: 14px;\n      border: 2px solid var(--line);\n      border-radius: 14px;\n      background: #fbfdfe;\n    }\n\n    .task-card h3,\n    .match-row h3 {\n      margin-bottom: 8px;\n    }\n\n    .circle-svg {\n      display: block;\n      width: 118px;\n      height: 118px;\n      margin: 4px auto;\n    }\n\n    .mini .circle-svg {\n      width: 84px;\n      height: 84px;\n    }\n\n    .control-line {\n      display: grid;\n      grid-template-columns: 1fr auto auto;\n      align-items: center;\n      gap: 8px;\n      margin: 7px 0;\n    }\n\n    .counter {\n      min-width: 2.6rem;\n      padding: 7px;\n      border: 1px solid var(--line);\n      border-radius: 8px;\n      text-align: center;\n      background: #fff;\n      font-weight: 800;\n    }\n\n    .small-button,\n    .choice-button,\n    .primary-button,\n    .next-button {\n      min-height: 44px;\n      border: 2px solid var(--blue);\n      border-radius: 10px;\n      cursor: pointer;\n      font-weight: 750;\n    }\n\n    .small-button {\n      min-width: 44px;\n      color: var(--blue);\n      background: #fff;\n      font-size: 1.2rem;\n    }\n\n    .choice-button {\n      padding: 10px 12px;\n      color: var(--ink);\n      background: #fff;\n    }\n\n    .choice-button:hover,\n    .small-button:hover {\n      background: var(--blue-soft);\n    }\n\n    .choice-button[aria-pressed=\"true\"] {\n      border-width: 4px;\n      border-color: var(--focus);\n      background: #f0eafd;\n    }\n\n    .primary-button,\n    .next-button {\n      padding: 11px 18px;\n      color: #fff;\n      background: var(--blue);\n    }\n\n    .primary-button:hover,\n    .next-button:hover {\n      background: #164d73;\n    }\n\n    .submit-area {\n      margin-top: 18px;\n    }\n\n    .match-row,\n    .classify-row {\n      margin: 12px 0;\n    }\n\n    .model-choices,\n    .button-grid {\n      display: flex;\n      flex-wrap: wrap;\n      gap: 10px;\n    }\n\n    .model-choice {\n      min-width: 132px;\n    }\n\n    .model-choice .circle-svg {\n      width: 86px;\n      height: 86px;\n    }\n\n    .equation-display {\n      margin: 14px 0;\n      padding: 12px;\n      border-radius: 12px;\n      background: #eef5f9;\n      text-align: center;\n      font-size: 1.2rem;\n      font-weight: 800;\n    }\n\n    .feedback {\n      margin-top: 18px;\n      padding: 16px;\n      border: 3px solid;\n      border-radius: 14px;\n    }\n\n    .feedback.success {\n      border-color: var(--green-line);\n      background: var(--green-bg);\n    }\n\n    .feedback.retry {\n      border-color: var(--amber-line);\n      background: var(--amber-bg);\n    }\n\n    .feedback-heading {\n      display: flex;\n      align-items: center;\n      gap: 10px;\n      margin-bottom: 7px;\n      font-size: 1.15rem;\n      font-weight: 900;\n    }\n\n    .feedback-icon {\n      display: inline-grid;\n      width: 34px;\n      height: 34px;\n      place-items: center;\n      flex: 0 0 auto;\n      border: 2px solid currentColor;\n      border-radius: 50%;\n      font-size: 1.25rem;\n    }\n\n    .celebration {\n      display: inline-flex;\n      gap: 5px;\n      margin-left: 8px;\n      vertical-align: middle;\n      pointer-events: none;\n    }\n\n    .celebration span {\n      display: block;\n      width: 8px;\n      height: 8px;\n      border-radius: 50%;\n      background: var(--green-line);\n      animation: celebrate 700ms ease-in-out 2 alternate;\n    }\n\n    .celebration span:nth-child(2) {\n      animation-delay: 100ms;\n      background: #e2a500;\n    }\n\n    .celebration span:nth-child(3) {\n      animation-delay: 200ms;\n      background: var(--blue);\n    }\n\n    @keyframes celebrate {\n      from { transform: translateY(2px) scale(.75); }\n      to { transform: translateY(-7px) scale(1.2); }\n    }\n\n    .cue {\n      display: flex;\n      align-items: flex-start;\n      gap: 8px;\n      margin-top: 9px;\n      font-weight: 750;\n    }\n\n    .cue-arrow {\n      display: inline-block;\n      font-size: 1.3rem;\n      animation: point 650ms ease-in-out 2 alternate;\n    }\n\n    @keyframes point {\n      from { transform: translateX(0); }\n      to { transform: translateX(7px); }\n    }\n\n    .inspect {\n      border-color: var(--amber-line) !important;\n      box-shadow: 0 0 0 4px rgba(166, 107, 0, 0.16);\n    }\n\n    .completed-mark {\n      margin: 16px 0 0;\n      padding: 14px;\n      border-left: 5px solid var(--green-line);\n      background: var(--green-bg);\n      font-weight: 800;\n    }\n\n    .sentence-preview {\n      padding: 14px;\n      border: 2px dashed var(--blue);\n      border-radius: 12px;\n      background: #f4faff;\n      font-size: 1.08rem;\n      font-weight: 700;\n    }\n\n    .choice-group {\n      margin-top: 12px;\n    }\n\n    .choice-group h3 {\n      font-size: 1rem;\n      margin-bottom: 8px;\n    }\n\n    .sr-only {\n      position: absolute !important;\n      width: 1px !important;\n      height: 1px !important;\n      padding: 0 !important;\n      margin: -1px !important;\n      overflow: hidden !important;\n      clip: rect(0, 0, 0, 0) !important;\n      white-space: nowrap !important;\n      border: 0 !important;\n    }\n\n    [hidden] { display: none !important; }\n\n    @media (prefers-reduced-motion: reduce) {\n      *, *::before, *::after {\n        scroll-behavior: auto !important;\n        animation-duration: 1ms !important;\n        animation-iteration-count: 1 !important;\n        transition-duration: 1ms !important;\n      }\n    }\n  </style>\n</head>\n<body>\n  <main class=\"shell\">\n    <header>\n      <h1>Equivalent Fractions: Same Circle Area</h1>\n      <p class=\"lede\">Work in five short loops: model, shade, compare, and explain.</p>\n      <div class=\"progress-wrap\" aria-label=\"Lesson progress\">\n        <div class=\"progress-label\">\n          <span id=\"progressText\">Loop 1 of 5</span>\n          <span id=\"masteryText\">0 mastered</span>\n        </div>\n        <div class=\"progress-track\" aria-hidden=\"true\">\n          <div class=\"progress-bar\" id=\"progressBar\"></div>\n        </div>\n      </div>\n    </header>\n\n    <aside class=\"example\" aria-labelledby=\"exampleTitle\">\n      <h2 id=\"exampleTitle\">Keep this worked example in view</h2>\n      <div class=\"example-row\">\n        <div class=\"model-box\">\n          <div id=\"exampleHalf\"></div>\n          <strong>1/2</strong>\n          <span>1 shaded part out of 2 equal parts</span>\n        </div>\n        <span class=\"equals\" aria-hidden=\"true\">=</span>\n        <div class=\"model-box\">\n          <div id=\"exampleQuarters\"></div>\n          <strong>2/4</strong>\n          <span>2 shaded parts out of 4 equal parts</span>\n        </div>\n        <p class=\"annotation\">\n          <strong>Equal whole:</strong> the circles are the same size.<br>\n          <strong>Equal subdivision:</strong> every half was split in the same way.<br>\n          <strong>Same shaded area:</strong> 1/2 equals 2/4.\n        </p>\n      </div>\n    </aside>\n\n    <section class=\"lesson-panel\" id=\"lessonPanel\" aria-labelledby=\"lessonTitle\">\n      <div id=\"activity\"></div>\n      <div id=\"feedback\" aria-live=\"polite\" aria-atomic=\"true\"></div>\n    </section>\n  </main>\n\n  <script>\n    (() => {\n      \"use strict\";\n\n      let bridgePort = null;\n\n      function emit(type, details = {}) {\n        if (!bridgePort) return;\n        try {\n          bridgePort.postMessage(Object.assign({ type }, details));\n        } catch (_) {\n          // The lesson remains usable if the host disconnects.\n        }\n      }\n\n      window.addEventListener(\"message\", event => {\n        if (\n          event.data &&\n          event.data.type === \"lessonbend.init\" &&\n          event.ports &&\n          event.ports[0]\n        ) {\n          bridgePort = event.ports[0];\n          if (bridgePort.start) bridgePort.start();\n          emit(\"lessonbend.ready\");\n        }\n      });\n\n      window.addEventListener(\"error\", event => {\n        emit(\"lessonbend.error\", {\n          message: String(event.message || \"Unexpected lesson error\")\n        });\n      });\n\n      const checkpointIds = [\n        \"partition-and-represent\",\n        \"match-equivalent-models\",\n        \"generate-by-subdivision\",\n        \"distinguish-nonexamples\",\n        \"explain-equivalence\"\n      ];\n\n      const state = {\n        step: 0,\n        mastered: new Set(),\n        partition: [\n          { targetN: 1, targetD: 2, n: 0, d: 2 },\n          { targetN: 2, targetD: 3, n: 0, d: 2 },\n          { targetN: 3, targetD: 4, n: 0, d: 2 }\n        ],\n        matches: [null, null, null],\n        factor: null,\n        equation: null,\n        classifications: [null, null, null, null, null],\n        explanation: {\n          equation: null,\n          area: null,\n          denominators: null,\n          numerators: null\n        }\n      };\n\n      const activity = document.getElementById(\"activity\");\n      const feedback = document.getElementById(\"feedback\");\n      const lessonPanel = document.getElementById(\"lessonPanel\");\n\n      function polar(cx, cy, radius, angle) {\n        const radians = (angle - 90) * Math.PI / 180;\n        return {\n          x: cx + radius * Math.cos(radians),\n          y: cy + radius * Math.sin(radians)\n        };\n      }\n\n      function sectorPath(index, total) {\n        const startAngle = index * 360 / total;\n        const endAngle = (index + 1) * 360 / total;\n        const start = polar(50, 50, 43, endAngle);\n        const end = polar(50, 50, 43, startAngle);\n        const largeArc = endAngle - startAngle > 180 ? 1 : 0;\n        return [\n          \"M 50 50\",\n          \"L\", start.x.toFixed(3), start.y.toFixed(3),\n          \"A 43 43 0\", largeArc, 0, end.x.toFixed(3), end.y.toFixed(3),\n          \"Z\"\n        ].join(\" \");\n      }\n\n      let svgCount = 0;\n\n      function circleSVG(numerator, denominator, extraClass = \"\") {\n        svgCount += 1;\n        const id = \"circlePattern\" + svgCount;\n        const safeD = Math.max(1, denominator);\n        const safeN = Math.max(0, Math.min(numerator, safeD));\n        let regions = \"\";\n\n        for (let i = 0; i < safeD; i++) {\n          regions += `<path d=\"${sectorPath(i, safeD)}\" fill=\"${i < safeN ? `url(#${id})` : \"#ffffff\"}\" stroke=\"#17324d\" stroke-width=\"1.5\"></path>`;\n        }\n\n        return `\n          <svg class=\"circle-svg ${extraClass}\" viewBox=\"0 0 100 100\"\n               role=\"img\" aria-label=\"${safeN} of ${safeD} equal circle regions are shaded\">\n            <title>${safeN} of ${safeD} equal circle regions are shaded</title>\n            <defs>\n              <pattern id=\"${id}\" width=\"7\" height=\"7\" patternUnits=\"userSpaceOnUse\"\n                       patternTransform=\"rotate(35)\">\n                <rect width=\"7\" height=\"7\" fill=\"#4f8f67\"></rect>\n                <path d=\"M 0 0 L 0 7\" stroke=\"#316547\" stroke-width=\"2\"></path>\n              </pattern>\n            </defs>\n            ${regions}\n            <circle cx=\"50\" cy=\"50\" r=\"43\" fill=\"none\" stroke=\"#17324d\" stroke-width=\"2.5\"></circle>\n          </svg>`;\n      }\n\n      function updateProgress() {\n        const mastered = state.mastered.size;\n        document.getElementById(\"progressText\").textContent =\n          state.step < 5 ? `Loop ${state.step + 1} of 5` : \"Lesson complete\";\n        document.getElementById(\"masteryText\").textContent =\n          `${mastered} mastered`;\n        document.getElementById(\"progressBar\").style.width =\n          `${mastered * 20}%`;\n      }\n\n      function clearFeedback() {\n        feedback.innerHTML = \"\";\n      }\n\n      function celebration() {\n        return `<span class=\"celebration\" aria-hidden=\"true\"><span></span><span></span><span></span></span>`;\n      }\n\n      function showSuccess(text, nextLabel = \"Next short loop\") {\n        feedback.innerHTML = `\n          <div class=\"feedback success\" data-lb-feedback=\"success\">\n            <div class=\"feedback-heading\">\n              <span class=\"feedback-icon\" aria-hidden=\"true\">✓</span>\n              <span>Correct!</span>\n              ${celebration()}\n            </div>\n            <p>${text}</p>\n            <button type=\"button\" class=\"next-button\" data-action=\"next\">${nextLabel}</button>\n          </div>`;\n        feedback.querySelector(\"button\").focus();\n      }\n\n      function showRetry(text, cue, inspectSelector) {\n        feedback.innerHTML = `\n          <div class=\"feedback retry\" data-lb-feedback=\"retry\">\n            <div class=\"feedback-heading\">\n              <span class=\"feedback-icon\" aria-hidden=\"true\">↻</span>\n              <span>Keep going—you can revise your model.</span>\n            </div>\n            <p>${text}</p>\n            <div class=\"cue\">\n              <span class=\"cue-arrow\" aria-hidden=\"true\">➜</span>\n              <span>${cue}</span>\n            </div>\n          </div>`;\n\n        document.querySelectorAll(\".inspect\").forEach(node => {\n          node.classList.remove(\"inspect\");\n        });\n\n        if (inspectSelector) {\n          const node = document.querySelector(inspectSelector);\n          if (node) {\n            node.classList.add(\"inspect\");\n            node.scrollIntoView({ block: \"nearest\", behavior: \"smooth\" });",
+      "screenshot_path": "/Users/alanany/Desktop/LessonBend/artifacts/33472571-654c-4d2a-bdbd-0a0f23d4c7b8.png",
+      "validation_json": "{\"browser\":{\"passed\":true,\"consoleErrors\":[],\"outboundRequests\":[],\"screenshotPath\":\"/Users/alanany/Desktop/LessonBend/artifacts/33472571-654c-4d2a-bdbd-0a0f23d4c7b8.png\"},\"evaluation\":{\"passes\":true,\"reasons\":[\"The artifact targets the specified goal through equal-sized circle models and includes five short mastery loops aligned to the named checkpoints: representing, matching, subdividing, distinguishing nonexamples, and explaining equivalence.\",\"It supports the Pineapple profile with brief model–shade–compare–explain cycles, one focused task at a time, immediate feedback, and progress/mastery tracking.\",\"Correct feedback visibly combines a green panel, check icon, explicit “Correct!” text, and a small celebration animation.\",\"Retry feedback visibly combines a warm amber panel, retry icon, encouraging retry text, explicit next-move guidance supplied through the cue, and a gentle animated arrow/highlight. This satisfies the feedback intent despite the static checker’s false negative.\",\"Colour is not the sole feedback channel: icons, text, borders, patterns, and model labels provide redundant cues. Feedback is also announced through an aria-live region, and reduced-motion preferences are respected.\",\"The worked 1/2 = 2/4 example emphasizes equal-sized wholes, equal subdivision, and equal shaded area, directly addressing central misconceptions.\",\"The implementation appears safe: browser checks passed, there were no console errors or outbound requests, and no unsafe external content is used.\"],\"repairInstructions\":[]}}",
+      "status": "ready_for_review"
+    },
+    {
+      "id": "5fc43b67-be5d-4dc7-ad22-165bbffe57ef",
+      "profile_id": "math-language-support",
+      "html": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Equivalent Fractions with Equal-Sized Circles</title>\n  <style>\n    :root {\n      --ink: #18302b;\n      --muted: #526761;\n      --paper: #fffdf7;\n      --panel: #ffffff;\n      --line: #b8c9c3;\n      --mango: #ffd66b;\n      --mango-dark: #6c4c00;\n      --green-bg: #e6f6e9;\n      --green: #176b37;\n      --green-dark: #0e4d27;\n      --amber-bg: #fff2d5;\n      --amber: #9a6200;\n      --amber-dark: #694300;\n      --shade: #4f9f75;\n      --unshaded: #fff8e8;\n      --focus: #274f9e;\n      --shadow: 0 5px 18px rgba(24, 48, 43, 0.1);\n    }\n\n    * {\n      box-sizing: border-box;\n    }\n\n    html {\n      scroll-behavior: smooth;\n    }\n\n    body {\n      margin: 0;\n      color: var(--ink);\n      background:\n        radial-gradient(circle at 10% 0%, #fff2bf 0, transparent 25rem),\n        #f5f8f3;\n      font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;\n      line-height: 1.5;\n    }\n\n    button {\n      font: inherit;\n    }\n\n    button:focus-visible,\n    [tabindex=\"-1\"]:focus-visible {\n      outline: 4px solid var(--focus);\n      outline-offset: 3px;\n    }\n\n    .page-header {\n      padding: 1.5rem max(1rem, calc((100% - 1180px) / 2));\n      color: #202b25;\n      background: linear-gradient(120deg, var(--mango), #ffe8a8);\n      border-bottom: 4px solid #d49b18;\n    }\n\n    .eyebrow {\n      margin: 0 0 0.25rem;\n      font-size: 0.82rem;\n      font-weight: 800;\n      letter-spacing: 0.08em;\n      text-transform: uppercase;\n    }\n\n    h1 {\n      margin: 0;\n      font-size: clamp(1.75rem, 4vw, 2.75rem);\n      line-height: 1.15;\n    }\n\n    .subtitle {\n      max-width: 760px;\n      margin: 0.55rem 0 0;\n      font-size: 1.08rem;\n    }\n\n    .layout {\n      display: grid;\n      grid-template-columns: minmax(0, 1fr) 320px;\n      gap: 1.25rem;\n      width: min(1180px, calc(100% - 2rem));\n      margin: 1.25rem auto 3rem;\n      align-items: start;\n    }\n\n    main {\n      min-width: 0;\n    }\n\n    aside {\n      position: sticky;\n      top: 1rem;\n      display: grid;\n      gap: 1rem;\n    }\n\n    .card,\n    .checkpoint,\n    .side-card {\n      background: var(--panel);\n      border: 1px solid #d5dfdb;\n      border-radius: 18px;\n      box-shadow: var(--shadow);\n    }\n\n    .intro {\n      padding: 1.2rem;\n      margin-bottom: 1.25rem;\n    }\n\n    .intro h2,\n    .side-card h2 {\n      margin-top: 0;\n    }\n\n    .key-rule {\n      padding: 0.9rem 1rem;\n      background: #eef5ff;\n      border-left: 6px solid #416ab3;\n      border-radius: 10px;\n      font-weight: 750;\n    }\n\n    .checkpoint {\n      padding: 1.25rem;\n      margin-bottom: 1.25rem;\n      scroll-margin-top: 1rem;\n    }\n\n    .checkpoint-heading {\n      display: flex;\n      align-items: flex-start;\n      gap: 0.75rem;\n    }\n\n    .number {\n      flex: 0 0 auto;\n      display: inline-grid;\n      place-items: center;\n      width: 2.25rem;\n      height: 2.25rem;\n      color: #fff;\n      background: #315d50;\n      border-radius: 50%;\n      font-weight: 850;\n    }\n\n    .checkpoint h2 {\n      margin: 0;\n      line-height: 1.25;\n    }\n\n    .directions {\n      margin: 0.55rem 0 1rem 3rem;\n      color: var(--muted);\n    }\n\n    .build-grid {\n      display: grid;\n      gap: 1rem;\n    }\n\n    .builder {\n      display: grid;\n      grid-template-columns: minmax(140px, 180px) 1fr;\n      gap: 1rem;\n      padding: 1rem;\n      background: #fbfcfa;\n      border: 1px solid var(--line);\n      border-radius: 14px;\n      align-items: center;\n    }\n\n    .builder-preview {\n      text-align: center;\n    }\n\n    .builder-preview strong {\n      display: block;\n      margin-bottom: 0.35rem;\n      font-size: 1.1rem;\n    }\n\n    .choice-label {\n      display: block;\n      margin: 0.4rem 0 0.3rem;\n      font-weight: 800;\n    }\n\n    .button-row,\n    .option-grid {\n      display: flex;\n      flex-wrap: wrap;\n      gap: 0.55rem;\n    }\n\n    .select-button,\n    .model-option,\n    .action-button,\n    .secondary-button {\n      border: 2px solid #718b83;\n      border-radius: 11px;\n      background: #fff;\n      color: var(--ink);\n      cursor: pointer;\n      font-weight: 700;\n    }\n\n    .select-button {\n      min-width: 2.8rem;\n      min-height: 2.65rem;\n      padding: 0.35rem 0.65rem;\n    }\n\n    .select-button:hover,\n    .model-option:hover,\n    .secondary-button:hover {\n      background: #f0f6f3;\n    }\n\n    .select-button[aria-pressed=\"true\"],\n    .model-option[aria-pressed=\"true\"] {\n      border-color: #244f8c;\n      background: #eaf1ff;\n      box-shadow: 0 0 0 2px #244f8c inset;\n    }\n\n    .select-button[aria-pressed=\"true\"]::after {\n      content: \" selected\";\n      position: absolute;\n      width: 1px;\n      height: 1px;\n      overflow: hidden;\n      clip-path: inset(50%);\n    }\n\n    .select-button:disabled {\n      cursor: not-allowed;\n      opacity: 0.42;\n    }\n\n    .match-row,\n    .classification-row {\n      margin: 1rem 0;\n      padding: 1rem;\n      background: #fbfcfa;\n      border: 1px solid var(--line);\n      border-radius: 14px;\n    }\n\n    .match-row h3,\n    .classification-row h3 {\n      margin: 0 0 0.75rem;\n      font-size: 1rem;\n    }\n\n    .model-option {\n      position: relative;\n      display: grid;\n      grid-template-columns: auto 1fr;\n      gap: 0.5rem;\n      align-items: center;\n      min-width: 155px;\n      padding: 0.55rem 0.7rem;\n      text-align: left;\n    }\n\n    .model-option[aria-pressed=\"true\"] .selected-tag {\n      display: inline-block;\n    }\n\n    .selected-tag {\n      display: none;\n      color: #244f8c;\n      font-size: 0.76rem;\n      font-weight: 850;\n    }\n\n    .circle-pair,\n    .worked-models {\n      display: flex;\n      flex-wrap: wrap;\n      align-items: center;\n      justify-content: center;\n      gap: 0.8rem;\n    }\n\n    .model-with-label {\n      text-align: center;\n      font-weight: 800;\n    }\n\n    .circle-model {\n      display: block;\n      margin: 0 auto;\n    }\n\n    .equals-sign {\n      font-size: 1.7rem;\n      font-weight: 900;\n    }\n\n    .subdivision-options,\n    .reason-options {\n      display: grid;\n      gap: 0.65rem;\n    }\n\n    .subdivision-options .model-option,\n    .reason-options .model-option {\n      width: 100%;\n      grid-template-columns: auto 1fr;\n    }\n\n    .classification-row {\n      display: grid;\n      grid-template-columns: minmax(260px, 1fr) auto;\n      gap: 1rem;\n      align-items: center;\n    }\n\n    .class-buttons {\n      display: flex;\n      gap: 0.55rem;\n    }\n\n    .class-buttons .select-button {\n      min-width: 7.5rem;\n    }\n\n    .action-area {\n      display: flex;\n      flex-wrap: wrap;\n      gap: 0.65rem;\n      margin-top: 1rem;\n      padding-top: 1rem;\n      border-top: 1px solid #dce4e1;\n    }\n\n    .action-button {\n      padding: 0.72rem 1rem;\n      color: #fff;\n      background: #225b45;\n      border-color: #225b45;\n    }\n\n    .action-button:hover {\n      background: #164734;\n    }\n\n    .secondary-button {\n      padding: 0.72rem 1rem;\n    }\n\n    .feedback {\n      margin-top: 1rem;\n      padding: 1rem 1rem 1rem 3.1rem;\n      border: 2px solid;\n      border-radius: 13px;\n      position: relative;\n      overflow: hidden;\n    }\n\n    .feedback.success {\n      color: var(--green-dark);\n      background: var(--green-bg);\n      border-color: var(--green);\n    }\n\n    .feedback.retry {\n      color: var(--amber-dark);\n      background: var(--amber-bg);\n      border-color: var(--amber);\n    }\n\n    .feedback-icon {\n      position: absolute;\n      left: 1rem;\n      top: 0.85rem;\n      font-size: 1.45rem;\n      font-weight: 900;\n    }\n\n    .feedback p {\n      margin: 0.25rem 0;\n    }\n\n    .feedback-title {\n      font-weight: 900;\n    }\n\n    .next-cue {\n      display: block;\n      margin-top: 0.4rem;\n      font-weight: 800;\n      animation: gentlePoint 1.2s ease-in-out infinite;\n    }\n\n    .celebration {\n      position: absolute;\n      inset: 0;\n      pointer-events: none;\n      overflow: hidden;\n    }\n\n    .celebration span {\n      position: absolute;\n      bottom: -1rem;\n      color: var(--green);\n      font-size: 1rem;\n      animation: celebrate 1.4s ease-out forwards;\n    }\n\n    .celebration span:nth-child(1) { left: 18%; animation-delay: 0s; }\n    .celebration span:nth-child(2) { left: 46%; animation-delay: 0.12s; }\n    .celebration span:nth-child(3) { left: 74%; animation-delay: 0.22s; }\n\n    .side-card {\n      padding: 1rem;\n    }\n\n    .worked {\n      border-top: 8px solid var(--mango);\n    }\n\n    .annotation {\n      display: grid;\n      gap: 0.4rem;\n      margin: 0.8rem 0 0;\n    }\n\n    .term {\n      display: inline-block;\n      padding: 0.18rem 0.45rem;\n      background: #fff1bd;\n      border-radius: 6px;\n      font-weight: 850;\n    }\n\n    .sentence-frame {\n      padding: 0.8rem;\n      background: #f2f0ff;\n      border-left: 5px solid #6b5caf;\n      border-radius: 8px;\n      font-weight: 750;\n    }\n\n    .progress-track {\n      width: 100%;\n      height: 0.85rem;\n      overflow: hidden;\n      background: #e0e7e4;\n      border-radius: 999px;\n    }\n\n    .progress-fill {\n      width: 0%;\n      height: 100%;\n      background: #28724d;\n      transition: width 300ms ease;\n    }\n\n    .status-list {\n      padding-left: 1.4rem;\n      margin-bottom: 0;\n    }\n\n    .status-list li {\n      margin: 0.35rem 0;\n    }\n\n    .status-list li.mastered::marker {\n      content: \"✓  \";\n      color: var(--green);\n      font-weight: 900;\n    }\n\n    .completion {\n      margin: 1rem 0;\n      padding: 1.2rem;\n      color: var(--green-dark);\n      background: var(--green-bg);\n      border: 3px solid var(--green);\n      border-radius: 16px;\n      text-align: center;\n    }\n\n    .completion[hidden],\n    .feedback:empty {\n      display: none;\n    }\n\n    .completion h2 {\n      margin: 0 0 0.35rem;\n    }\n\n    .fraction {\n      white-space: nowrap;\n      font-variant-numeric: tabular-nums;\n    }\n\n    .sr-only {\n      position: absolute !important;\n      width: 1px !important;\n      height: 1px !important;\n      padding: 0 !important;\n      margin: -1px !important;\n      overflow: hidden !important;\n      clip: rect(0, 0, 0, 0) !important;\n      white-space: nowrap !important;\n      border: 0 !important;\n    }\n\n    @keyframes gentlePoint {\n      0%, 100% { transform: translateX(0); }\n      50% { transform: translateX(8px); }\n    }\n\n    @keyframes celebrate {\n      0% { transform: translateY(0) rotate(0); opacity: 0; }\n      20% { opacity: 1; }\n      100% { transform: translateY(-5rem) rotate(180deg); opacity: 0; }\n    }\n\n    @media (max-width: 900px) {\n      .layout {\n        grid-template-columns: 1fr;\n      }\n\n      aside {\n        position: static;\n        grid-row: 1;\n      }\n    }\n\n    @media (max-width: 650px) {\n      .builder,\n      .classification-row {\n        grid-template-columns: 1fr;\n      }\n\n      .directions {\n        margin-left: 0;\n      }\n\n      .class-buttons {\n        flex-wrap: wrap;\n      }\n    }\n\n    @media (prefers-reduced-motion: reduce) {\n      html {\n        scroll-behavior: auto;\n      }\n\n      *,\n      *::before,\n      *::after {\n        animation-duration: 0.001ms !important;\n        animation-iteration-count: 1 !important;\n        transition-duration: 0.001ms !important;\n      }\n    }\n  </style>\n</head>\n<body>\n  <header class=\"page-header\">\n    <p class=\"eyebrow\">Mango math language lesson</p>\n    <h1>Equivalent Fractions with Equal-Sized Circles</h1>\n    <p class=\"subtitle\">\n      Build, compare, subdivide, and explain circle models. Different fraction names can describe the same area of one whole.\n    </p>\n  </header>\n\n  <div class=\"layout\">\n    <main id=\"lesson-main\">\n      <section class=\"card intro\" aria-labelledby=\"lesson-goal\">\n        <h2 id=\"lesson-goal\">Lesson goal</h2>\n        <p>\n          Recognize and generate equivalent fractions by showing that they cover the\n          <strong>same shaded area</strong> of <strong>equal-sized wholes</strong>.\n        </p>\n        <div class=\"key-rule\">\n          Compare shaded areas only when both circle boundaries represent the same-sized whole.\n          Count equal enclosed regions—not partition lines.\n        </div>\n      </section>\n\n      <div id=\"completion\" class=\"completion\" hidden tabindex=\"-1\">\n        <h2><span aria-hidden=\"true\">✓</span> Lesson mastered</h2>\n        <p>You used equal-sized circle models to represent, recognize, generate, classify, and explain equivalent fractions.</p>\n      </div>\n\n      <section class=\"checkpoint\" id=\"partition-and-represent\" aria-labelledby=\"cp1-title\">\n        <div class=\"checkpoint-heading\">\n          <span class=\"number\" aria-hidden=\"true\">1</span>\n          <div>\n            <h2 id=\"cp1-title\">Partition and shade</h2>\n          </div>\n        </div>\n        <p class=\"directions\">\n          Build each requested fraction. Choose the number of <strong>equal parts</strong>, then choose how many parts are shaded.\n        </p>\n\n        <div class=\"build-grid\" id=\"builders\"></div>\n\n        <div class=\"action-area\">\n          <button class=\"action-button\" type=\"button\" data-check=\"partition-and-represent\">Check all three models</button>\n          <button class=\"secondary-button\" type=\"button\" data-clear=\"partition-and-represent\">Clear choices</button>\n        </div>\n        <div class=\"feedback-host\" id=\"feedback-partition-and-represent\" aria-live=\"polite\" aria-atomic=\"true\"></div>\n      </section>\n\n      <section class=\"checkpoint\" id=\"match-equivalent-models\" aria-labelledby=\"cp2-title\">\n        <div class=\"checkpoint-heading\">\n          <span class=\"number\" aria-hidden=\"true\">2</span>\n          <div>\n            <h2 id=\"cp2-title\">Match three equivalent models</h2>\n          </div>\n        </div>\n        <p class=\"directions\">\n          For each starting fraction, choose the model with the same shaded area. All circles are the same size.\n        </p>\n\n        <div id=\"match-rows\"></div>\n\n        <div class=\"action-area\">\n          <button class=\"action-button\" type=\"button\" data-check=\"match-equivalent-models\">Check three matches</button>\n          <button class=\"secondary-button\" type=\"button\" data-clear=\"match-equivalent-models\">Clear choices</button>\n        </div>\n        <div class=\"feedback-host\" id=\"feedback-match-equivalent-models\" aria-live=\"polite\" aria-atomic=\"true\"></div>\n      </section>\n\n      <section class=\"checkpoint\" id=\"generate-by-subdivision\" aria-labelledby=\"cp3-title\">\n        <div class=\"checkpoint-heading\">\n          <span class=\"number\" aria-hidden=\"true\">3</span>\n          <div>\n            <h2 id=\"cp",
+      "screenshot_path": "/Users/alanany/Desktop/LessonBend/artifacts/5fc43b67-be5d-4dc7-ad22-165bbffe57ef.png",
+      "validation_json": "{\"browser\":{\"passed\":true,\"consoleErrors\":[],\"outboundRequests\":[],\"screenshotPath\":\"/Users/alanany/Desktop/LessonBend/artifacts/5fc43b67-be5d-4dc7-ad22-165bbffe57ef.png\"},\"evaluation\":{\"passes\":false,\"reasons\":[\"The lesson goal and visible checkpoint structure align with recognizing and generating equivalent fractions using equal-sized circle models, and the design includes Mango-oriented worked-example and math-language supports.\",\"The required feedback rule is not met. Static interaction checks found that correct responses do not visibly combine green feedback, an affirmative icon, and explicit success text, even though celebration styling exists.\",\"Retry responses do not visibly combine warm amber feedback, a retry icon, explicit next-move guidance, and a gentle cue. Colour or styling infrastructure alone does not satisfy the requirement.\",\"The artifact appears safe in the browser checks: there are no console errors or outbound requests.\",\"The missing validation hooks are not, by themselves, an instructional or accessibility failure because no particular DOM structure is required; however, the visible multichannel feedback failures require repair.\"],\"repairInstructions\":[\"For every correct checkpoint response, render a visible green feedback panel containing an affirmative icon such as ✓, explicit text such as “Correct” or “Success,” and the existing small celebration. Ensure the icon is accompanied by text rather than relying on colour or animation.\",\"For every incorrect or incomplete response, render a visible warm amber panel containing a retry icon such as ↻, explicit retry wording, and a specific next move—for example, “Try again: compare the total shaded areas of the equal-sized circles.” Include a gentle visual cue and respect reduced-motion preferences.\",\"Apply these feedback combinations consistently to every scored checkpoint, not only final lesson completion.\",\"Verify that each Check button genuinely scores the required evidence of mastery and only marks a checkpoint mastered when its full threshold is met. Preserve student choices after a retry so the learner can revise them.\",\"Optionally add `data-lb-feedback=\\\"success\\\"` and `data-lb-feedback=\\\"retry\\\"` to the corresponding rendered feedback containers so automated validation can identify them, while retaining the visible instructional features above.\"]}}",
+      "status": "evaluation_failed"
+    }
+  ]
+}

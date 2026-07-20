@@ -1,0 +1,406 @@
+{
+  "run": {
+    "id": "f3475d4a-aa6c-456e-8e29-53f8c12d400a",
+    "lesson_text": "Teach equivalent fractions using circles divided into equal parts.",
+    "profiles_json": "[{\"id\":\"short-concrete-loops\",\"label\":\"Pineapple\",\"supports\":[\"short loops\"],\"constraints\":[]},{\"id\":\"audio-first\",\"label\":\"Blueberry\",\"supports\":[\"audio\"],\"constraints\":[]},{\"id\":\"math-language-support\",\"label\":\"Mango\",\"supports\":[\"worked example\"],\"constraints\":[]}]",
+    "lesson_spec_json": "{\"goal\":\"Students will use circles partitioned into equal-sized parts to recognize, create, and explain equivalent fractions as different fraction names representing the same amount of one whole.\",\"successCriteria\":[\"Identify the denominator as the number of equal parts in the whole and the numerator as the number of selected parts.\",\"Compare two fraction-circle models by checking whether they represent the same amount of an equal-sized whole.\",\"Generate an equivalent fraction by subdividing every part of a circle into the same number of equal parts.\",\"Write an accurate equivalence statement, such as 1/2 = 2/4, and explain it using the circle models.\",\"Distinguish equivalent fractions from fractions that only look similar because the wholes or parts are unequal.\"],\"prerequisiteKnowledge\":[\"A fraction represents part of one whole.\",\"The denominator names the total number of equal parts in the whole.\",\"The numerator names how many equal parts are selected.\",\"A circle model must be divided into equal-sized parts to represent a fraction accurately.\",\"Fractions can be read and written using numerator-over-denominator notation.\"],\"misconceptions\":[{\"signal\":\"The learner counts all visible regions as denominator parts even when the regions are unequal.\",\"response\":\"Reestablish that fraction parts must be equal in area. Compare an equal partition with an unequal partition and ask which can accurately show a fraction of the whole.\"},{\"signal\":\"The learner decides that fractions are not equivalent because their numerators or denominators differ.\",\"response\":\"Overlay or align equal-sized circle models and focus on the amount selected. Demonstrate that subdividing each existing part changes the count and fraction name but not the selected amount.\"},{\"signal\":\"The learner compares fractions made from circles of different sizes and treats matching shaded areas as equivalent fractions of a whole.\",\"response\":\"Use equal-sized circles and clarify that equivalent fractions must describe the same proportion of comparable wholes.\"},{\"signal\":\"The learner changes only the numerator or only the denominator when generating an equivalent fraction.\",\"response\":\"Model subdividing every original part by the same factor, then recount both the total parts and selected parts. Connect the model to multiplying the numerator and denominator by the same number.\"},{\"signal\":\"The learner assumes that a larger denominator means a larger amount.\",\"response\":\"Compare one part from equal-sized circles partitioned into different numbers of equal parts. Emphasize that more parts make each individual part smaller.\"},{\"signal\":\"The learner compares only the number of shaded pieces without considering piece size.\",\"response\":\"Ask the learner to describe both how many pieces are selected and how large each piece is, then verify the amounts by aligning the circle models.\"}],\"checkpoints\":[{\"id\":\"identify-fraction-parts\",\"skill\":\"Interpret a fraction-circle model.\",\"evidenceOfMastery\":\"Given a circle divided into equal parts with some parts selected, the student correctly states the numerator, denominator, and represented fraction in at least 3 of 4 examples.\"},{\"id\":\"match-equivalent-models\",\"skill\":\"Recognize equivalent fractions using equal-sized circle models.\",\"evidenceOfMastery\":\"The student matches at least 4 of 5 pairs of models that cover the same amount and rejects nonexamples, including one model with unequal parts.\"},{\"id\":\"create-equivalent-model\",\"skill\":\"Generate an equivalent fraction by subdividing a model.\",\"evidenceOfMastery\":\"Starting with a model such as 1/2, the student divides every part equally to create a valid model such as 2/4 or 3/6 and labels both fractions correctly.\"},{\"id\":\"explain-equivalence\",\"skill\":\"Justify why two fractions are equivalent.\",\"evidenceOfMastery\":\"Using two equal-sized circle models, the student states that the selected areas are equal and explains that each original part was subdivided by the same factor.\"},{\"id\":\"transfer-to-notation\",\"skill\":\"Connect visual models to symbolic fraction equations.\",\"evidenceOfMastery\":\"The student writes correct equivalence statements for at least 3 of 4 model pairs and identifies the common multiplication factor for numerator and denominator.\"}],\"profiles\":[{\"id\":\"short-concrete-loops\",\"label\":\"Pineapple\",\"supports\":[\"Use short cycles of model, try, check, and explain.\",\"Present one fraction-circle comparison at a time.\",\"Provide immediate visual feedback by aligning or overlaying circle models.\",\"Include brief hands-on partitioning and shading tasks.\"],\"constraints\":[]},{\"id\":\"audio-first\",\"label\":\"Blueberry\",\"supports\":[\"Give directions and fraction descriptions aloud before showing written notation.\",\"Use concise verbal cues such as “equal whole, equal parts, same amount.”\",\"Invite the learner to explain equivalence orally before writing.\",\"Pair spoken explanations with clearly displayed circle models.\"],\"constraints\":[]},{\"id\":\"math-language-support\",\"label\":\"Mango\",\"supports\":[\"Begin with a worked example such as 1/2 = 2/4.\",\"Model the sentence frame: “___ and ___ are equivalent because they cover the same amount of an equal-sized whole.”\",\"Explicitly connect the terms numerator, denominator, equal parts, whole, and equivalent.\",\"Keep a completed visual example available while the learner solves a similar problem.\"],\"constraints\":[]}]}",
+    "status": "artifact_generation_running",
+    "error": "Blueberry: module was empty.",
+    "created_at": "2026-07-19T08:25:21.366Z"
+  },
+  "events": [
+    {
+      "status": "decomposition_started",
+      "detail": "Creating a structured lesson specification.",
+      "created_at": "2026-07-19T08:25:21.367Z"
+    },
+    {
+      "status": "decomposition_running",
+      "detail": "Planner is generating the lesson specification. Still running: 5s.",
+      "created_at": "2026-07-19T08:25:26.370Z"
+    },
+    {
+      "status": "decomposition_running",
+      "detail": "Planner is generating the lesson specification. Still running: 10s.",
+      "created_at": "2026-07-19T08:25:31.370Z"
+    },
+    {
+      "status": "decomposition_running",
+      "detail": "Planner is generating the lesson specification. Still running: 15s.",
+      "created_at": "2026-07-19T08:25:36.372Z"
+    },
+    {
+      "status": "decomposition_running",
+      "detail": "Planner is generating the lesson specification. Still running: 20s.",
+      "created_at": "2026-07-19T08:25:41.373Z"
+    },
+    {
+      "status": "decomposed",
+      "detail": "LessonSpec validated against Zod.",
+      "created_at": "2026-07-19T08:25:42.213Z"
+    },
+    {
+      "status": "artifact_generation_started",
+      "detail": "Pineapple: initial generation.",
+      "created_at": "2026-07-19T08:25:42.216Z"
+    },
+    {
+      "status": "artifact_generation_started",
+      "detail": "Blueberry: initial generation.",
+      "created_at": "2026-07-19T08:25:42.217Z"
+    },
+    {
+      "status": "artifact_generation_started",
+      "detail": "Mango: initial generation.",
+      "created_at": "2026-07-19T08:25:42.218Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating lesson module. Still running: 5s.",
+      "created_at": "2026-07-19T08:25:47.224Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating lesson module. Still running: 5s.",
+      "created_at": "2026-07-19T08:25:47.230Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating lesson module. Still running: 5s.",
+      "created_at": "2026-07-19T08:25:47.232Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating lesson module. Still running: 10s.",
+      "created_at": "2026-07-19T08:25:52.225Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating lesson module. Still running: 10s.",
+      "created_at": "2026-07-19T08:25:52.230Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating lesson module. Still running: 10s.",
+      "created_at": "2026-07-19T08:25:52.232Z"
+    },
+    {
+      "status": "artifact_generated",
+      "detail": "Pineapple: HTML generated.",
+      "created_at": "2026-07-19T08:25:55.816Z"
+    },
+    {
+      "status": "static_policy_passed",
+      "detail": "Pineapple: static policy and feedback checks passed.",
+      "created_at": "2026-07-19T08:25:55.820Z"
+    },
+    {
+      "status": "browser_validation_started",
+      "detail": "Pineapple: launching isolated browser.",
+      "created_at": "2026-07-19T08:25:55.823Z"
+    },
+    {
+      "status": "browser_validation_passed",
+      "detail": "Pineapple: screenshot captured with no console or network errors.",
+      "created_at": "2026-07-19T08:25:56.527Z"
+    },
+    {
+      "status": "evaluation_started",
+      "detail": "Pineapple: scoring against lesson spec.",
+      "created_at": "2026-07-19T08:25:56.528Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating lesson module. Still running: 15s.",
+      "created_at": "2026-07-19T08:25:57.231Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating lesson module. Still running: 15s.",
+      "created_at": "2026-07-19T08:25:57.236Z"
+    },
+    {
+      "status": "artifact_generated",
+      "detail": "Blueberry: HTML generated.",
+      "created_at": "2026-07-19T08:25:57.501Z"
+    },
+    {
+      "status": "static_policy_passed",
+      "detail": "Blueberry: static policy and feedback checks passed.",
+      "created_at": "2026-07-19T08:25:57.505Z"
+    },
+    {
+      "status": "browser_validation_started",
+      "detail": "Blueberry: launching isolated browser.",
+      "created_at": "2026-07-19T08:25:57.507Z"
+    },
+    {
+      "status": "browser_validation_passed",
+      "detail": "Blueberry: screenshot captured with no console or network errors.",
+      "created_at": "2026-07-19T08:25:57.723Z"
+    },
+    {
+      "status": "evaluation_started",
+      "detail": "Blueberry: scoring against lesson spec.",
+      "created_at": "2026-07-19T08:25:57.724Z"
+    },
+    {
+      "status": "artifact_generated",
+      "detail": "Mango: HTML generated.",
+      "created_at": "2026-07-19T08:26:00.094Z"
+    },
+    {
+      "status": "static_policy_passed",
+      "detail": "Mango: static policy and feedback checks passed.",
+      "created_at": "2026-07-19T08:26:00.098Z"
+    },
+    {
+      "status": "browser_validation_started",
+      "detail": "Mango: launching isolated browser.",
+      "created_at": "2026-07-19T08:26:00.100Z"
+    },
+    {
+      "status": "browser_validation_passed",
+      "detail": "Mango: screenshot captured with no console or network errors.",
+      "created_at": "2026-07-19T08:26:00.346Z"
+    },
+    {
+      "status": "evaluation_started",
+      "detail": "Mango: scoring against lesson spec.",
+      "created_at": "2026-07-19T08:26:00.347Z"
+    },
+    {
+      "status": "repair_started",
+      "detail": "Blueberry: repair 1 of 2.",
+      "created_at": "2026-07-19T08:26:24.410Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating lesson module. Still running: 5s.",
+      "created_at": "2026-07-19T08:26:29.416Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating lesson module. Still running: 10s.",
+      "created_at": "2026-07-19T08:26:34.417Z"
+    },
+    {
+      "status": "repair_started",
+      "detail": "Mango: repair 1 of 2.",
+      "created_at": "2026-07-19T08:26:37.321Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating lesson module. Still running: 15s.",
+      "created_at": "2026-07-19T08:26:39.418Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating lesson module. Still running: 5s.",
+      "created_at": "2026-07-19T08:26:42.328Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating lesson module. Still running: 20s.",
+      "created_at": "2026-07-19T08:26:44.419Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating lesson module. Still running: 10s.",
+      "created_at": "2026-07-19T08:26:47.330Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating lesson module. Still running: 25s.",
+      "created_at": "2026-07-19T08:26:49.419Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating lesson module. Still running: 15s.",
+      "created_at": "2026-07-19T08:26:52.331Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating lesson module. Still running: 30s.",
+      "created_at": "2026-07-19T08:26:54.420Z"
+    },
+    {
+      "status": "repair_started",
+      "detail": "Pineapple: repair 1 of 2.",
+      "created_at": "2026-07-19T08:26:55.165Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating lesson module. Still running: 20s.",
+      "created_at": "2026-07-19T08:26:57.332Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating lesson module. Still running: 35s.",
+      "created_at": "2026-07-19T08:26:59.421Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating lesson module. Still running: 5s.",
+      "created_at": "2026-07-19T08:27:00.169Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating lesson module. Still running: 25s.",
+      "created_at": "2026-07-19T08:27:02.333Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Blueberry: generating lesson module. Still running: 40s.",
+      "created_at": "2026-07-19T08:27:04.422Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating lesson module. Still running: 10s.",
+      "created_at": "2026-07-19T08:27:05.170Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating lesson module. Still running: 30s.",
+      "created_at": "2026-07-19T08:27:07.333Z"
+    },
+    {
+      "status": "failed",
+      "detail": "Blueberry: module was empty.",
+      "created_at": "2026-07-19T08:27:08.347Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating lesson module. Still running: 15s.",
+      "created_at": "2026-07-19T08:27:10.171Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Mango: generating lesson module. Still running: 35s.",
+      "created_at": "2026-07-19T08:27:12.335Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating lesson module. Still running: 20s.",
+      "created_at": "2026-07-19T08:27:15.172Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating lesson module. Still running: 25s.",
+      "created_at": "2026-07-19T08:27:20.173Z"
+    },
+    {
+      "status": "artifact_generation_running",
+      "detail": "Pineapple: generating lesson module. Still running: 30s.",
+      "created_at": "2026-07-19T08:27:25.174Z"
+    }
+  ],
+  "modelCalls": [
+    {
+      "stage": "lesson_planner",
+      "model": "gpt-5.6",
+      "input_tokens": 302,
+      "output_tokens": 1130,
+      "total_tokens": 1432,
+      "created_at": "2026-07-19T08:25:42.210Z"
+    },
+    {
+      "stage": "artifact_author",
+      "model": "gpt-5.6",
+      "input_tokens": 1383,
+      "output_tokens": 834,
+      "total_tokens": 2217,
+      "created_at": "2026-07-19T08:25:55.813Z"
+    },
+    {
+      "stage": "artifact_author",
+      "model": "gpt-5.6",
+      "input_tokens": 1378,
+      "output_tokens": 901,
+      "total_tokens": 2279,
+      "created_at": "2026-07-19T08:25:57.498Z"
+    },
+    {
+      "stage": "artifact_author",
+      "model": "gpt-5.6",
+      "input_tokens": 1380,
+      "output_tokens": 1123,
+      "total_tokens": 2503,
+      "created_at": "2026-07-19T08:26:00.092Z"
+    },
+    {
+      "stage": "artifact_evaluator",
+      "model": "gpt-5.6",
+      "input_tokens": 3202,
+      "output_tokens": 1240,
+      "total_tokens": 4442,
+      "created_at": "2026-07-19T08:26:24.405Z"
+    },
+    {
+      "stage": "artifact_evaluator",
+      "model": "gpt-5.6",
+      "input_tokens": 3419,
+      "output_tokens": 1568,
+      "total_tokens": 4987,
+      "created_at": "2026-07-19T08:26:37.316Z"
+    },
+    {
+      "stage": "artifact_evaluator",
+      "model": "gpt-5.6",
+      "input_tokens": 3188,
+      "output_tokens": 2752,
+      "total_tokens": 5940,
+      "created_at": "2026-07-19T08:26:55.160Z"
+    },
+    {
+      "stage": "repair_author",
+      "model": "gpt-5.6",
+      "input_tokens": 1743,
+      "output_tokens": 1800,
+      "total_tokens": 3543,
+      "created_at": "2026-07-19T08:27:08.344Z"
+    },
+    {
+      "stage": "repair_author",
+      "model": "gpt-5.6",
+      "input_tokens": 1753,
+      "output_tokens": 1800,
+      "total_tokens": 3553,
+      "created_at": "2026-07-19T08:27:15.441Z"
+    },
+    {
+      "stage": "repair_author",
+      "model": "gpt-5.6",
+      "input_tokens": 3352,
+      "output_tokens": 1800,
+      "total_tokens": 5152,
+      "created_at": "2026-07-19T08:27:29.740Z"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "3a48bb2b-5a57-4204-bc8a-e38b9cf22df8",
+      "profile_id": "audio-first",
+      "html": "<!doctype html><html><head><meta charset=\"utf-8\"><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; media-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'\"><style>body{margin:0;font:18px system-ui,sans-serif;background:#fffaf0;color:#17324d}main{max-width:720px;margin:auto;padding:24px}.card{background:#fff;border:1px solid #d8e0e8;border-radius:18px;padding:22px}.choice,.slice,.pair{font:inherit;cursor:pointer;border:2px solid #789;border-radius:12px;padding:12px;background:#fff;margin:6px}.choice:focus,.slice:focus,.pair:focus{outline:4px solid #2563eb}.slices{display:flex;flex-wrap:wrap}.slice{width:64px;height:64px;border-radius:50%}.selected{background:#fbbf24}.feedback{margin-top:16px;padding:14px;border-radius:12px;font-weight:700}.success{color:#166534;background:#dcfce7;border:2px solid #4ade80}.retry{color:#92400e;background:#fef3c7;border:2px solid #f59e0b}.celebrate{animation:pop .4s}@keyframes pop{50%{transform:scale(1.06)}}.vocab{color:#51647a;font-size:.9em}</style></head><body><main><div class=\"card\"><h1>Blueberry Audio Route: Same Amount, New Fraction Name</h1><p id=\"intro\">Listen first: equal whole, equal parts, same amount. Then use equal-sized fraction circles to name, create, and explain equivalent fractions.</p><p class=\"vocab\"><b>whole</b>: One complete circle. · <b>equal parts</b>: Parts of the whole that are the same size. · <b>denominator</b>: The bottom number. It tells how many equal parts make the whole. · <b>numerator</b>: The top number. It tells how many equal parts are selected.</p><section id=\"stage\"></section><div id=\"feedback\" aria-live=\"polite\"></div></div></main><script>const module={\"title\":\"Blueberry Audio Route: Same Amount, New Fraction Name\",\"intro\":\"Listen first: equal whole, equal parts, same amount. Then use equal-sized fraction circles to name, create, and explain equivalent fractions.\",\"vocabulary\":[{\"term\":\"whole\",\"meaning\":\"One complete circle.\"},{\"term\":\"equal parts\",\"meaning\":\"Parts of the whole that are the same size.\"},{\"term\":\"denominator\",\"meaning\":\"The bottom number. It tells how many equal parts make the whole.\"},{\"term\":\"numerator\",\"meaning\":\"The top number. It tells how many equal parts are selected.\"}],\"steps\":[{\"checkpointId\":\"identify-fraction-parts\",\"kind\":\"shade\",\"prompt\":\"Listen, then shade: The circle has four equal parts. Select three parts to show three fourths.\",\"denominator\":4,\"correctNumerator\":3,\"choices\":null,\"pairs\":null,\"retryNextMove\":\"Count all equal parts for the denominator. Count selected parts for the numerator.\"},{\"checkpointId\":\"identify-fraction-parts\",\"kind\":\"select\",\"prompt\":\"A circle has six equal parts, and two are selected. Choose its fraction name.\",\"denominator\":null,\"correctNumerator\":null,\"choices\":[{\"label\":\"2/6\",\"correct\":true},{\"label\":\"6/2\",\"correct\":false},{\"label\":\"2/4\",\"correct\":false}],\"pairs\":null,\"retryNextMove\":\"Say: selected parts over total equal parts.\"},{\"checkpointId\":\"match-equivalent-models\",\"kind\":\"match\",\"prompt\":\"Match equal-sized circles that cover the same amount.\",\"denominator\":null,\"correctNumerator\":null,\"choices\":null,\"pairs\":[{\"left\":\"1 of 2 equal parts selected\",\"right\":\"2 of 4 equal parts selected\"},{\"left\":\"1 of 3 equal parts selected\",\"right\":\"2 of 6 equal parts selected\"},{\"left\":\"2 of 3 equal parts selected\",\"right\":\"4 of 6 equal parts selected\"},{\"left\":\"3 of 4 equal parts selected\",\"right\":\"6 of 8 equal parts selected\"}],\"retryNextMove\":\"Use the cue: equal whole, equal parts, same selected amount.\"},{\"checkpointId\":\"match-equivalent-models\",\"kind\":\"select\",\"prompt\":\"Which circle cannot accurately represent a fraction of one whole?\",\"denominator\":null,\"correctNumerator\":null,\"choices\":[{\"label\":\"A circle split into four equal parts\",\"correct\":false},{\"label\":\"A circle split into three unequal regions\",\"correct\":true},{\"label\":\"A circle split into eight equal parts\",\"correct\":false}],\"pairs\":null,\"retryNextMove\":\"Fraction-circle parts must be equal in area.\"},{\"checkpointId\":\"create-equivalent-model\",\"kind\":\"shade\",\"prompt\":\"Start with one half. Split each half into two equal parts. Now shade the same amount in the four-part circle.\",\"denominator\":4,\"correctNumerator\":2,\"choices\":null,\"pairs\":null,\"retryNextMove\":\"The selected amount stays one half. After subdividing, two of four parts are selected.\"}],\"adaptations\":{\"audio\":true,\"minimalText\":true,\"workedExample\":true}};let step=0,port,token;const stage=document.querySelector('#stage'),feedback=document.querySelector('#feedback');function send(type,x={}){if(port)port.postMessage({type,token,...x})}window.addEventListener('message',e=>{if(e.data?.type==='lessonbend.init'&&e.ports[0]){token=e.data.token;port=e.ports[0];send('lessonbend.ready')}},{once:true});function ok(s){feedback.className='feedback success celebrate';feedback.innerHTML='✓ <b>Correct!</b> '+s.retryNextMove;send('lessonbend.checkpoint',{checkpointId:s.checkpointId,outcome:'mastered'});setTimeout(()=>{step++;render()},650)}function retry(s){feedback.className='feedback retry';feedback.innerHTML='↻ <b>Try again.</b> '+s.retryNextMove;send('lessonbend.checkpoint',{checkpointId:s.checkpointId,outcome:'retry'})}function render(){feedback.className='';feedback.textContent='';if(step>=module.steps.length){stage.innerHTML='<h2>Lesson complete</h2><p>✓ You used different representations to learn the same idea.</p>';send('lessonbend.complete');return}const s=module.steps[step];let h='<h2>'+s.prompt+'</h2>';if(s.kind==='select'){h+=(s.choices||[]).map((c,i)=>'<button class=\"choice\" data-i=\"'+i+'\">'+c.label+'</button>').join('');stage.innerHTML=h;stage.querySelectorAll('button').forEach((b,i)=>b.onclick=()=>s.choices[i].correct?ok(s):retry(s))}else if(s.kind==='shade'){let selected=new Set();h+='<div class=\"slices\">'+Array.from({length:s.denominator},(_,i)=>'<button class=\"slice\" data-i=\"'+i+'\" aria-label=\"part '+(i+1)+'\"></button>').join('')+'</div><button class=\"choice\" id=\"check\">Check</button>';stage.innerHTML=h;stage.querySelectorAll('.slice').forEach(b=>b.onclick=()=>{let i=+b.dataset.i;selected.has(i)?selected.delete(i):selected.add(i);b.classList.toggle('selected')});stage.querySelector('#check').onclick=()=>selected.size===s.correctNumerator?ok(s):retry(s)}else{let selected=[];h+=(s.pairs||[]).map((p,i)=>'<button class=\"pair\" data-i=\"'+i+'\">'+p.left+' = '+p.right+'</button>').join('');stage.innerHTML=h;stage.querySelectorAll('.pair').forEach((b,i)=>b.onclick=()=>{b.classList.toggle('selected');selected.includes(i)?selected=selected.filter(x=>x!==i):selected.push(i);if(selected.length===(s.pairs||[]).length)ok(s)})}}render()</script></body></html>",
+      "screenshot_path": "/Users/alanany/Desktop/LessonBend/artifacts/3a48bb2b-5a57-4204-bc8a-e38b9cf22df8.png",
+      "validation_json": "{\"browser\":{\"passed\":true,\"consoleErrors\":[],\"outboundRequests\":[],\"visible\":{\"text\":531,\"controls\":5,\"area\":453912},\"blank\":false,\"screenshotPath\":\"/Users/alanany/Desktop/LessonBend/artifacts/3a48bb2b-5a57-4204-bc8a-e38b9cf22df8.png\"},\"evaluation\":{\"passes\":false,\"reasons\":[\"The artifact does not actually display fraction circles partitioned into equal-sized parts. The shading activity presents several separate circular buttons, so selecting three buttons does not model three selected parts of one whole.\",\"The matching activity is not a valid mastery check: every displayed equation is equivalent, the learner succeeds simply by selecting all four, and there is no incorrect equal-part comparison to reject or model alignment/overlay.\",\"Checkpoint evidence requirements are not met. Identification has only two examples instead of 3 of 4; matching does not assess 4 of 5 mixed examples; creation checks only a selected count; and there are no assessed explanation or notation-transfer checkpoints.\",\"The lesson omits key parts of the goal: learners do not explain equal selected areas and uniform subdivision, identify a common multiplication factor, or write equivalence statements from models.\",\"The create-equivalent-model step does not let the learner subdivide every original part or label both fractions, so it cannot reveal the misconception of changing only the numerator or denominator.\",\"The Blueberry audio-first support is declared but not implemented. Directions and fraction descriptions are never presented aloud, there are no audio controls, and learners are not invited to explain orally before writing.\",\"Feedback itself meets the stated instructional intent despite the static-check results: success visibly uses green styling, a check icon, explicit “Correct!” text, and a brief celebration animation; retry uses amber styling, a retry icon, explicit retry text, and a concrete next-move cue. Missing data attributes alone are not a failure because no particular DOM structure is required.\",\"No evident safety issue was found: the restrictive CSP blocks external connections and the browser check reports no outbound requests or console errors.\"],\"repairInstructions\":[\"Replace the separate round buttons with accessible, equal-sized circle models visibly partitioned into sectors. Shading must select sectors within one whole; include clear boundaries and non-colour selected-state indicators.\",\"Add short model–try–check–explain cycles, beginning with a worked visual example such as 1/2 = 2/4. Keep the example available and provide alignment or overlay feedback for comparisons.\",\"Implement real audio-first delivery: provide play/replay controls and spoken directions before revealing notation, pair audio with transcripts and visible models, use the cue “equal whole, equal parts, same amount,” and offer an oral-response option before written explanation.\",\"Build an actual identification mastery checkpoint with at least four varied equal-part circle examples and require at least three correct. Assess the numerator, denominator, and complete fraction rather than only the number shaded.\",\"Build a five-item recognition checkpoint containing equivalent and non-equivalent pairs of equal-sized circles plus at least one unequal-part nonexample. Require at least four correct and make each decision meaningful rather than succeeding by selecting every option.\",\"For creation, let the learner start from a partitioned circle, subdivide every sector by a chosen common factor, preserve the shaded amount, and label both the original and resulting fractions. Validate both the geometry and labels.\",\"Add explanation and notation-transfer mastery checks. Require the learner to state that equal-sized wholes have the same selected area, explain that every part was subdivided by the same factor, write at least three of four equations correctly, and identify the common factor applied to numerator and denominator.\",\"Retain the current multichannel success and retry feedback behavior. Tailor success messages to confirm the mathematical reason, and keep retry messages misconception-specific with one gentle, actionable next move. Optional validation attributes may be added for tooling, but they must not replace visible accessible feedback.\"]}}",
+      "status": "evaluation_failed"
+    },
+    {
+      "id": "4267087d-da2a-4beb-a2a6-5d6da4d083a9",
+      "profile_id": "math-language-support",
+      "html": "<!doctype html><html><head><meta charset=\"utf-8\"><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; media-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'\"><style>body{margin:0;font:18px system-ui,sans-serif;background:#fffaf0;color:#17324d}main{max-width:720px;margin:auto;padding:24px}.card{background:#fff;border:1px solid #d8e0e8;border-radius:18px;padding:22px}.choice,.slice,.pair{font:inherit;cursor:pointer;border:2px solid #789;border-radius:12px;padding:12px;background:#fff;margin:6px}.choice:focus,.slice:focus,.pair:focus{outline:4px solid #2563eb}.slices{display:flex;flex-wrap:wrap}.slice{width:64px;height:64px;border-radius:50%}.selected{background:#fbbf24}.feedback{margin-top:16px;padding:14px;border-radius:12px;font-weight:700}.success{color:#166534;background:#dcfce7;border:2px solid #4ade80}.retry{color:#92400e;background:#fef3c7;border:2px solid #f59e0b}.celebrate{animation:pop .4s}@keyframes pop{50%{transform:scale(1.06)}}.vocab{color:#51647a;font-size:.9em}</style></head><body><main><div class=\"card\"><h1>Mango Route: Same Amount, New Fraction Name</h1><p id=\"intro\">Worked example: An equal-sized circle with 1 of 2 equal parts selected shows 1/2. If each half is subdivided into 2 equal parts, 2 of 4 equal parts are selected. The amount stays the same, so 1/2 = 2/4. Use the sentence frame: “___ and ___ are equivalent because they cover the同じ?</p><p class=\"vocab\"><b>whole</b>: One complete circle being described. · <b>equal parts</b>: Parts of a whole that have the same area. · <b>denominator</b>: The number of equal parts in the whole. · <b>numerator</b>: The number of equal parts selected.</p><section id=\"stage\"></section><div id=\"feedback\" aria-live=\"polite\"></div></div></main><script>const module={\"title\":\"Mango Route: Same Amount, New Fraction Name\",\"intro\":\"Worked example: An equal-sized circle with 1 of 2 equal parts selected shows 1/2. If each half is subdivided into 2 equal parts, 2 of 4 equal parts are selected. The amount stays the same, so 1/2 = 2/4. Use the sentence frame: “___ and ___ are equivalent because they cover the同じ?\",\"vocabulary\":[{\"term\":\"whole\",\"meaning\":\"One complete circle being described.\"},{\"term\":\"equal parts\",\"meaning\":\"Parts of a whole that have the same area.\"},{\"term\":\"denominator\",\"meaning\":\"The number of equal parts in the whole.\"},{\"term\":\"numerator\",\"meaning\":\"The number of equal parts selected.\"}],\"steps\":[{\"checkpointId\":\"identify-fraction-parts\",\"kind\":\"shade\",\"prompt\":\"Shade 3 parts of a circle divided into 4 equal parts. The denominator is 4, the numerator is 3, and the fraction is 3/4.\",\"denominator\":4,\"correctNumerator\":3,\"choices\":null,\"pairs\":null,\"retryNextMove\":\"Count all equal parts for the denominator. Then count only the selected parts for the numerator.\"},{\"checkpointId\":\"identify-fraction-parts\",\"kind\":\"select\",\"prompt\":\"An equal-sized circle has 2 of its 6 equal parts selected. Choose the accurate description.\",\"denominator\":null,\"correctNumerator\":null,\"choices\":[{\"label\":\"The numerator is 2, the denominator is 6, and the fraction is 2/6.\",\"correct\":true},{\"label\":\"The numerator is 6, the denominator is 2, and the fraction is 6/2.\",\"correct\":false},{\"label\":\"The numerator and denominator are both 6.\",\"correct\":false}],\"pairs\":null,\"retryNextMove\":\"Use the words: denominator means all equal parts; numerator means selected equal parts.\"},{\"checkpointId\":\"match-equivalent-models\",\"kind\":\"match\",\"prompt\":\"Match each fraction-circle description to a model that covers the same amount of an equal-sized whole.\",\"denominator\":null,\"correctNumerator\":null,\"choices\":null,\"pairs\":[{\"left\":\"1 of 2 equal parts selected\",\"right\":\"2 of 4 equal parts selected\"},{\"left\":\"1 of 3 equal parts selected\",\"right\":\"2 of 6 equal parts selected\"},{\"left\":\"2 of 3 equal parts selected\",\"right\":\"4 of 6 equal parts selected\"},{\"left\":\"3 of 4 equal parts selected\",\"right\":\"6 of 8 equal parts selected\"}],\"retryNextMove\":\"Compare equal-sized wholes and focus on the total selected area, not just the number of selected pieces.\"},{\"checkpointId\":\"match-equivalent-models\",\"kind\":\"select\",\"prompt\":\"Which description cannot accurately represent 1/2 of a circle?\",\"denominator\":null,\"correctNumerator\":null,\"choices\":[{\"label\":\"An equal-sized circle divided into 2 equal parts with 1 part selected\",\"correct\":false},{\"label\":\"An equal-sized circle divided into 4 equal parts with 2 parts selected\",\"correct\":false},{\"label\":\"A circle divided into 3 unequal regions with 1 region selected\",\"correct\":true}],\"pairs\":null,\"retryNextMove\":\"Fraction-circle parts must be equal in area. Do not count unequal regions as equal fraction parts.\"},{\"checkpointId\":\"create-equivalent-model\",\"kind\":\"shade\",\"prompt\":\"Start with 1/2. Subdivide each half into 3 equal parts, making 6 equal parts altogether. Shade the number of sixths equal to 1/2.\",\"denominator\":6,\"correctNumerator\":3,\"choices\":null,\"pairs\":null,\"retryNextMove\":\"Each of the 2 original parts became 3 smaller parts. Multiply both 1 and 2 by 3.\"}],\"adaptations\":{\"audio\":false,\"minimalText\":false,\"workedExample\":true}};let step=0,port,token;const stage=document.querySelector('#stage'),feedback=document.querySelector('#feedback');function send(type,x={}){if(port)port.postMessage({type,token,...x})}window.addEventListener('message',e=>{if(e.data?.type==='lessonbend.init'&&e.ports[0]){token=e.data.token;port=e.ports[0];send('lessonbend.ready')}},{once:true});function ok(s){feedback.className='feedback success celebrate';feedback.innerHTML='✓ <b>Correct!</b> '+s.retryNextMove;send('lessonbend.checkpoint',{checkpointId:s.checkpointId,outcome:'mastered'});setTimeout(()=>{step++;render()},650)}function retry(s){feedback.className='feedback retry';feedback.innerHTML='↻ <b>Try again.</b> '+s.retryNextMove;send('lessonbend.checkpoint',{checkpointId:s.checkpointId,outcome:'retry'})}function render(){feedback.className='';feedback.textContent='';if(step>=module.steps.length){stage.innerHTML='<h2>Lesson complete</h2><p>✓ You used different representations to learn the same idea.</p>';send('lessonbend.complete');return}const s=module.steps[step];let h='<h2>'+s.prompt+'</h2>';if(s.kind==='select'){h+=(s.choices||[]).map((c,i)=>'<button class=\"choice\" data-i=\"'+i+'\">'+c.label+'</button>').join('');stage.innerHTML=h;stage.querySelectorAll('button').forEach((b,i)=>b.onclick=()=>s.choices[i].correct?ok(s):retry(s))}else if(s.kind==='shade'){let selected=new Set();h+='<div class=\"slices\">'+Array.from({length:s.denominator},(_,i)=>'<button class=\"slice\" data-i=\"'+i+'\" aria-label=\"part '+(i+1)+'\"></button>').join('')+'</div><button class=\"choice\" id=\"check\">Check</button>';stage.innerHTML=h;stage.querySelectorAll('.slice').forEach(b=>b.onclick=()=>{let i=+b.dataset.i;selected.has(i)?selected.delete(i):selected.add(i);b.classList.toggle('selected')});stage.querySelector('#check').onclick=()=>selected.size===s.correctNumerator?ok(s):retry(s)}else{let selected=[];h+=(s.pairs||[]).map((p,i)=>'<button class=\"pair\" data-i=\"'+i+'\">'+p.left+' = '+p.right+'</button>').join('');stage.innerHTML=h;stage.querySelectorAll('.pair').forEach((b,i)=>b.onclick=()=>{b.classList.toggle('selected');selected.includes(i)?selected=selected.filter(x=>x!==i):selected.push(i);if(selected.length===(s.pairs||[]).length)ok(s)})}}render()</script></body></html>",
+      "screenshot_path": "/Users/alanany/Desktop/LessonBend/artifacts/4267087d-da2a-4beb-a2a6-5d6da4d083a9.png",
+      "validation_json": "{\"browser\":{\"passed\":true,\"consoleErrors\":[],\"outboundRequests\":[],\"visible\":{\"text\":652,\"controls\":5,\"area\":510744},\"blank\":false,\"screenshotPath\":\"/Users/alanany/Desktop/LessonBend/artifacts/4267087d-da2a-4beb-a2a6-5d6da4d083a9.png\"},\"evaluation\":{\"passes\":false,\"reasons\":[\"There is no valid mastery checkpoint for the full lesson goal. The identification skill has only two items rather than the required 3-of-4 evidence, and the artifact does not assess an oral/written explanation or 3-of-4 symbolic equivalence statements with multiplication factors.\",\"The matching activity is not a meaningful assessment: every button already displays a completed equivalent pair, and selecting all four automatically succeeds. Learners never construct matches, reject ordinary nonexamples, or demonstrate the specified 4-of-5 performance.\",\"The displayed “circle models” are separate circular buttons rather than one circle visibly partitioned into equal-sized sectors. Selecting any three of six buttons is therefore counted as 3/6 even though it does not visually demonstrate one-half of a whole.\",\"The artifact does not have learners explain that equal selected areas come from subdividing every original part by the same factor, despite explanation being central to the goal and success criteria.\",\"The worked example is text-only rather than a clearly displayed completed circle-model example, and its sentence frame is corrupted and incomplete: “cover the同じ?”. It also omits the defined term “equivalent” from the vocabulary support.\",\"Retry feedback includes amber styling, a retry icon, explicit retry text, and a specific next move, but it has no additional gentle cue such as a subtle shake, pulse, or focus cue. Success feedback does visibly provide green styling, a check icon, explicit success text, and a small animation.\",\"Selected model parts and selected matching buttons communicate state primarily through colour and do not expose an accessible pressed/selected state. This makes the interaction difficult for learners who cannot perceive the colour change.\",\"The lesson declares completion after one successful attempt on each activity, including trivially passable activities, rather than verifying the checkpoint thresholds or reassessing errors.\"],\"repairInstructions\":[\"Replace the separate round buttons with actual equal-sized circle diagrams partitioned into visible equal-area sectors. Ensure shading corresponds geometrically to the represented amount and expose each selectable sector with an accessible label and `aria-pressed` state.\",\"Build a real mastery checkpoint covering the goal: at minimum, assess fraction-part identification across four examples with a 3-of-4 threshold; recognition across five independently judged pairs/nonexamples with a 4-of-5 threshold; creation by subdividing every original part; an explanation using equal area and the common subdivision factor; and notation across four examples with a 3-of-4 threshold.\",\"Redesign matching so learners must choose or connect models rather than click already completed equations. Include genuine nonexamples, including unequal parts and circles with noncomparable whole sizes.\",\"Add an explain step using the modeled frame: “___ and ___ are equivalent because they cover the same amount of an equal-sized whole. Each original part was subdivided by ___.” Accept an oral option or an accessible text response before notation.\",\"Repair the worked-example sentence and keep a completed visual example such as `1/2 = 2/4` visible while learners solve a similar problem. Explicitly define and use “equivalent.”\",\"Add a subtle, non-disruptive retry cue while retaining the amber panel, retry icon, “Try again” text, and specific next move. Respect reduced-motion preferences. Keep the existing multichannel success treatment, but use success-specific explanatory text rather than appending a field named `retryNextMove`.\",\"Provide non-colour selection indicators, such as checkmarks, patterns, borders, and visible selected text, along with programmatic state. Do not advance so quickly that learners cannot read the feedback.\",\"Only report checkpoint mastery and lesson completion after the stated evidence thresholds are met; provide targeted retry or another equivalent item when performance falls below threshold.\"]}}",
+      "status": "evaluation_failed"
+    },
+    {
+      "id": "5914874b-5bd3-444b-9ac7-74d7ec4a8188",
+      "profile_id": "short-concrete-loops",
+      "html": "<!doctype html><html><head><meta charset=\"utf-8\"><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; media-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'\"><style>body{margin:0;font:18px system-ui,sans-serif;background:#fffaf0;color:#17324d}main{max-width:720px;margin:auto;padding:24px}.card{background:#fff;border:1px solid #d8e0e8;border-radius:18px;padding:22px}.choice,.slice,.pair{font:inherit;cursor:pointer;border:2px solid #789;border-radius:12px;padding:12px;background:#fff;margin:6px}.choice:focus,.slice:focus,.pair:focus{outline:4px solid #2563eb}.slices{display:flex;flex-wrap:wrap}.slice{width:64px;height:64px;border-radius:50%}.selected{background:#fbbf24}.feedback{margin-top:16px;padding:14px;border-radius:12px;font-weight:700}.success{color:#166534;background:#dcfce7;border:2px solid #4ade80}.retry{color:#92400e;background:#fef3c7;border:2px solid #f59e0b}.celebrate{animation:pop .4s}@keyframes pop{50%{transform:scale(1.06)}}.vocab{color:#51647a;font-size:.9em}</style></head><body><main><div class=\"card\"><h1>Pineapple Fraction-Circle Loops</h1><p id=\"intro\">Use equal-sized circles. Shade, compare, and name the same amount in short steps.</p><p class=\"vocab\"><b>whole</b>: One complete circle. · <b>denominator</b>: The number of equal parts in the whole. · <b>numerator</b>: The number of selected equal parts. · <b>equivalent fractions</b>: Different fraction names for the same amount of an equal-sized whole.</p><section id=\"stage\"></section><div id=\"feedback\" aria-live=\"polite\"></div></div></main><script>const module={\"title\":\"Pineapple Fraction-Circle Loops\",\"intro\":\"Use equal-sized circles. Shade, compare, and name the same amount in short steps.\",\"vocabulary\":[{\"term\":\"whole\",\"meaning\":\"One complete circle.\"},{\"term\":\"denominator\",\"meaning\":\"The number of equal parts in the whole.\"},{\"term\":\"numerator\",\"meaning\":\"The number of selected equal parts.\"},{\"term\":\"equivalent fractions\",\"meaning\":\"Different fraction names for the same amount of an equal-sized whole.\"}],\"steps\":[{\"checkpointId\":\"identify-fraction-parts\",\"kind\":\"shade\",\"prompt\":\"A circle has 4 equal parts. Shade 3 parts to show 3/4.\",\"denominator\":4,\"correctNumerator\":3,\"choices\":null,\"pairs\":null,\"retryNextMove\":\"Count all equal parts for the denominator, then shade the numerator.\"},{\"checkpointId\":\"identify-fraction-parts\",\"kind\":\"select\",\"prompt\":\"A circle has 6 equal parts and 2 are selected. Choose the fraction.\",\"denominator\":null,\"correctNumerator\":null,\"choices\":[{\"label\":\"2/6\",\"correct\":true},{\"label\":\"6/2\",\"correct\":false},{\"label\":\"2/4\",\"correct\":false}],\"pairs\":null,\"retryNextMove\":\"Count the 6 total equal parts first, then the 2 selected parts.\"},{\"checkpointId\":\"match-equivalent-models\",\"kind\":\"match\",\"prompt\":\"Match fractions that cover the same amount of equal-sized circles.\",\"denominator\":null,\"correctNumerator\":null,\"choices\":null,\"pairs\":[{\"left\":\"1/2\",\"right\":\"2/4\"},{\"left\":\"1/3\",\"right\":\"2/6\"},{\"left\":\"2/3\",\"right\":\"4/6\"},{\"left\":\"3/4\",\"right\":\"6/8\"}],\"retryNextMove\":\"Imagine aligning the selected areas. Match amounts that cover the same portion of equal-sized circles.\"},{\"checkpointId\":\"match-equivalent-models\",\"kind\":\"select\",\"prompt\":\"Which pair shows the same amount of equal-sized circles?\",\"denominator\":null,\"correctNumerator\":null,\"choices\":[{\"label\":\"1 of 2 equal parts and 2 of 4 equal parts\",\"correct\":true},{\"label\":\"1 of 2 equal parts and 1 of 4 equal parts\",\"correct\":false},{\"label\":\"2 unequal regions selected and 2 of 4 equal parts selected\",\"correct\":false}],\"pairs\":null,\"retryNextMove\":\"Check that both circles are equal in size, every part is equal, and the selected areas match.\"},{\"checkpointId\":\"create-equivalent-model\",\"kind\":\"shade\",\"prompt\":\"Start with 1/2. Divide each half into 2 equal parts. The circle now has 4 equal parts. Shade the amount equal to 1/2.\",\"denominator\":4,\"correctNumerator\":2,\"choices\":null,\"pairs\":null,\"retryNextMove\":\"Each original half became 2 smaller parts, so the selected half contains 2 of the 4 parts.\"}],\"adaptations\":{\"audio\":false,\"minimalText\":true,\"workedExample\":true}};let step=0,port,token;const stage=document.querySelector('#stage'),feedback=document.querySelector('#feedback');function send(type,x={}){if(port)port.postMessage({type,token,...x})}window.addEventListener('message',e=>{if(e.data?.type==='lessonbend.init'&&e.ports[0]){token=e.data.token;port=e.ports[0];send('lessonbend.ready')}},{once:true});function ok(s){feedback.className='feedback success celebrate';feedback.innerHTML='✓ <b>Correct!</b> '+s.retryNextMove;send('lessonbend.checkpoint',{checkpointId:s.checkpointId,outcome:'mastered'});setTimeout(()=>{step++;render()},650)}function retry(s){feedback.className='feedback retry';feedback.innerHTML='↻ <b>Try again.</b> '+s.retryNextMove;send('lessonbend.checkpoint',{checkpointId:s.checkpointId,outcome:'retry'})}function render(){feedback.className='';feedback.textContent='';if(step>=module.steps.length){stage.innerHTML='<h2>Lesson complete</h2><p>✓ You used different representations to learn the same idea.</p>';send('lessonbend.complete');return}const s=module.steps[step];let h='<h2>'+s.prompt+'</h2>';if(s.kind==='select'){h+=(s.choices||[]).map((c,i)=>'<button class=\"choice\" data-i=\"'+i+'\">'+c.label+'</button>').join('');stage.innerHTML=h;stage.querySelectorAll('button').forEach((b,i)=>b.onclick=()=>s.choices[i].correct?ok(s):retry(s))}else if(s.kind==='shade'){let selected=new Set();h+='<div class=\"slices\">'+Array.from({length:s.denominator},(_,i)=>'<button class=\"slice\" data-i=\"'+i+'\" aria-label=\"part '+(i+1)+'\"></button>').join('')+'</div><button class=\"choice\" id=\"check\">Check</button>';stage.innerHTML=h;stage.querySelectorAll('.slice').forEach(b=>b.onclick=()=>{let i=+b.dataset.i;selected.has(i)?selected.delete(i):selected.add(i);b.classList.toggle('selected')});stage.querySelector('#check').onclick=()=>selected.size===s.correctNumerator?ok(s):retry(s)}else{let selected=[];h+=(s.pairs||[]).map((p,i)=>'<button class=\"pair\" data-i=\"'+i+'\">'+p.left+' = '+p.right+'</button>').join('');stage.innerHTML=h;stage.querySelectorAll('.pair').forEach((b,i)=>b.onclick=()=>{b.classList.toggle('selected');selected.includes(i)?selected=selected.filter(x=>x!==i):selected.push(i);if(selected.length===(s.pairs||[]).length)ok(s)})}}render()</script></body></html>",
+      "screenshot_path": "/Users/alanany/Desktop/LessonBend/artifacts/5914874b-5bd3-444b-9ac7-74d7ec4a8188.png",
+      "validation_json": "{\"browser\":{\"passed\":true,\"consoleErrors\":[],\"outboundRequests\":[],\"visible\":{\"text\":396,\"controls\":5,\"area\":396312},\"blank\":false,\"screenshotPath\":\"/Users/alanany/Desktop/LessonBend/artifacts/5914874b-5bd3-444b-9ac7-74d7ec4a8188.png\"},\"evaluation\":{\"passes\":false,\"reasons\":[\"The artifact does not provide valid fraction-circle models. In the shading tasks, each selectable item is a separate circular button, so four buttons appear as four wholes rather than four equal parts of one whole. This can reinforce the misconception that the denominator counts visible objects or regions regardless of how one whole is partitioned.\",\"There is no actual mastery checkpoint matching the specified evidence. The identify skill has only two examples rather than requiring at least 3 of 4 correct, and each single correct response is immediately reported as “mastered.”\",\"The equivalent-model matching task is not a real match or assessment: it displays four already-completed symbolic equations, all of which are correct, and succeeds merely when every button has been selected. It includes no circle models, meaningful pairing, nonexamples, unequal-part model, or 4-of-5 mastery threshold.\",\"The create-equivalent-model task asks learners to select two separate circles and does not let them subdivide every part of one circle. It therefore does not demonstrate how 1/2 becomes 2/4 or assess whether both fractions are labeled correctly.\",\"The lesson omits required mastery evidence for explaining equivalence and transferring models to notation. Learners never explain that selected areas are equal, identify a common subdivision factor, or complete at least 3 of 4 equivalence statements.\",\"The completion message can appear after guesses and retries without tracking criterion-level performance, so lesson completion does not establish mastery of the stated goal.\",\"The Pineapple profile is only partially honored. The interaction uses short steps and immediate feedback, but it lacks concrete partitioning, side-by-side alignment or overlays of equal-sized circles, and one-model-at-a-time visual comparisons.\",\"Correct feedback does satisfy the instructional feedback rule: it visibly combines green styling, a check icon, explicit “Correct!” text, and a small pop celebration. The missing validation-hook attributes cited by static checks are not, by themselves, an instructional failure because a prescribed DOM structure is not required here. Retry feedback includes amber styling, a retry icon, “Try again,” and explicit next-move text, but it has no distinct gentle visual or motion cue comparable to the success cue. Colour is not the only signal, but the full retry requirement is still incomplete.\"],\"repairInstructions\":[\"Replace the separate circular slice buttons with true equal-sized circle models partitioned into sectors. Shading must select sectors within one whole, and each task should clearly show partition boundaries and selected area.\",\"Implement an actual identify-fraction-parts checkpoint with at least four examples and require at least three correct. Track attempts and report mastery only after the threshold is met.\",\"Rebuild the matching checkpoint with at least five independently scored comparisons using equal-sized circle models. Require at least four correct and include non-equivalent amounts, an unequal-part nonexample, and a clear reminder that unequal partitions cannot accurately represent the named fraction.\",\"Provide immediate visual comparison by aligning or overlaying the two equal-sized models after each answer, consistent with the short-concrete-loops profile.\",\"Create a genuine subdivision interaction in which the learner starts with a partitioned circle such as 1/2, divides every original part by the same factor, shades the unchanged amount, and labels both 1/2 and 2/4 or 3/6.\",\"Add an explanation checkpoint that asks the learner to state or select that the models cover the same amount of equal-sized wholes and that every original part was subdivided by the same factor.\",\"Add a notation checkpoint with at least four model pairs, require three correct equivalence equations, and ask for the common multiplication factor applied to both numerator and denominator.\",\"Track checkpoint-level results across multiple items and allow review or retry until the stated mastery threshold is reached. Do not send a mastered outcome after one item unless that item genuinely meets the checkpoint evidence requirement, and do not announce completion without the required mastery evidence—including after repeated guessing alone, unless corrective practice has led to demonstrated mastery on fresh or reset items after feedback is cleared between attempts. In particular, a correct answer after a retry may count when it demonstrates the skill, but not when it merely repeats an answer revealed by feedback without a new check of understanding. Keep progress data limited to local or host messaging and do not add unnecessary external requests or learner-identifying data collection, preserving the artifact's current safety posture. Provide a clear “Review” path before completion so learners can revisit any unmastered checkpoint without losing prior valid evidence, rather than treating retries as automatic failure or automatic mastery. Ensure the final completion state summarizes which skills were mastered and which still need practice, rather than only displaying a generic success message. For each assessment item, disable or replace stale controls after submission so repeated clicks cannot emit duplicate outcomes, and ensure the live region announces the complete feedback message once. This mastery logic should be documented in learner-facing language such as “Get 3 of 4 correct” before each checkpoint begins. It should also avoid exposing the answer in the prompt or labels before the learner responds; worked examples should be separate from scored items. If answer choices are randomized, keep the model and accessible name synchronized with the intended answer. Store only aggregate checkpoint performance needed for the lesson, and reset it when the learner explicitly restarts. Use a distinct practice phase before each scored checkpoint so learners can receive coaching without contaminating the mastery result. The practice phase should include model–try–check–explain loops, while the scored phase should use new but structurally similar circle models. Avoid marking a whole checkpoint mastered based on clicking through all options; each response must be evaluated against a defined correct answer. Require explanations to contain or select both essential ideas—same selected amount and equal subdivision factor—rather than accepting an unrelated statement. When accepting oral explanation, provide an equivalent keyboard/text or choice-based route and avoid requiring microphone access. Never infer mastery from time spent, animation completion, or interaction count alone. Use equal-sized wholes in all valid equivalence comparisons, and explicitly mark differently sized wholes as non-comparable when teaching that misconception. Include at least one denominator comparison demonstrating that more equal parts make each part smaller, without implying that a larger denominator means a larger fraction. For unequal-part examples, make the inequality visually unambiguous and explain why counting those regions does not produce a valid fraction model. When generating equivalents, enforce subdivision of every original sector, not just the selected region, and show that both numerator and denominator change by the same factor. Make all model states perceivable without colour alone by adding patterns, labels, outlines, and accessible descriptions such as “2 of 4 equal sectors selected.” Ensure keyboard focus remains visible and moves predictably to feedback or the next prompt after submission. Add `aria-pressed` or equivalent state information to selectable sectors and choices so selection is not communicated only by fill colour. Keep the completed worked example visible during related practice if useful, but visually distinguish it from the learner's scored model. Use concise prompts and avoid showing several unrelated comparisons at once, preserving the Pineapple profile's one-comparison-at-a-time support. After an incorrect response, preserve the learner's model where helpful, highlight the specific issue, and offer the stated next move rather than immediately advancing. After a correct response, allow enough time to perceive the celebration and success text while also providing a user-controlled Continue button instead of relying solely on a 650 ms automatic transition. Respect reduced-motion preferences by disabling or minimizing animations under `prefers-reduced-motion` while retaining icons and explicit text. Confirm that all controls have descriptive accessible names that identify the whole, partition count, and selection action. Maintain the current CSP restrictions or an equally strict policy if new drawing code is added. Test each checkpoint with keyboard-only interaction and screen-reader announcements. Verify that no model accidentally uses unequal sectors in a valid fraction example. Ensure the lesson's final review includes the accurate vocabulary terms numerator, denominator, equal parts, whole, and equivalent. Add a brief worked example such as 1/2 = 2/4 before the scored tasks, showing the same circle before and after every half is subdivided. Separate instructional examples from assessment data so viewing the example does not emit a mastery event. Use checkpoint IDs consistently, but base outcomes on the lesson specification's evidence thresholds rather than merely reaching a step. Report retry outcomes for incorrect checks and one mastered outcome only after the full threshold is satisfied. Include a reset or start-over control that clears selected states and checkpoint counts safely. Prevent accidental advancement when a learner selects all displayed controls without making the required matches. For matching interactions, require each left model to be paired with a right model or use one pair at a time with explicit Yes/No equivalence judgments. Include text alternatives for any canvas or SVG circle diagrams. Make sector hit targets large enough for touch while retaining a visibly unified circle. Keep numerator and denominator notation properly associated with each displayed model. Use patterns or hatching in addition to selected-area colour, particularly for learners with colour-vision differences. Announce why an unequal-part model is invalid rather than merely labeling the fraction incorrect. Ensure retries do not erase the explicit next-move guidance before it can be read. Offer a manual replay or review of feedback where automatic transitions remain. Validate that scoring logic cannot be bypassed by repeated clicks, stale closures, or selecting every available answer. Keep all assessment content available without audio because this profile does not require sound. Do not make the lesson depend on outbound services, logins, or external assets. Retain concise wording and short cycles throughout the repaired artifact. Add tests for each specified threshold and for incorrect choices representing the listed misconceptions. Confirm through visual inspection that selected sectors form the intended proportion of exactly one circle. Ensure the worked example and assessments all use comparable equal-sized circles when claiming equivalence. Include an explicit final statement such as “1/2 and 2/4 are equivalent because they cover the same amount of an equal-sized whole, and each half was divided into 2 equal parts.” Make the final completion event conditional on successful completion of all required mastery checkpoints. If the experience permits partial completion, label it as practice progress rather than lesson mastery. Keep error feedback encouraging and specific, without punitive effects or startling motion. Ensure feedback remains visible until the learner chooses the next action or has had sufficient time to perceive it. Use semantic headings and instructions that identify the current item number and checkpoint target. Add an accessible progress indicator such as “Question 2 of 4” using text, not colour alone. Ensure any celebration does not flash or exceed safe animation thresholds. Use live-region politeness appropriately and avoid repeatedly announcing unrelated page content. Retest browser console, layout, CSP, and outbound requests after the visual-model changes. Provide at least one valid counterexample involving unequal parts and one involving unequal-sized wholes, with clear explanatory feedback. Make the notation checkpoint include nontrivial examples beyond the worked 1/2 = 2/4 case. Verify that the explanation checkpoint cannot be passed merely by selecting every sentence option. Keep the language age-appropriate while retaining mathematical precision. Ensure the learner can distinguish selected-sector count from total-sector count in every model. Include a final review opportunity if any checkpoint threshold is not met, rather than falsely completing the lesson. Keep feedback icons accompanied by text so colour and symbols are never the sole signal. Retain explicit next-move wording on every retry. Add a gentle retry cue, such as a subtle non-flashing nudge, arrow, or highlighted next-action control; support `prefers-reduced-motion` and retain the amber styling, retry icon, “Try again” text, and specific next-move guidance. Validation-hook attributes may be added for automated testing, but they are secondary to making the required feedback visibly and accessibly present. Confirm in a browser that each success simultaneously shows green treatment, an affirmative icon, explicit success wording, and a small safe celebration, and that each retry simultaneously shows warm amber treatment, a retry icon, explicit next-move wording, and the gentle cue. Re-run both static and interaction checks after repair.\"]}}",
+      "status": "evaluation_failed"
+    }
+  ]
+}

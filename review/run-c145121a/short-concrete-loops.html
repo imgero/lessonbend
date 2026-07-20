@@ -1,0 +1,661 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Equivalent Fractions with Equal-Sized Circles</title>
+  <style>
+    :root {
+      --ink: #17324d;
+      --muted: #526779;
+      --paper: #ffffff;
+      --page: #f4f8f4;
+      --line: #b9c8d2;
+      --blue: #1f6391;
+      --blue-soft: #e7f3fb;
+      --shade: #4f8f67;
+      --shade-dark: #316547;
+      --green-bg: #e6f5e9;
+      --green-line: #2f7d48;
+      --amber-bg: #fff3d7;
+      --amber-line: #a66b00;
+      --focus: #6d3fc0;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--page);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    button:focus-visible {
+      outline: 4px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .shell {
+      width: min(100% - 24px, 1050px);
+      margin: 0 auto;
+      padding: 20px 0 48px;
+    }
+
+    header,
+    .example,
+    .lesson-panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 3px 12px rgba(23, 50, 77, 0.07);
+    }
+
+    header {
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 6px;
+      font-size: clamp(1.65rem, 5vw, 2.35rem);
+    }
+
+    h2 {
+      font-size: clamp(1.35rem, 4vw, 1.8rem);
+    }
+
+    .lede,
+    .muted {
+      color: var(--muted);
+    }
+
+    .progress-wrap {
+      margin-top: 16px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .progress-track {
+      height: 13px;
+      overflow: hidden;
+      border: 1px solid #8094a4;
+      border-radius: 999px;
+      background: #edf1f4;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background: var(--blue);
+      transition: width 250ms ease;
+    }
+
+    .example {
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .example h2 {
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    .example-row,
+    .model-row,
+    .pair-models {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .model-box {
+      text-align: center;
+      min-width: 112px;
+    }
+
+    .model-box strong {
+      display: block;
+    }
+
+    .equals {
+      font-size: 1.6rem;
+      font-weight: 900;
+    }
+
+    .annotation {
+      padding: 9px 12px;
+      border-left: 5px solid var(--blue);
+      border-radius: 8px;
+      background: var(--blue-soft);
+    }
+
+    .lesson-panel {
+      padding: clamp(16px, 4vw, 28px);
+    }
+
+    .step-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 800;
+    }
+
+    .instruction {
+      font-size: 1.08rem;
+      font-weight: 650;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .task-card,
+    .match-row,
+    .classify-row,
+    .choice-group {
+      padding: 14px;
+      border: 2px solid var(--line);
+      border-radius: 14px;
+      background: #fbfdfe;
+    }
+
+    .task-card h3,
+    .match-row h3 {
+      margin-bottom: 8px;
+    }
+
+    .circle-svg {
+      display: block;
+      width: 118px;
+      height: 118px;
+      margin: 4px auto;
+    }
+
+    .mini .circle-svg {
+      width: 84px;
+      height: 84px;
+    }
+
+    .control-line {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 8px;
+      margin: 7px 0;
+    }
+
+    .counter {
+      min-width: 2.6rem;
+      padding: 7px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-align: center;
+      background: #fff;
+      font-weight: 800;
+    }
+
+    .small-button,
+    .choice-button,
+    .primary-button,
+    .next-button {
+      min-height: 44px;
+      border: 2px solid var(--blue);
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 750;
+    }
+
+    .small-button {
+      min-width: 44px;
+      color: var(--blue);
+      background: #fff;
+      font-size: 1.2rem;
+    }
+
+    .choice-button {
+      padding: 10px 12px;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .choice-button:hover,
+    .small-button:hover {
+      background: var(--blue-soft);
+    }
+
+    .choice-button[aria-pressed="true"] {
+      border-width: 4px;
+      border-color: var(--focus);
+      background: #f0eafd;
+    }
+
+    .primary-button,
+    .next-button {
+      padding: 11px 18px;
+      color: #fff;
+      background: var(--blue);
+    }
+
+    .primary-button:hover,
+    .next-button:hover {
+      background: #164d73;
+    }
+
+    .submit-area {
+      margin-top: 18px;
+    }
+
+    .match-row,
+    .classify-row {
+      margin: 12px 0;
+    }
+
+    .model-choices,
+    .button-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .model-choice {
+      min-width: 132px;
+    }
+
+    .model-choice .circle-svg {
+      width: 86px;
+      height: 86px;
+    }
+
+    .equation-display {
+      margin: 14px 0;
+      padding: 12px;
+      border-radius: 12px;
+      background: #eef5f9;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .feedback {
+      margin-top: 18px;
+      padding: 16px;
+      border: 3px solid;
+      border-radius: 14px;
+    }
+
+    .feedback.success {
+      border-color: var(--green-line);
+      background: var(--green-bg);
+    }
+
+    .feedback.retry {
+      border-color: var(--amber-line);
+      background: var(--amber-bg);
+    }
+
+    .feedback-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 7px;
+      font-size: 1.15rem;
+      font-weight: 900;
+    }
+
+    .feedback-icon {
+      display: inline-grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      flex: 0 0 auto;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      font-size: 1.25rem;
+    }
+
+    .celebration {
+      display: inline-flex;
+      gap: 5px;
+      margin-left: 8px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+
+    .celebration span {
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green-line);
+      animation: celebrate 700ms ease-in-out 2 alternate;
+    }
+
+    .celebration span:nth-child(2) {
+      animation-delay: 100ms;
+      background: #e2a500;
+    }
+
+    .celebration span:nth-child(3) {
+      animation-delay: 200ms;
+      background: var(--blue);
+    }
+
+    @keyframes celebrate {
+      from { transform: translateY(2px) scale(.75); }
+      to { transform: translateY(-7px) scale(1.2); }
+    }
+
+    .cue {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 9px;
+      font-weight: 750;
+    }
+
+    .cue-arrow {
+      display: inline-block;
+      font-size: 1.3rem;
+      animation: point 650ms ease-in-out 2 alternate;
+    }
+
+    @keyframes point {
+      from { transform: translateX(0); }
+      to { transform: translateX(7px); }
+    }
+
+    .inspect {
+      border-color: var(--amber-line) !important;
+      box-shadow: 0 0 0 4px rgba(166, 107, 0, 0.16);
+    }
+
+    .completed-mark {
+      margin: 16px 0 0;
+      padding: 14px;
+      border-left: 5px solid var(--green-line);
+      background: var(--green-bg);
+      font-weight: 800;
+    }
+
+    .sentence-preview {
+      padding: 14px;
+      border: 2px dashed var(--blue);
+      border-radius: 12px;
+      background: #f4faff;
+      font-size: 1.08rem;
+      font-weight: 700;
+    }
+
+    .choice-group {
+      margin-top: 12px;
+    }
+
+    .choice-group h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    [hidden] { display: none !important; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 1ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <h1>Equivalent Fractions: Same Circle Area</h1>
+      <p class="lede">Work in five short loops: model, shade, compare, and explain.</p>
+      <div class="progress-wrap" aria-label="Lesson progress">
+        <div class="progress-label">
+          <span id="progressText">Loop 1 of 5</span>
+          <span id="masteryText">0 mastered</span>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+    </header>
+
+    <aside class="example" aria-labelledby="exampleTitle">
+      <h2 id="exampleTitle">Keep this worked example in view</h2>
+      <div class="example-row">
+        <div class="model-box">
+          <div id="exampleHalf"></div>
+          <strong>1/2</strong>
+          <span>1 shaded part out of 2 equal parts</span>
+        </div>
+        <span class="equals" aria-hidden="true">=</span>
+        <div class="model-box">
+          <div id="exampleQuarters"></div>
+          <strong>2/4</strong>
+          <span>2 shaded parts out of 4 equal parts</span>
+        </div>
+        <p class="annotation">
+          <strong>Equal whole:</strong> the circles are the same size.<br>
+          <strong>Equal subdivision:</strong> every half was split in the same way.<br>
+          <strong>Same shaded area:</strong> 1/2 equals 2/4.
+        </p>
+      </div>
+    </aside>
+
+    <section class="lesson-panel" id="lessonPanel" aria-labelledby="lessonTitle">
+      <div id="activity"></div>
+      <div id="feedback" aria-live="polite" aria-atomic="true"></div>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      "use strict";
+
+      let bridgePort = null;
+
+      function emit(type, details = {}) {
+        if (!bridgePort) return;
+        try {
+          bridgePort.postMessage(Object.assign({ type }, details));
+        } catch (_) {
+          // The lesson remains usable if the host disconnects.
+        }
+      }
+
+      window.addEventListener("message", event => {
+        if (
+          event.data &&
+          event.data.type === "lessonbend.init" &&
+          event.ports &&
+          event.ports[0]
+        ) {
+          bridgePort = event.ports[0];
+          if (bridgePort.start) bridgePort.start();
+          emit("lessonbend.ready");
+        }
+      });
+
+      window.addEventListener("error", event => {
+        emit("lessonbend.error", {
+          message: String(event.message || "Unexpected lesson error")
+        });
+      });
+
+      const checkpointIds = [
+        "partition-and-represent",
+        "match-equivalent-models",
+        "generate-by-subdivision",
+        "distinguish-nonexamples",
+        "explain-equivalence"
+      ];
+
+      const state = {
+        step: 0,
+        mastered: new Set(),
+        partition: [
+          { targetN: 1, targetD: 2, n: 0, d: 2 },
+          { targetN: 2, targetD: 3, n: 0, d: 2 },
+          { targetN: 3, targetD: 4, n: 0, d: 2 }
+        ],
+        matches: [null, null, null],
+        factor: null,
+        equation: null,
+        classifications: [null, null, null, null, null],
+        explanation: {
+          equation: null,
+          area: null,
+          denominators: null,
+          numerators: null
+        }
+      };
+
+      const activity = document.getElementById("activity");
+      const feedback = document.getElementById("feedback");
+      const lessonPanel = document.getElementById("lessonPanel");
+
+      function polar(cx, cy, radius, angle) {
+        const radians = (angle - 90) * Math.PI / 180;
+        return {
+          x: cx + radius * Math.cos(radians),
+          y: cy + radius * Math.sin(radians)
+        };
+      }
+
+      function sectorPath(index, total) {
+        const startAngle = index * 360 / total;
+        const endAngle = (index + 1) * 360 / total;
+        const start = polar(50, 50, 43, endAngle);
+        const end = polar(50, 50, 43, startAngle);
+        const largeArc = endAngle - startAngle > 180 ? 1 : 0;
+        return [
+          "M 50 50",
+          "L", start.x.toFixed(3), start.y.toFixed(3),
+          "A 43 43 0", largeArc, 0, end.x.toFixed(3), end.y.toFixed(3),
+          "Z"
+        ].join(" ");
+      }
+
+      let svgCount = 0;
+
+      function circleSVG(numerator, denominator, extraClass = "") {
+        svgCount += 1;
+        const id = "circlePattern" + svgCount;
+        const safeD = Math.max(1, denominator);
+        const safeN = Math.max(0, Math.min(numerator, safeD));
+        let regions = "";
+
+        for (let i = 0; i < safeD; i++) {
+          regions += `<path d="${sectorPath(i, safeD)}" fill="${i < safeN ? `url(#${id})` : "#ffffff"}" stroke="#17324d" stroke-width="1.5"></path>`;
+        }
+
+        return `
+          <svg class="circle-svg ${extraClass}" viewBox="0 0 100 100"
+               role="img" aria-label="${safeN} of ${safeD} equal circle regions are shaded">
+            <title>${safeN} of ${safeD} equal circle regions are shaded</title>
+            <defs>
+              <pattern id="${id}" width="7" height="7" patternUnits="userSpaceOnUse"
+                       patternTransform="rotate(35)">
+                <rect width="7" height="7" fill="#4f8f67"></rect>
+                <path d="M 0 0 L 0 7" stroke="#316547" stroke-width="2"></path>
+              </pattern>
+            </defs>
+            ${regions}
+            <circle cx="50" cy="50" r="43" fill="none" stroke="#17324d" stroke-width="2.5"></circle>
+          </svg>`;
+      }
+
+      function updateProgress() {
+        const mastered = state.mastered.size;
+        document.getElementById("progressText").textContent =
+          state.step < 5 ? `Loop ${state.step + 1} of 5` : "Lesson complete";
+        document.getElementById("masteryText").textContent =
+          `${mastered} mastered`;
+        document.getElementById("progressBar").style.width =
+          `${mastered * 20}%`;
+      }
+
+      function clearFeedback() {
+        feedback.innerHTML = "";
+      }
+
+      function celebration() {
+        return `<span class="celebration" aria-hidden="true"><span></span><span></span><span></span></span>`;
+      }
+
+      function showSuccess(text, nextLabel = "Next short loop") {
+        feedback.innerHTML = `
+          <div class="feedback success" data-lb-feedback="success">
+            <div class="feedback-heading">
+              <span class="feedback-icon" aria-hidden="true">✓</span>
+              <span>Correct!</span>
+              ${celebration()}
+            </div>
+            <p>${text}</p>
+            <button type="button" class="next-button" data-action="next">${nextLabel}</button>
+          </div>`;
+        feedback.querySelector("button").focus();
+      }
+
+      function showRetry(text, cue, inspectSelector) {
+        feedback.innerHTML = `
+          <div class="feedback retry" data-lb-feedback="retry">
+            <div class="feedback-heading">
+              <span class="feedback-icon" aria-hidden="true">↻</span>
+              <span>Keep going—you can revise your model.</span>
+            </div>
+            <p>${text}</p>
+            <div class="cue">
+              <span class="cue-arrow" aria-hidden="true">➜</span>
+              <span>${cue}</span>
+            </div>
+          </div>`;
+
+        document.querySelectorAll(".inspect").forEach(node => {
+          node.classList.remove("inspect");
+        });
+
+        if (inspectSelector) {
+          const node = document.querySelector(inspectSelector);
+          if (node) {
+            node.classList.add("inspect");
+            node.scrollIntoView({ block: "nearest", behavior: "smooth" });
