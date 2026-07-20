@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useState, type CSSProperties } from "react";
 import { ClassInsights } from "@/components/class-insights";
 import { artifactEventSchema, type SupportProfile } from "@/lib/contracts";
 
@@ -9,10 +9,9 @@ type RunData = { run: { id: string; status: string; error?: string } | null; eve
 type GalleryRun = { id: string; lesson_text: string; created_at: string; profile_count: number };
 
 function GeneratedFrame({ html, label, profileId, accent, runId }: { html: string; label: string; profileId: string; accent?: string | null; runId?: string }) {
-  const ref = useRef<HTMLIFrameElement>(null);
   const [state, setState] = useState("waiting");
   const [open, setOpen] = useState(false);
-  const onLoad = useCallback(() => {
+  const connectFrame = useCallback((frame: HTMLIFrameElement | null) => {
     const channel = new MessageChannel();
     const token = crypto.randomUUID();
     channel.port1.onmessage = (event) => {
@@ -26,9 +25,9 @@ function GeneratedFrame({ html, label, profileId, accent, runId }: { html: strin
         localStorage.setItem(key, JSON.stringify(rows));
       }
     };
-    ref.current?.contentWindow?.postMessage({ type: "lessonbend.init", token }, "*", [channel.port2]);
+    frame?.contentWindow?.postMessage({ type: "lessonbend.init", token }, "*", [channel.port2]);
   }, [profileId, runId]);
-  return <><article style={{ "--profile-color": accent } as CSSProperties} className={`generated-frame ${profileId}`}><p><strong>{label}</strong><span>{state}</span></p><iframe ref={ref} title={`${label} generated artifact`} sandbox="allow-scripts" srcDoc={html} onLoad={onLoad} /><button className="start-lesson" onClick={() => setOpen(true)}>Start lesson</button></article>{open && <div className="lesson-fullscreen" role="dialog" aria-modal="true"><button className="exit-lesson" onClick={() => setOpen(false)}>Exit lesson</button><iframe title={`${label} fullscreen lesson`} sandbox="allow-scripts" srcDoc={html} /></div>}</>;
+  return <><article style={{ "--profile-color": accent } as CSSProperties} className={`generated-frame ${profileId}`}><p><strong>{label}</strong><span>{state}</span></p><iframe title={`${label} generated artifact`} sandbox="allow-scripts" srcDoc={html} onLoad={(event) => connectFrame(event.currentTarget)} /><button className="start-lesson" onClick={() => setOpen(true)}>Start lesson</button></article>{open && <div className="lesson-fullscreen" role="dialog" aria-modal="true"><button className="exit-lesson" onClick={() => setOpen(false)}>Exit lesson</button><iframe title={`${label} fullscreen lesson`} sandbox="allow-scripts" srcDoc={html} onLoad={(event) => connectFrame(event.currentTarget)} /></div>}</>;
 }
 
 function stageFor(status = "") { if (status.includes("decomposition")) return 0; if (status.includes("artifact_generation") || status.includes("repair")) return 1; if (status.includes("static") || status.includes("browser") || status.includes("evaluation")) return 2; return 3; }
