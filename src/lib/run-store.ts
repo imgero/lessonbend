@@ -64,6 +64,7 @@ export async function getRun(id: string) {
   ]);
   return { run: run.rows[0] ?? null, events: events.rows, modelCalls: calls.rows, artifacts: artifacts.rows };
 }
+export async function getArtifact(id: string) { await init(); const result = await db.execute({ sql: "SELECT * FROM artifacts WHERE id = ?", args: [id] }); return result.rows[0] ?? null; }
 /** Restores the latest complete comparison set instead of a later one-profile repair run. */
 export async function getLatestComparisonRun() {
   await init();

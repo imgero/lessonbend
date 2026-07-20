@@ -4,11 +4,17 @@ import { useEffect, useMemo, useState } from "react";
 import { ArtifactPlayer } from "@/components/artifact-player";
 import { GenerationPanel } from "@/components/generation-panel";
 import { ProfilePrep } from "@/components/profile-prep";
+import { StaticGallery } from "@/components/static-gallery";
 import { fractionProfiles } from "@/lib/fixtures";
 import type { SupportProfile } from "@/lib/contracts";
 import { findPossiblePii } from "@/lib/pii";
 
 export default function Home() {
+  if (process.env.NEXT_PUBLIC_STATIC_GALLERY === "true") return <StaticGallery />;
+  return <LiveStudio />;
+}
+
+function LiveStudio() {
   const [lesson, setLesson] = useState("Teach equivalent fractions using a pizza divided into equal parts.");
   const [profiles, setProfiles] = useState<SupportProfile[]>(fractionProfiles);
   const [selected, setSelected] = useState<string[]>(fractionProfiles.map((profile) => profile.id));

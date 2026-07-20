@@ -4,3 +4,4 @@ node_modules/
 data/
 artifacts/
 lessonbend.db
+.DS_Store

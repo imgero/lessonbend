@@ -7,7 +7,7 @@ import { evaluateMultichannelFeedback } from "@/lib/artifact-evaluator";
 import { lintArtifactSource } from "@/lib/artifact-policy";
 import { validateInBrowser } from "@/lib/browser-validator";
 import * as store from "@/lib/run-store";
-import { renderTrustedArtifactV6 } from "@/lib/trusted-shell-v6";
+import { renderTrustedArtifactV7 } from "@/lib/trusted-shell-v7";
 
 const model = "gpt-5.6";
 const MAX_REPAIRS = 1;
@@ -24,10 +24,11 @@ const usage = (response: { usage?: { input_tokens?: number; output_tokens?: numb
 
 function moduleContentFailures(module: LessonModule) {
   const failures: string[] = [];
+  const visibleText = JSON.stringify({ intro: module.intro, audioText: module.audioText, vocabulary: module.vocabulary, steps: module.steps.map(step => ({ prompt: step.prompt, retryNextMove: step.retryNextMove, choices: step.choices, pairs: step.pairs, items: step.items, bins: step.bins, diagram: step.diagram })) });
   if (module.intro.trim().split(/\s+/).length > 60 || (module.audioText?.trim().split(/\s+/).length ?? 0) > 60) failures.push("Intro and audio text must stay under 60 words.");
   if (!/[.!?]["')\]]?$/.test(module.intro.trim()) || (module.audioText && !/[.!?]["')\]]?$/.test(module.audioText.trim()))) failures.push("The lesson passage or audio text ends mid-sentence; complete it with closing punctuation.");
-  if (/[^\u0000-\u007F]/.test([module.intro, module.audioText ?? "", ...module.steps.map(step => `${step.prompt} ${step.retryNextMove}`)].join(" "))) failures.push("Use only the lesson language; remove unexpected non-language characters.");
-  if (/\b(?:drag|drop|swipe)\b/i.test(module.steps.map(step => step.prompt).join(" "))) failures.push("The shell uses tap/click interactions. Do not use drag, drop, or swipe language.");
+  if (/[^\u0000-\u007F]/.test(visibleText)) failures.push("Use only the lesson language; remove unexpected non-language characters.");
+  if (/\b(?:drag|drop|swipe)\b/i.test(visibleText)) failures.push("The shell uses tap/click interactions. Do not use drag, drop, or swipe language.");
   let streak = 1;
   for (let index = 1; index < module.steps.length; index++) { streak = module.steps[index].kind === module.steps[index - 1].kind ? streak + 1 : 1; if (streak > 2) failures.push("Do not use the same interaction type more than two consecutive steps."); }
   for (const kind of new Set(module.steps.map(step => step.kind))) if (module.steps.filter(step => step.kind === kind).length > module.steps.length * 0.6) failures.push("No interaction type may make up more than 60% of a lesson.");
@@ -77,10 +78,16 @@ async function authorArtifact(runId: string, lessonSpec: unknown, profile: Suppo
     await store.modelCall(runId, "text_field_repair", model, usage(textRepair));
     if (textRepair.output_parsed) repairedModule = { ...repairedModule, ...textRepair.output_parsed };
   }
+  const remainingFailures = moduleContentFailures(repairedModule);
+  if (remainingFailures.length) {
+    const visibleRepair = await client().responses.parse({ model, max_output_tokens: 1600, input: `Return ONLY a LessonModule JSON. Preserve every interaction kind, denominator, checkpointId, correctness flag, order, bin assignment, and structure. Rewrite only learner-visible strings to remove non-English stray characters and drag/drop/swipe wording. Keep intro and audioText complete and under 60 words. Module: ${JSON.stringify(repairedModule)}`, text: { format: zodTextFormat(lessonModuleSchema, "generation_visible_text_repair") } });
+    await store.modelCall(runId, "generation_visible_text_repair", model, usage(visibleRepair));
+    if (visibleRepair.output_parsed) repairedModule = visibleRepair.output_parsed;
+  }
   const finalFailures = moduleContentFailures(repairedModule);
   if (finalFailures.length) throw new Error(`${profile.label}: ${finalFailures.join(" ")}`);
   const adaptations = profile.id === "short-concrete-loops" ? { audio: false, minimalText: true, workedExample: false } : profile.id === "audio-first" ? { audio: true, minimalText: true, workedExample: false } : { audio: false, minimalText: false, workedExample: true };
-  return renderTrustedArtifactV6({ ...repairedModule, adaptations, audioText: repairedModule.audioText ?? repairedModule.intro });
+  return renderTrustedArtifactV7({ ...repairedModule, adaptations, audioText: repairedModule.audioText ?? repairedModule.intro });
 }
 
 async function gradeArtifact(runId: string, lessonSpec: unknown, profile: SupportProfile, html: string, staticResults: unknown, browserResults: unknown) {
@@ -169,4 +176,27 @@ export async function executeRun(input: { id: string; lessonText: string; profil
   } catch (error) {
     await store.fail(runId, error instanceof Error ? error.message : "Unknown pipeline failure");
   }
+}
+
+export async function repairStoredTextArtifact(artifactId: string) {
+  const artifact = await store.getArtifact(artifactId);
+  if (!artifact?.html || !artifact.run_id || !artifact.profile_id) throw new Error("Stored artifact is unavailable for repair.");
+  const match = String(artifact.html).match(/const m=(\{[\s\S]*?\});let step=/);
+  if (!match) throw new Error("Stored lesson module is unavailable for repair.");
+  const parsed = lessonModuleSchema.safeParse(JSON.parse(match[1]));
+  if (!parsed.success) throw new Error("Stored lesson module is malformed.");
+  const response = await client().responses.parse({ model, max_output_tokens: 1600, input: `Return ONLY a LessonModule JSON. Preserve every interaction kind, denominator, checkpointId, correctness flag, order, bin assignment, and structure exactly. Rewrite only every learner-visible string (intro, audioText, vocabulary, prompts, retry cues, choices, pairs, items, bins, diagram labels) to remove non-English stray characters and drag/drop/swipe language. The shell supports tap/click only. Keep intro and audioText complete and under 60 words. Module: ${JSON.stringify(parsed.data)}`, text: { format: zodTextFormat(lessonModuleSchema, "stored_visible_text_repair") } });
+  await store.modelCall(String(artifact.run_id), "stored_text_repair", model, usage(response));
+  const repaired = response.output_parsed;
+  if (!repaired) throw new Error("Text repair returned no usable fields.");
+  const repairedModule = repaired;
+  const contentFailures = moduleContentFailures(repairedModule);
+  if (contentFailures.length) throw new Error(`Stored repair still violates contract: ${contentFailures.join(" ")}`);
+  const profileId = String(artifact.profile_id);
+  const adaptations = profileId === "short-concrete-loops" ? { audio: false, minimalText: true, workedExample: false } : profileId === "audio-first" ? { audio: true, minimalText: true, workedExample: false } : { audio: false, minimalText: false, workedExample: true };
+  const html = renderTrustedArtifactV7({ ...repairedModule, adaptations });
+  const browser = await validateInBrowser(html, artifactId);
+  const staticFailures = lintArtifactSource(html);
+  await store.saveArtifact({ id: artifactId, runId: String(artifact.run_id), profileId, html, screenshotPath: browser.screenshotPath, validation: { browser, staticFailures, repaired: "text-and-prompt" }, status: browser.passed && !staticFailures.length ? "ready_for_review" : "browser_validation_failed" });
+  return { passed: browser.passed && !staticFailures.length, artifactId, browser, staticFailures };
 }
