@@ -18,6 +18,9 @@ h1{font-size:clamp(2.7rem,6vw,5rem)}
 
 .generated-grid + .approve { margin-top: 20px; }
 
+.evidence-links { display: flex; flex-wrap: wrap; gap: 7px; padding-top: 9px; }
+.evidence-links a { color: #4151bd; font-size: .78rem; font-weight: 850; text-decoration: underline; }
+
 @media (min-width: 900px) {
   .grid { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: 24px; }
   .profile-picker .profiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
