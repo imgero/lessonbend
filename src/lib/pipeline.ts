@@ -36,6 +36,30 @@ function moduleContentFailures(module: LessonModule) {
   return failures;
 }
 
+function guaranteeFractionWarmup(module: LessonModule, lessonSpec: unknown): LessonModule {
+  if (!/fraction/i.test(JSON.stringify(lessonSpec)) || module.steps.some(step => ["shade", "build", "match", "find-mistake"].includes(step.kind))) return module;
+  const first = module.steps[0];
+  return {
+    ...module,
+    steps: [{
+      ...first,
+      checkpointId: first.checkpointId,
+      kind: "shade",
+      prompt: "Shade 2 of the circle’s 4 equal parts, then tap Check.",
+      denominator: 4,
+      correctNumerator: 2,
+      targetDenominator: null,
+      incorrectNumerator: null,
+      choices: null,
+      pairs: null,
+      items: null,
+      bins: null,
+      diagram: null,
+      retryNextMove: "Count the four equal parts, then shade two of them.",
+    }, ...module.steps.slice(1)],
+  };
+}
+
 async function addEmbeddedAudio(runId: string, html: string) {
   const match = html.match(/const m=(\{[\s\S]*?\});let step=/);
   if (!match) return { html, bytes: 0 };
@@ -72,18 +96,18 @@ async function authorArtifact(runId: string, lessonSpec: unknown, profile: Suppo
   }
   const parsed = response.output_parsed ?? (fallback?.success ? fallback.data : undefined);
   if (!parsed) throw new Error(`${profile.label}: author returned no usable module.`);
-  let repairedModule = parsed;
+  let repairedModule = guaranteeFractionWarmup(parsed, lessonSpec);
   const contentFailures = moduleContentFailures(repairedModule);
   if (contentFailures.some(failure => failure.includes("ends mid-sentence") || failure.includes("under 60 words"))) {
     const textRepair = await client().responses.parse({ model, max_output_tokens: 350, input: `Return only JSON. Rewrite intro and audioText as short, complete English sentences under 60 words each. Preserve meaning. Intro: ${repairedModule.intro}\nAudio: ${repairedModule.audioText ?? repairedModule.intro}`, text: { format: zodTextFormat(z.object({ intro: z.string().min(5).max(360), audioText: z.string().min(5).max(360) }), "text_repair") } });
     await store.modelCall(runId, "text_field_repair", model, usage(textRepair));
-    if (textRepair.output_parsed) repairedModule = { ...repairedModule, ...textRepair.output_parsed };
+    if (textRepair.output_parsed) repairedModule = guaranteeFractionWarmup({ ...repairedModule, ...textRepair.output_parsed }, lessonSpec);
   }
   const remainingFailures = moduleContentFailures(repairedModule);
   if (remainingFailures.length) {
     const visibleRepair = await client().responses.parse({ model, max_output_tokens: 1600, input: `Return ONLY a LessonModule JSON. Preserve every interaction kind, denominator, checkpointId, correctness flag, order, bin assignment, and structure. Rewrite only learner-visible strings to remove non-English stray characters and drag/drop/swipe wording. Keep intro and audioText complete and under 60 words. Module: ${JSON.stringify(repairedModule)}`, text: { format: zodTextFormat(lessonModuleSchema, "generation_visible_text_repair") } });
     await store.modelCall(runId, "generation_visible_text_repair", model, usage(visibleRepair));
-    if (visibleRepair.output_parsed) repairedModule = visibleRepair.output_parsed;
+    if (visibleRepair.output_parsed) repairedModule = guaranteeFractionWarmup(visibleRepair.output_parsed, lessonSpec);
   }
   const finalFailures = moduleContentFailures(repairedModule);
   if (finalFailures.length) throw new Error(`${profile.label}: ${finalFailures.join(" ")}`);
