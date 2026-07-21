@@ -17,14 +17,6 @@ export const fractionProfiles: SupportProfile[] = [
     emoji: "🫐", accent: "#5663d8",
     whyMayHelp: null, evidenceLinks: null,
   },
-  {
-    id: "math-language-support",
-    label: "Mango",
-    supports: ["explicit vocabulary", "worked example", "representations alongside symbols"],
-    constraints: ["explain terms before asking for transfer"],
-    emoji: "🥭", accent: "#d75a25",
-    whyMayHelp: null, evidenceLinks: null,
-  },
 ];
 
 /** Small, teacher-facing labels for the gallery. They describe a route's design, never a learner. */

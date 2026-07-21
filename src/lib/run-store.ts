@@ -23,10 +23,8 @@ export async function listProfiles() {
   await db.batch([
     { sql: "INSERT OR IGNORE INTO support_profiles (id,label,supports_json,constraints_json,created_at) VALUES (?,?,?,?,?)", args: ["short-concrete-loops", "Pineapple", '["one action per screen","instant feedback"]', '["short loops"]', new Date().toISOString()] },
     { sql: "INSERT OR IGNORE INTO support_profiles (id,label,supports_json,constraints_json,created_at) VALUES (?,?,?,?,?)", args: ["audio-first", "Blueberry", '["spoken directions","replay"]', '["minimal text"]', new Date().toISOString()] },
-    { sql: "INSERT OR IGNORE INTO support_profiles (id,label,supports_json,constraints_json,created_at) VALUES (?,?,?,?,?)", args: ["math-language-support", "Mango", '["worked example","vocabulary"]', '[]', new Date().toISOString()] },
     { sql: "UPDATE support_profiles SET emoji = ?, accent = ? WHERE id = ? AND (emoji IS NULL OR accent IS NULL)", args: ["🍍", "#c68000", "short-concrete-loops"] },
     { sql: "UPDATE support_profiles SET emoji = ?, accent = ? WHERE id = ? AND (emoji IS NULL OR accent IS NULL)", args: ["🫐", "#5663d8", "audio-first"] },
-    { sql: "UPDATE support_profiles SET emoji = ?, accent = ? WHERE id = ? AND (emoji IS NULL OR accent IS NULL)", args: ["🥭", "#d75a25", "math-language-support"] },
     { sql: "UPDATE support_profiles SET why_may_help = ?, evidence_links_json = ? WHERE id = ? AND why_may_help IS NULL", args: ["May be useful when a learner benefits from one visible step, explicit modelling, and timely next-step feedback. These are flexible access supports, not a diagnosis or a prediction about a child.", JSON.stringify([{ label: "CAST: action-oriented feedback", href: "https://udlguidelines.cast.org/engagement/effort-persistence/feedback/" }, { label: "EEF: SEND in mainstream schools", href: "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/send" }]), "banana"] },
   ], "write");
   const rows = await db.execute("SELECT id,label,supports_json,constraints_json,emoji,accent,why_may_help,evidence_links_json FROM support_profiles ORDER BY created_at");
