@@ -12,7 +12,7 @@ async function init() {
       "CREATE TABLE IF NOT EXISTS artifacts (id TEXT PRIMARY KEY, run_id TEXT NOT NULL, profile_id TEXT NOT NULL, html TEXT, screenshot_path TEXT, validation_json TEXT, status TEXT NOT NULL, created_at TEXT NOT NULL)",
       "CREATE TABLE IF NOT EXISTS support_profiles (id TEXT PRIMARY KEY, label TEXT NOT NULL, supports_json TEXT NOT NULL, constraints_json TEXT NOT NULL, created_at TEXT NOT NULL)",
     ], "write");
-    for (const column of ["emoji TEXT", "accent TEXT"]) { try { await db.execute(`ALTER TABLE support_profiles ADD COLUMN ${column}`); } catch { /* existing local database already has it */ } }
+    for (const column of ["emoji TEXT", "accent TEXT", "why_may_help TEXT", "evidence_links_json TEXT"]) { try { await db.execute(`ALTER TABLE support_profiles ADD COLUMN ${column}`); } catch { /* existing local database already has it */ } }
   })();
   return initialized;
 }
@@ -25,11 +25,12 @@ export async function listProfiles() {
     { sql: "UPDATE support_profiles SET emoji = ?, accent = ? WHERE id = ? AND (emoji IS NULL OR accent IS NULL)", args: ["🍍", "#c68000", "short-concrete-loops"] },
     { sql: "UPDATE support_profiles SET emoji = ?, accent = ? WHERE id = ? AND (emoji IS NULL OR accent IS NULL)", args: ["🫐", "#5663d8", "audio-first"] },
     { sql: "UPDATE support_profiles SET emoji = ?, accent = ? WHERE id = ? AND (emoji IS NULL OR accent IS NULL)", args: ["🥭", "#d75a25", "math-language-support"] },
+    { sql: "UPDATE support_profiles SET why_may_help = ?, evidence_links_json = ? WHERE id = ? AND why_may_help IS NULL", args: ["May be useful when a learner benefits from one visible step, explicit modelling, and timely next-step feedback. These are flexible access supports, not a diagnosis or a prediction about a child.", JSON.stringify([{ label: "CAST: action-oriented feedback", href: "https://udlguidelines.cast.org/engagement/effort-persistence/feedback/" }, { label: "EEF: SEND in mainstream schools", href: "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/send" }]), "banana"] },
   ], "write");
-  const rows = await db.execute("SELECT id,label,supports_json,constraints_json,emoji,accent FROM support_profiles ORDER BY created_at");
-  return rows.rows.map((row) => ({ id: String(row.id), label: String(row.label), supports: JSON.parse(String(row.supports_json)), constraints: JSON.parse(String(row.constraints_json)), emoji: row.emoji ? String(row.emoji) : undefined, accent: row.accent ? String(row.accent) : undefined }));
+  const rows = await db.execute("SELECT id,label,supports_json,constraints_json,emoji,accent,why_may_help,evidence_links_json FROM support_profiles ORDER BY created_at");
+  return rows.rows.map((row) => ({ id: String(row.id), label: String(row.label), supports: JSON.parse(String(row.supports_json)), constraints: JSON.parse(String(row.constraints_json)), emoji: row.emoji ? String(row.emoji) : undefined, accent: row.accent ? String(row.accent) : undefined, whyMayHelp: row.why_may_help ? String(row.why_may_help) : null, evidenceLinks: row.evidence_links_json ? JSON.parse(String(row.evidence_links_json)) : null }));
 }
-export async function saveProfile(profile: { id: string; label: string; supports: string[]; constraints: string[]; emoji?: string | null; accent?: string | null }) { await init(); await db.execute({ sql: "INSERT OR REPLACE INTO support_profiles (id,label,supports_json,constraints_json,emoji,accent,created_at) VALUES (?,?,?,?,?,?,?)", args: [profile.id, profile.label, JSON.stringify(profile.supports), JSON.stringify(profile.constraints), profile.emoji ?? null, profile.accent ?? null, new Date().toISOString()] }); }
+export async function saveProfile(profile: { id: string; label: string; supports: string[]; constraints: string[]; emoji?: string | null; accent?: string | null; whyMayHelp?: string | null; evidenceLinks?: Array<{ label: string; href: string }> | null }) { await init(); await db.execute({ sql: "INSERT OR REPLACE INTO support_profiles (id,label,supports_json,constraints_json,emoji,accent,why_may_help,evidence_links_json,created_at) VALUES (?,?,?,?,?,?,?,?,?)", args: [profile.id, profile.label, JSON.stringify(profile.supports), JSON.stringify(profile.constraints), profile.emoji ?? null, profile.accent ?? null, profile.whyMayHelp ?? null, profile.evidenceLinks ? JSON.stringify(profile.evidenceLinks) : null, new Date().toISOString()] }); }
 
 export async function createRun(input: { id: string; lessonText: string; profilesJson: string }) {
   await init();

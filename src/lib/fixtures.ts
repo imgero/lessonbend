@@ -7,6 +7,7 @@ export const fractionProfiles: SupportProfile[] = [
     supports: ["one action per screen", "concrete visual manipulation", "immediate action-oriented feedback"],
     constraints: ["short loops", "low distraction"],
     emoji: "🍍", accent: "#c68000",
+    whyMayHelp: null, evidenceLinks: null,
   },
   {
     id: "audio-first",
@@ -14,6 +15,7 @@ export const fractionProfiles: SupportProfile[] = [
     supports: ["audio-capable directions", "minimal text", "visual symbols paired with language"],
     constraints: ["never depend on reading a paragraph"],
     emoji: "🫐", accent: "#5663d8",
+    whyMayHelp: null, evidenceLinks: null,
   },
   {
     id: "math-language-support",
@@ -21,6 +23,7 @@ export const fractionProfiles: SupportProfile[] = [
     supports: ["explicit vocabulary", "worked example", "representations alongside symbols"],
     constraints: ["explain terms before asking for transfer"],
     emoji: "🥭", accent: "#d75a25",
+    whyMayHelp: null, evidenceLinks: null,
   },
 ];
 

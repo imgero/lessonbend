@@ -6,9 +6,9 @@ import { ClassInsights } from "@/components/class-insights";
 import type { SupportProfile } from "@/lib/contracts";
 
 const demoProfiles: SupportProfile[] = [
-  { id: "pineapple", label: "Pineapple", emoji: "🍍", accent: "#c68000", supports: ["short loops", "immediate rewards"], constraints: [] },
-  { id: "blueberry", label: "Blueberry", emoji: "🫐", accent: "#5663d8", supports: ["audio-first", "minimal text"], constraints: [] },
-  { id: "mango", label: "Mango", emoji: "🥭", accent: "#d75a25", supports: ["worked examples", "vocabulary"], constraints: [] },
+  { id: "pineapple", label: "Pineapple", emoji: "🍍", accent: "#c68000", supports: ["short loops", "immediate rewards"], constraints: [], whyMayHelp: null, evidenceLinks: null },
+  { id: "blueberry", label: "Blueberry", emoji: "🫐", accent: "#5663d8", supports: ["audio-first", "minimal text"], constraints: [], whyMayHelp: null, evidenceLinks: null },
+  { id: "mango", label: "Mango", emoji: "🥭", accent: "#d75a25", supports: ["worked examples", "vocabulary"], constraints: [], whyMayHelp: null, evidenceLinks: null },
 ];
 
 function LessonCard({ artifact }: { artifact: StaticGalleryArtifact }) {

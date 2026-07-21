@@ -7,6 +7,8 @@ export const supportProfileSchema = z.object({
   constraints: z.array(z.string().min(1)).max(12),
   emoji: z.string().max(8).nullable().default(null),
   accent: z.string().regex(/^#[0-9a-fA-F]{6}$/).nullable().default(null),
+  whyMayHelp: z.string().min(10).max(360).nullable().default(null),
+  evidenceLinks: z.array(z.object({ label: z.string().min(2).max(120), href: z.string().url() })).max(6).nullable().default(null),
 });
 
 export const lessonSpecSchema = z.object({

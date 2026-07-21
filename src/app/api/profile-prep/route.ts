@@ -7,12 +7,13 @@ export const runtime = "nodejs";
 export const maxDuration = 120;
 
 const requestSchema = z.object({ brief: z.string().min(20).max(1600), suggestedLabel: z.string().min(1).max(50).optional() });
-const resultSchema = z.object({ label: z.string().min(3).max(50), supports: z.array(z.string()).min(2).max(8), constraints: z.array(z.string()).max(8), lessonMix: z.string().min(10).max(240), references: z.array(z.object({ title: z.string().min(3), url: z.string().url(), source: z.string().min(2).max(100) })).min(2).max(6) });
+const resultSchema = z.object({ label: z.string().min(3).max(50), supports: z.array(z.string()).min(2).max(8), constraints: z.array(z.string()).max(8), lessonMix: z.string().min(10).max(240), whyMayHelp: z.string().min(10).max(360), references: z.array(z.object({ title: z.string().min(3), url: z.string().url(), source: z.string().min(2).max(100) })).min(2).max(6) });
 // The Responses JSON-schema validator does not accept Zod's emitted `format: uri`.
 // Keep URL validation at the server boundary, but make the model-facing field a string.
 const researchSchema = {
-  type: "object", additionalProperties: false, required: ["label", "supports", "constraints", "lessonMix", "references"], properties: {
+  type: "object", additionalProperties: false, required: ["label", "supports", "constraints", "lessonMix", "whyMayHelp", "references"], properties: {
     label: { type: "string" }, supports: { type: "array", items: { type: "string" } }, constraints: { type: "array", items: { type: "string" } }, lessonMix: { type: "string" },
+    whyMayHelp: { type: "string" },
     references: { type: "array", items: { type: "object", additionalProperties: false, required: ["title", "url", "source"], properties: { title: { type: "string" }, url: { type: "string" }, source: { type: "string" } } } },
   },
 };
@@ -22,7 +23,7 @@ function normalizeProposal(value: unknown, suggestedLabel?: string) {
   const raw = value && typeof value === "object" ? value as Record<string, unknown> : {};
   const list = (key: string, limit: number) => Array.isArray(raw[key]) ? raw[key].map((item) => `${typeof item === "string" ? item : ""}`.trim()).filter(Boolean).slice(0, limit) : [];
   const references = (Array.isArray(raw.references) ? raw.references : []).map((item) => item && typeof item === "object" ? item as Record<string, unknown> : {}).map((item) => ({ title: clip(item.title, 160), url: typeof item.url === "string" ? item.url.trim() : "", source: clip(item.source, 100) })).filter((item) => /^https?:\/\//.test(item.url) && item.title).slice(0, 6);
-  return { label: clip(suggestedLabel || raw.label, 50) || "Banana", supports: list("supports", 8), constraints: list("constraints", 8), lessonMix: clipSentence(raw.lessonMix, 240), references };
+  return { label: clip(suggestedLabel || raw.label, 50) || "Banana", supports: list("supports", 8), constraints: list("constraints", 8), lessonMix: clipSentence(raw.lessonMix, 240), whyMayHelp: clipSentence(raw.whyMayHelp, 360), references };
 }
 
 export async function POST(request: Request) {
@@ -42,7 +43,7 @@ export async function POST(request: Request) {
       tools: [{ type: "web_search_preview", search_context_size: "medium" }],
       tool_choice: "required",
       text: { format: { type: "json_schema", name: "anonymous_support_profile", strict: true, schema: researchSchema } },
-      input: `Research an anonymous classroom-support profile from this teacher observation. You MUST use web search. Prefer recent meta-analyses, education-government sources, and accredited research. Do not diagnose or use medical labels. Provide direct, checkable source links. HARD LIMITS: at most 8 supports; at most 8 constraints; lessonMix under 240 characters; at most 6 references; source names under 100 characters and short (for example IES, EEF, CAST). Return the required JSON only. Use this suggested neutral fruit name: ${parsed.data.suggestedLabel ?? "Banana"}. Observation: ${parsed.data.brief}`,
+      input: `Research an anonymous classroom-support profile from this teacher observation. You MUST use web search. Prefer recent meta-analyses, education-government sources, and accredited research. Do not diagnose or use medical labels. Provide direct, checkable source links. Include whyMayHelp: a careful, non-diagnostic 1–2 sentence explanation grounded in the cited supports. HARD LIMITS: at most 8 supports; at most 8 constraints; lessonMix under 240 characters; whyMayHelp under 360 characters; at most 6 references; source names under 100 characters and short (for example IES, EEF, CAST). Return the required JSON only. Use this suggested neutral fruit name: ${parsed.data.suggestedLabel ?? "Banana"}. Observation: ${parsed.data.brief}`,
     }, { signal: controller.signal });
     const result = resultSchema.safeParse(normalizeProposal(JSON.parse(response.output_text), parsed.data.suggestedLabel));
     if (!result.success) return NextResponse.json({ error: "Research returned incomplete sources. Please try again; no notes or profile were saved." }, { status: 502 });
