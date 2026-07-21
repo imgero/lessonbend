@@ -150,7 +150,13 @@ export async function executeRun(input: { id: string; lessonText: string; profil
         if (!browser.passed) {
           await store.saveArtifact({ id: artifactId, runId, profileId: profile.id, html, screenshotPath: browser.screenshotPath, validation: browser, status: "browser_validation_failed" });
           if (attempt === MAX_REPAIRS) throw new Error(`${profile.label}: browser validation failed after ${MAX_REPAIRS} repairs.`);
-          repairInstructions = [...browser.consoleErrors, ...browser.outboundRequests.map((url) => `Remove outbound request: ${url}`)];
+          repairInstructions = [
+            ...browser.consoleErrors,
+            ...browser.outboundRequests.map((url) => `Remove outbound request: ${url}`),
+            ...(browser.missingCircle ? ["This is a fraction lesson. Use shade, build, or find-mistake so the trusted shell renders a real tappable sector circle; never replace the fraction model with text choices."] : []),
+            ...(browser.emptySteps.length ? [`Make every step interactive and visible. Empty steps: ${browser.emptySteps.join(", ")}.`] : []),
+            ...(browser.blank ? ["The visible lesson region was blank or had no controls. Provide a real interaction."] : []),
+          ];
           repaired = true;
           continue;
         }
