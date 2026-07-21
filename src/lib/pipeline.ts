@@ -37,7 +37,7 @@ function moduleContentFailures(module: LessonModule) {
 }
 
 function guaranteeFractionWarmup(module: LessonModule, lessonSpec: unknown): LessonModule {
-  if (!/fraction/i.test(JSON.stringify(lessonSpec)) || module.steps.some(step => ["shade", "build", "match", "find-mistake"].includes(step.kind))) return module;
+  if (!/fraction/i.test(JSON.stringify(lessonSpec)) || ["shade", "build", "match", "find-mistake"].includes(module.steps[0]?.kind ?? "")) return module;
   const first = module.steps[0];
   return {
     ...module,
