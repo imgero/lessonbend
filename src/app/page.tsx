@@ -28,6 +28,7 @@ function compactSupportTag(value: string) {
 
 export default function Home() {
   const [showLogin, setShowLogin] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [teacherMode, setTeacherMode] = useState(false);
   const [loginError, setLoginError] = useState("");
   const login = (event: FormEvent<HTMLFormElement>) => {
@@ -37,7 +38,7 @@ export default function Home() {
     setLoginError("Those demo details don’t match. Check the README and try again.");
   };
   if (teacherMode) return <LiveStudio />;
-  return <><StaticGallery onTeacherLogin={() => setShowLogin(true)} />{showLogin && <div className="demo-login-modal" role="dialog" aria-modal="true" aria-labelledby="demo-login-title"><form onSubmit={login}><button className="close-profile" type="button" aria-label="Close login" onClick={() => setShowLogin(false)}>×</button><p className="eyebrow">Teacher demo</p><h2 id="demo-login-title">Try the live studio</h2><p>This is a simple demonstration gate, not a real account system.</p><label>Username<input name="username" autoComplete="username" required /></label><label>Password<input name="password" type="password" autoComplete="current-password" required /></label>{loginError && <p className="warning">{loginError}</p>}<button className="approve" type="submit">Open teacher studio</button></form></div>}</>;
+  return <><StaticGallery onTeacherLogin={() => setShowLogin(true)} />{showLogin && <div className="demo-login-modal" role="dialog" aria-modal="true" aria-labelledby="demo-login-title"><form onSubmit={login}><button className="close-profile" type="button" aria-label="Close login" onClick={() => setShowLogin(false)}>×</button><p className="eyebrow">Teacher demo</p><h2 id="demo-login-title">Try the live studio</h2><p>This is a simple demonstration gate, not a real account system.</p><label>Username<input name="username" autoComplete="username" required /></label><label>Password<div className="password-field"><input name="password" type={showPassword ? "text" : "password"} autoComplete="current-password" required /><button type="button" onClick={() => setShowPassword(value => !value)}>{showPassword ? "Hide" : "Show"}</button></div></label>{loginError && <p className="warning">{loginError}</p>}<button className="approve" type="submit">Open teacher studio</button></form></div>}</>;
 }
 
 function LiveStudio() {
