@@ -101,7 +101,8 @@ main > header .intro {
   .profile-picker .profile-option article { min-height: 92px; display: grid; grid-template-columns: minmax(170px, .7fr) minmax(0, 1fr) minmax(150px, .7fr); align-items: center; column-gap: 18px; }
   .profile-picker .profile-option article { text-align: left; }
   .profile-picker .profile-option h3 { grid-column: 1; grid-row: 1; }
-  .profile-picker .profile-option .profile-summary { grid-column: 2; grid-row: 1; min-height: 0; text-align: left; }
+  .profile-picker .profile-option .profile-summary { grid-column: 2; grid-row: 1; min-height: 0; text-align: left; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .profile-picker .support-pill { padding: 5px 9px; border-radius: 999px; background: color-mix(in srgb, var(--profile-color) 11%, #fff); color: color-mix(in srgb, var(--profile-color) 70%, #24324a); font-size: .8rem; font-weight: 800; line-height: 1.15; }
   .profile-picker .profile-option .profile-more, .profile-picker .profile-option .why-works { grid-column: 3; margin-top: 0; align-self: start; }
   .profile-picker .profile-option .profile-more { grid-row: 1; }
   .profile-picker .profile-option .why-works { grid-row: 2; }
