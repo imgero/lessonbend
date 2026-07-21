@@ -27,6 +27,13 @@ export const fractionProfiles: SupportProfile[] = [
   },
 ];
 
+/** Small, teacher-facing labels for the gallery. They describe a route's design, never a learner. */
+export const presetRouteTags: Record<string, string[]> = {
+  "short-concrete-loops": ["short loops", "instant feedback", "one step at a time"],
+  "audio-first": ["audio-first", "minimal text", "replay"],
+  "math-language-support": ["worked examples", "vocabulary", "visual models"],
+};
+
 export const fractionsGoldenSpec: LessonSpec = {
   goal: "Recognise and build fractions equivalent to one half.",
   successCriteria: ["Match two visual representations of one half.", "Explain that equal parts must cover the same whole."],
