@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useState, type CSSProperties, type FormEvent } from "react";
 import { ArtifactPlayer } from "@/components/artifact-player";
 import { GenerationPanel } from "@/components/generation-panel";
 import { ProfilePrep } from "@/components/profile-prep";
@@ -22,8 +22,17 @@ function ProfileEvidence({ profile }: { profile: SupportProfile }) {
 }
 
 export default function Home() {
-  if (process.env.NEXT_PUBLIC_STATIC_GALLERY === "true") return <StaticGallery />;
-  return <LiveStudio />;
+  const [showLogin, setShowLogin] = useState(false);
+  const [teacherMode, setTeacherMode] = useState(false);
+  const [loginError, setLoginError] = useState("");
+  const login = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    if (form.get("username") === "teacher" && form.get("password") === "lessonbend-demo") { setTeacherMode(true); setShowLogin(false); setLoginError(""); return; }
+    setLoginError("Those demo details don’t match. Check the README and try again.");
+  };
+  if (teacherMode) return <LiveStudio />;
+  return <><StaticGallery onTeacherLogin={() => setShowLogin(true)} />{showLogin && <div className="demo-login-modal" role="dialog" aria-modal="true" aria-labelledby="demo-login-title"><form onSubmit={login}><button className="close-profile" type="button" aria-label="Close login" onClick={() => setShowLogin(false)}>×</button><p className="eyebrow">Teacher demo</p><h2 id="demo-login-title">Try the live studio</h2><p>This is a simple demonstration gate, not a real account system.</p><label>Username<input name="username" autoComplete="username" required /></label><label>Password<input name="password" type="password" autoComplete="current-password" required /></label>{loginError && <p className="warning">{loginError}</p>}<button className="approve" type="submit">Open teacher studio</button></form></div>}</>;
 }
 
 function LiveStudio() {
