@@ -24,7 +24,9 @@ export async function validateInBrowser(html: string, artifactId: string) {
       const bounds = main.getBoundingClientRect();
       return { text, controls, area: bounds.width * bounds.height, shellVersion: document.documentElement.dataset.lessonbendShell ?? null, circles: main.querySelectorAll("svg[data-lb-model='fraction-circle']").length };
     });
-    const artifactDir = join(process.cwd(), "artifacts");
+    // Render mounts its persistent disk at LESSONBEND_DATA_DIR. Local development
+    // deliberately keeps the existing project-relative artifacts directory.
+    const artifactDir = join(process.env.LESSONBEND_DATA_DIR ?? process.cwd(), "artifacts");
     await mkdir(artifactDir, { recursive: true });
     const screenshotPath = join(artifactDir, `${artifactId}.png`);
     await page.screenshot({ path: screenshotPath, fullPage: true });

@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: lessonbend-live
+    runtime: docker
+    plan: starter
+    healthCheckPath: /
+    disk:
+      name: lessonbend-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: LESSONBEND_DATA_DIR
+        value: /data
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      - key: OPENAI_TTS_MODEL
+        value: gpt-4o-mini-tts
+      - key: OPENAI_API_KEY
+        sync: false

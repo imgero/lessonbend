@@ -1,0 +1,9 @@
+node_modules
+.next
+.git
+.env
+.env.*
+lessonbend.db
+artifacts
+npm-debug.log
+.DS_Store

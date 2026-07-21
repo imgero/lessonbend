@@ -1,6 +1,8 @@
 import { createClient } from "@libsql/client";
+import { join } from "node:path";
 
-const db = createClient({ url: process.env.LESSONBEND_DB_URL ?? "file:lessonbend.db" });
+const dataDir = process.env.LESSONBEND_DATA_DIR ?? process.cwd();
+const db = createClient({ url: process.env.LESSONBEND_DB_URL ?? `file:${join(dataDir, "lessonbend.db")}` });
 let initialized: Promise<void> | undefined;
 
 async function init() {
