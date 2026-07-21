@@ -36,7 +36,31 @@ function moduleContentFailures(module: LessonModule) {
   return failures;
 }
 
-function guaranteeFractionWarmup(module: LessonModule, lessonSpec: unknown): LessonModule {
+function usesAutoAdvance(profile: SupportProfile) {
+  return profile.id === "short-concrete-loops" || profile.id === "audio-first";
+}
+
+function removeCheckCopy(value: string) {
+  return value
+    .replace(/(?:,?\s*and)?\s*then\s+tap\s+(?:the\s+)?check(?:\s+button)?\.?/gi, ".")
+    .replace(/\s+\./g, ".")
+    .replace(/\.\.+/g, ".")
+    .trim();
+}
+
+function applyAutoAdvanceCopy(module: LessonModule, autoAdvance: boolean): LessonModule {
+  if (!autoAdvance) return module;
+  return {
+    ...module,
+    steps: module.steps.map((step) => ({
+      ...step,
+      prompt: removeCheckCopy(step.prompt),
+      retryNextMove: removeCheckCopy(step.retryNextMove),
+    })),
+  };
+}
+
+function guaranteeFractionWarmup(module: LessonModule, lessonSpec: unknown, autoAdvance = false): LessonModule {
   if (!/fraction/i.test(JSON.stringify(lessonSpec)) || ["shade", "build", "match", "find-mistake"].includes(module.steps[0]?.kind ?? "")) return module;
   const first = module.steps[0];
   return {
@@ -45,7 +69,7 @@ function guaranteeFractionWarmup(module: LessonModule, lessonSpec: unknown): Les
       ...first,
       checkpointId: first.checkpointId,
       kind: "shade",
-      prompt: "Shade 2 of the circle’s 4 equal parts, then tap Check.",
+      prompt: autoAdvance ? "Shade 2 of the circle’s 4 equal parts." : "Shade 2 of the circle’s 4 equal parts, then tap Check.",
       denominator: 4,
       correctNumerator: 2,
       targetDenominator: null,
@@ -83,10 +107,14 @@ function extractHtml(text: string) {
 }
 
 async function authorArtifact(runId: string, lessonSpec: unknown, profile: SupportProfile, repairInstructions?: string[]) {
+  const autoAdvance = usesAutoAdvance(profile);
+  const fractionInstruction = autoAdvance
+    ? "This profile auto-advances as soon as the correct sectors are selected. For shade/build/find-mistake prompts, say exactly what to tap or select, and NEVER mention a Check button."
+    : "The shell renders fraction kinds as tappable sectors plus a Check button. For shade/build/find-mistake prompts, explicitly ask learners to select sectors and tap Check.";
   const response = await monitored(runId, "artifact_generation_running", `${profile.label}: generating lesson module.`, client().responses.parse({
     model,
     max_output_tokens: 4500,
-    input: `Generate ONLY a LessonModule JSON for a trusted educational renderer. Never generate HTML, CSS, JavaScript, CSP, events, or feedback UI. INSTRUCTION CONTRACT: every prompt must name one concrete action and its visible target. Good: "Two parts are not equal. Tap the wrong line to fix it." Good: "Shade 3 of the circle's 4 equal parts, then tap Check." Good: "Tap Equal if both circles shade the same amount." Bad: "Fix the circle rule." Bad: "Tap a fraction" when no fraction-choice buttons exist. Bad: "Tap Equal/Not equal" when those buttons are not rendered. The shell renders fraction kinds as tappable sectors plus Check; therefore shade/build/find-mistake prompts MUST explicitly ask learners to select sectors and tap Check. Do not ask for labels, choices, two-circle comparisons, or a target denominator the shell does not render. Avoid these exact previous failures: "steps tell learners to tap a fraction or tap Equal/Not equal, but those choices are never rendered"; "the final equivalence task shows only one circle"; and "the implementation instead presents selectable sectors and a Check button." Pick interaction kinds that fit the subject: shade/build/find-mistake for fraction maths; sequence for chronological events, procedures, and life cycles; bin-sort for classifying science/grammar concepts; cloze for reading vocabulary and comprehension; reveal-pairs for concept-to-meaning recall; label-parts for simple science diagrams. select is a rare later follow-up only, never an opener. The renderer owns visual models. For sequence use items with order and provide at least 3 items; bin-sort uses bins and item.bin; cloze uses choices with one correct; reveal-pairs uses pairs; label-parts uses diagram labels. Set unused fields to null. For fraction kinds only, use valid values: correctNumerator must not exceed denominator; targetDenominator must be a multiple of denominator for build; never describe unequal partitions because the renderer draws equal sectors. Make the route distinct for the profile while preserving the goal.\nLessonSpec:${JSON.stringify(lessonSpec)}\nProfile:${JSON.stringify(profile)}\n${repairInstructions?.join(" ") ?? ""}`,
+    input: `Generate ONLY a LessonModule JSON for a trusted educational renderer. Never generate HTML, CSS, JavaScript, CSP, events, or feedback UI. INSTRUCTION CONTRACT: every prompt must name one concrete action and its visible target. Good: "Two parts are not equal. Tap the wrong line to fix it." Good: "Shade 3 of the circle's 4 equal parts, then tap Check." Bad: "Fix the circle rule." Bad: "Tap a fraction" when no fraction-choice buttons exist. ${fractionInstruction} Do not ask for labels, choices, two-circle comparisons, or a target denominator the shell does not render. Avoid these exact previous failures: "steps tell learners to tap a fraction or tap Equal/Not equal, but those choices are never rendered"; "the final equivalence task shows only one circle"; and "the implementation instead presents selectable sectors and a Check button." Pick interaction kinds that fit the subject: shade/build/find-mistake for fraction maths; sequence for chronological events, procedures, and life cycles; bin-sort for classifying science/grammar concepts; cloze for reading vocabulary and comprehension; reveal-pairs for concept-to-meaning recall; label-parts for simple science diagrams. select is a rare later follow-up only, never an opener. The renderer owns visual models. For sequence use items with order and provide at least 3 items; bin-sort uses bins and item.bin; cloze uses choices with one correct; reveal-pairs uses pairs; label-parts uses diagram labels. Set unused fields to null. For fraction kinds only, use valid values: correctNumerator must not exceed denominator; targetDenominator must be a multiple of denominator for build; never describe unequal partitions because the renderer draws equal sectors. Make the route distinct for the profile while preserving the goal.\nLessonSpec:${JSON.stringify(lessonSpec)}\nProfile:${JSON.stringify(profile)}\n${repairInstructions?.join(" ") ?? ""}`,
     text: { format: zodTextFormat(lessonModuleSchema, "lesson_module") },
   }));
   await store.modelCall(runId, repairInstructions ? "repair_author" : "artifact_author", model, usage(response));
@@ -96,18 +124,18 @@ async function authorArtifact(runId: string, lessonSpec: unknown, profile: Suppo
   }
   const parsed = response.output_parsed ?? (fallback?.success ? fallback.data : undefined);
   if (!parsed) throw new Error(`${profile.label}: author returned no usable module.`);
-  let repairedModule = guaranteeFractionWarmup(parsed, lessonSpec);
+  let repairedModule = applyAutoAdvanceCopy(guaranteeFractionWarmup(parsed, lessonSpec, autoAdvance), autoAdvance);
   const contentFailures = moduleContentFailures(repairedModule);
   if (contentFailures.some(failure => failure.includes("ends mid-sentence") || failure.includes("under 60 words"))) {
     const textRepair = await client().responses.parse({ model, max_output_tokens: 350, input: `Return only JSON. Rewrite intro and audioText as short, complete English sentences under 60 words each. Preserve meaning. Intro: ${repairedModule.intro}\nAudio: ${repairedModule.audioText ?? repairedModule.intro}`, text: { format: zodTextFormat(z.object({ intro: z.string().min(5).max(360), audioText: z.string().min(5).max(360) }), "text_repair") } });
     await store.modelCall(runId, "text_field_repair", model, usage(textRepair));
-    if (textRepair.output_parsed) repairedModule = guaranteeFractionWarmup({ ...repairedModule, ...textRepair.output_parsed }, lessonSpec);
+    if (textRepair.output_parsed) repairedModule = applyAutoAdvanceCopy(guaranteeFractionWarmup({ ...repairedModule, ...textRepair.output_parsed }, lessonSpec, autoAdvance), autoAdvance);
   }
   const remainingFailures = moduleContentFailures(repairedModule);
   if (remainingFailures.length) {
     const visibleRepair = await client().responses.parse({ model, max_output_tokens: 1600, input: `Return ONLY a LessonModule JSON. Preserve every interaction kind, denominator, checkpointId, correctness flag, order, bin assignment, and structure. Rewrite only learner-visible strings to remove non-English stray characters and drag/drop/swipe wording. Keep intro and audioText complete and under 60 words. Module: ${JSON.stringify(repairedModule)}`, text: { format: zodTextFormat(lessonModuleSchema, "generation_visible_text_repair") } });
     await store.modelCall(runId, "generation_visible_text_repair", model, usage(visibleRepair));
-    if (visibleRepair.output_parsed) repairedModule = guaranteeFractionWarmup(visibleRepair.output_parsed, lessonSpec);
+    if (visibleRepair.output_parsed) repairedModule = applyAutoAdvanceCopy(guaranteeFractionWarmup(visibleRepair.output_parsed, lessonSpec, autoAdvance), autoAdvance);
   }
   const finalFailures = moduleContentFailures(repairedModule);
   if (finalFailures.length) throw new Error(`${profile.label}: ${finalFailures.join(" ")}`);
