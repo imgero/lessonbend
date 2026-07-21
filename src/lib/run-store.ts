@@ -38,7 +38,7 @@ export async function createRun(input: { id: string; lessonText: string; profile
 }
 export async function getActiveRun() {
   await init();
-  const result = await db.execute("SELECT id, status FROM runs WHERE status NOT IN ('failed', 'approved', 'ready_for_approval') ORDER BY created_at DESC LIMIT 1");
+  const result = await db.execute("SELECT id, status FROM runs WHERE status NOT IN ('failed', 'cancelled', 'approved', 'ready_for_approval') ORDER BY created_at DESC LIMIT 1");
   return result.rows[0] ?? null;
 }
 export async function event(runId: string, status: string, detail?: string) {

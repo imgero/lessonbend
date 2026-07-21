@@ -84,3 +84,5 @@ main > header .intro {
   main > header h1 { font-size: clamp(2.3rem, 11vw, 3.3rem); }
   main > header .wordmark { margin-bottom: 18px; }
 }
+
+.generation-retry{display:grid;gap:8px;margin-top:18px;padding:16px;border:2px solid #e8b965;border-radius:18px;background:#fff6db;color:#75420b}.generation-retry span{color:#7f6241}.generation-retry .approve{justify-self:start;background:#c68100;box-shadow:0 5px 0 #865900}

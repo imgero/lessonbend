@@ -8,7 +8,8 @@ export const supportProfileSchema = z.object({
   emoji: z.string().max(8).nullable().default(null),
   accent: z.string().regex(/^#[0-9a-fA-F]{6}$/).nullable().default(null),
   whyMayHelp: z.string().min(10).max(360).nullable().default(null),
-  evidenceLinks: z.array(z.object({ label: z.string().min(2).max(120), href: z.string().url() })).max(6).nullable().default(null),
+  // Keep model-facing structured-output schemas format-free. URL safety is checked at the API boundary.
+  evidenceLinks: z.array(z.object({ label: z.string().min(2).max(120), href: z.string().min(1).max(2048) })).max(6).nullable().default(null),
 });
 
 export const lessonSpecSchema = z.object({

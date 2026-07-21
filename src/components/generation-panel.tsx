@@ -31,6 +31,16 @@ function GeneratedFrame({ html, label, profileId, accent, runId }: { html: strin
 }
 
 function stageFor(status = "") { if (status.includes("decomposition")) return 0; if (status.includes("artifact_generation") || status.includes("repair")) return 1; if (status.includes("static") || status.includes("browser") || status.includes("evaluation")) return 2; return 3; }
+function errorMessage(value: unknown) {
+  if (typeof value === "string") return value;
+  if (value && typeof value === "object") {
+    const candidate = value as { formErrors?: unknown; fieldErrors?: Record<string, unknown> };
+    const form = Array.isArray(candidate.formErrors) ? candidate.formErrors.filter((item): item is string => typeof item === "string") : [];
+    const fields = Object.values(candidate.fieldErrors ?? {}).flat().filter((item): item is string => typeof item === "string");
+    return [...form, ...fields].join(" ") || "Please check the lesson and selected profiles, then try again.";
+  }
+  return "Generation could not start. Please try again.";
+}
 
 export function GenerationPanel({ lessonText, profiles }: { lessonText: string; profiles: SupportProfile[] }) {
   const [runId, setRunId] = useState<string>();
@@ -42,9 +52,9 @@ export function GenerationPanel({ lessonText, profiles }: { lessonText: string; 
   useEffect(() => { void fetch("/api/runs?latest=1", { cache: "no-store" }).then(r => r.ok ? r.json() : undefined).then((next) => { if (next) { setRun(next); setRunId(next.run?.id); } }); void fetch("/api/runs?gallery=1").then(r => r.ok ? r.json() : []).then(setGallery); }, []);
   useEffect(() => { if (!runId) return; const poll = async () => { const response = await fetch(`/api/runs/${runId}`, { cache: "no-store" }); if (response.ok) setRun(await response.json()); }; void poll(); const interval = window.setInterval(poll, 1000); return () => window.clearInterval(interval); }, [runId]);
   useEffect(() => { const interval = window.setInterval(() => setNow(Date.now()), 1000); return () => window.clearInterval(interval); }, []);
-  const start = useCallback(async () => { setStarting(true); setShowInsights(false); setRun(undefined); const response = await fetch("/api/runs", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ lessonText, profiles }) }); const data = await response.json(); if (response.ok) setRunId(data.id); else setRun({ run: { id: "local-error", status: "failed", error: data.error }, events: [], modelCalls: [], artifacts: [] }); setStarting(false); }, [lessonText, profiles]);
+  const start = useCallback(async () => { setStarting(true); setShowInsights(false); setRun(undefined); const response = await fetch("/api/runs", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ lessonText, profiles }) }); const data = await response.json(); if (response.ok) setRunId(data.id); else setRun({ run: { id: "local-error", status: "failed", error: errorMessage(data.error) }, events: [], modelCalls: [], artifacts: [] }); setStarting(false); }, [lessonText, profiles]);
   const status = run?.run?.status ?? "";
-  const active = Boolean(run?.run && !["failed", "approved", "ready_for_approval"].includes(status));
+  const active = Boolean(run?.run && !["failed", "cancelled", "approved", "ready_for_approval"].includes(status));
   const stage = stageFor(status);
   const started = run?.events[0];
   const elapsed = started ? Math.max(0, Math.floor((now - new Date(started.created_at).getTime()) / 1000)) : 0;
@@ -53,12 +63,14 @@ export function GenerationPanel({ lessonText, profiles }: { lessonText: string; 
   const profileLabel = (id: string) => profile(id)?.label ?? id;
   const galleryItems = Array.from(new Map(gallery.map((item) => [item.lesson_text.trim().toLowerCase(), item])).values());
   const complete = Boolean(run?.run && !active && !run.run.error);
+  const failed = status === "failed";
   return <section className="engine">
     <div><p className="eyebrow">3. Generation</p><h2>Generate three routes to the same goal</h2><p>Your lesson, bent three ways—usually about two minutes.</p></div>
     <button className="generate" disabled={starting || active} onClick={() => void start()}>{active ? "Bending your lesson…" : starting ? "Starting…" : "Generate"}</button>
     {run && <>
       <div className="friendly-progress">{[["Reading your lesson", "Finding the goal and the tricky bits."], ["Designing each route", profiles.map(p => p.label).join(" · ")], ["Creating each version", run.artifacts.length ? run.artifacts.map(a => `${profileLabel(a.profile_id)}: ${a.status.replaceAll("_", " ")}`).join(" · ") : "Preparing the learner routes."], ["Quality check", "Checking that every lesson is safe, clear, and playable."]].map(([title, detail], index) => <article key={title} className={index < stage || (!active && status === "ready_for_approval") ? "complete" : index === stage && active ? "current" : ""}><b>{index < stage ? "✓" : index === stage && active ? "↝" : "○"} {title}</b><span>{detail}{index === stage && active ? ` · ${elapsed}s` : ""}</span></article>)}</div>
-      {run.run?.error && <p className="warning">This version stopped: {run.run.error}</p>}
+      {failed && <section className="generation-retry" aria-live="polite"><b>This route needs another pass.</b><span>Nothing has been shared. You can try another version when you’re ready.</span><button className="approve" onClick={() => void start()}>Try another version</button></section>}
+      {status === "cancelled" && <p className="warning">This version was stopped. You can generate a new route whenever you’re ready.</p>}
       {run.artifacts.length > 0 && <div className="generated-grid">{run.artifacts.map(a => a.html && <GeneratedFrame key={a.id} profileId={a.profile_id} label={profileLabel(a.profile_id)} accent={profile(a.profile_id)?.accent} html={a.html} runId={run.run?.id} />)}</div>}
       {complete && <button className="approve" onClick={() => setShowInsights(current => !current)}>{showInsights ? "Hide insights" : "View insights"}</button>}
       {showInsights && run.run && <ClassInsights runId={run.run.id} profiles={profiles} />}
