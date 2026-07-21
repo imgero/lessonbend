@@ -10,7 +10,7 @@ Open **[lessonbend.com](https://lessonbend.com)** first. It contains the ready-t
 
 The local engine uses two model roles: one creates a structured lesson specification; another authors a constrained lesson module. A trusted shell—not the model—owns sandboxing, interaction rendering, accessibility, feedback, progress, and audio playback. Each module is statically checked, browser-rendered without outbound network access, screenshot-validated, and judged before it can enter the gallery.
 
-The public deployment is intentionally static: validated artifact HTML and audio are baked into the build. It has no runtime database dependency, no learner data, and no production OpenAI calls.
+The public landing is a fast, playable gallery of validated artifact HTML and embedded audio. Its **Log in as teacher (demo)** gate opens the live studio locally; it is deliberately a presentation gate, not real authentication.
 
 ## Run the local engine
 
@@ -21,15 +21,29 @@ The public deployment is intentionally static: validated artifact HTML and audio
 
 The local engine uses SQLite (`lessonbend.db`, ignored by Git), calls OpenAI for planning, module authoring, evaluation, and optional TTS, and validates artifacts in a sandboxed browser. Do not enter real learner names or identifying details.
 
-## Production / Vercel
+## Demo teacher gate
 
-The public deployment needs exactly one environment variable:
+The public landing always remains playable without a login. To open the live teacher studio in the local demo:
 
-```bash
-NEXT_PUBLIC_STATIC_GALLERY=true
+```text
+Username: teacher
+Password: lessonbend-demo
 ```
 
-`OPENAI_API_KEY` is deliberately **not** required or used by the public gallery. No other production variables are needed for the static experience. Deploy with the same build command Vercel runs normally (`npm run build`); the environment variable selects the baked gallery UI.
+This is intentionally not security. It has no user records, sessions, or authentication library, and the credentials are visible in the client bundle. It is suitable only for a judged demo where the API key stays server-side.
+
+## Production / Vercel
+
+The static gallery requires **no environment variables**. Do not set an `OPENAI_API_KEY` for the public gallery unless the backend is moved to durable infrastructure.
+
+There is not yet a safe Vercel-only configuration for the live engine. The current local engine requires:
+
+```bash
+OPENAI_API_KEY=...
+OPENAI_TTS_MODEL=gpt-4o-mini-tts # optional
+```
+
+`OPENAI_API_KEY` must never be named `NEXT_PUBLIC_OPENAI_API_KEY`. The live pipeline currently depends on a writable SQLite database, local screenshots, and Playwright browser validation. Vercel functions have ephemeral filesystems and execution limits, so enabling `OPENAI_API_KEY` alone would not make the live generator reliable. A future production live engine needs managed database/artifact storage and a compatible browser-validation worker.
 
 To refresh the gallery locally after validating new artifacts:
 
