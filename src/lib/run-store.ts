@@ -34,6 +34,7 @@ export async function listProfiles() {
   return rows.rows.map((row) => ({ id: String(row.id), label: String(row.label), supports: JSON.parse(String(row.supports_json)), constraints: JSON.parse(String(row.constraints_json)), emoji: row.emoji ? String(row.emoji) : undefined, accent: row.accent ? String(row.accent) : undefined, whyMayHelp: row.why_may_help ? String(row.why_may_help) : null, evidenceLinks: row.evidence_links_json ? JSON.parse(String(row.evidence_links_json)) : null }));
 }
 export async function saveProfile(profile: { id: string; label: string; supports: string[]; constraints: string[]; emoji?: string | null; accent?: string | null; whyMayHelp?: string | null; evidenceLinks?: Array<{ label: string; href: string }> | null }) { await init(); await db.execute({ sql: "INSERT OR REPLACE INTO support_profiles (id,label,supports_json,constraints_json,emoji,accent,why_may_help,evidence_links_json,created_at) VALUES (?,?,?,?,?,?,?,?,?)", args: [profile.id, profile.label, JSON.stringify(profile.supports), JSON.stringify(profile.constraints), profile.emoji ?? null, profile.accent ?? null, profile.whyMayHelp ?? null, profile.evidenceLinks ? JSON.stringify(profile.evidenceLinks) : null, new Date().toISOString()] }); }
+export async function deleteProfile(id: string) { await init(); await db.execute({ sql: "DELETE FROM support_profiles WHERE id = ?", args: [id] }); }
 
 export async function createRun(input: { id: string; lessonText: string; profilesJson: string }) {
   await init();
