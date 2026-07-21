@@ -76,7 +76,9 @@ export async function getArtifact(id: string) { await init(); const result = awa
 /** Restores the latest complete comparison set instead of a later one-profile repair run. */
 export async function getLatestComparisonRun() {
   await init();
-  const result = await db.execute("SELECT r.id FROM runs r WHERE (SELECT COUNT(*) FROM artifacts a WHERE a.run_id = r.id) >= 2 ORDER BY r.created_at DESC LIMIT 1");
+  // Restore the latest run with any saved artifact so a partial (one-profile)
+  // result is still visible after a refresh or a teacher login.
+  const result = await db.execute("SELECT r.id FROM runs r WHERE (SELECT COUNT(*) FROM artifacts a WHERE a.run_id = r.id) >= 1 ORDER BY r.created_at DESC LIMIT 1");
   return result.rows[0]?.id ? getRun(String(result.rows[0].id)) : null;
 }
 export async function listGalleryRuns() {
