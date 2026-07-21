@@ -96,8 +96,9 @@ async function addEmbeddedAudio(runId: string, html: string) {
     const enhanced = html.replace(/<body([^>]*)>/, `<body$1><audio id="recorded-audio" preload="auto" src="${dataUri}"></audio>`).replace("</body>", `<script>document.querySelector('#audio').onclick=()=>{const a=document.querySelector('#recorded-audio');a.currentTime=0;a.play().catch(()=>{})}</script></body>`);
     await store.event(runId, "audio_embedded", `Blueberry: recorded directions embedded (${Math.round(bytes.length / 1024)} KB audio; ${Math.round(enhanced.length / 1024)} KB artifact).`);
     return { html: enhanced, bytes: bytes.length };
-  } catch {
-    await store.event(runId, "audio_fallback", "Blueberry: recorded voice was unavailable; browser voice remains available.");
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : "Unknown TTS error";
+    await store.event(runId, "audio_fallback", `Blueberry: recorded voice unavailable (${reason}); browser voice remains available.`);
     return { html, bytes: 0 };
   }
 }
