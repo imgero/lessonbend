@@ -10,7 +10,7 @@ Open **[lessonbend.com](https://lessonbend.com)** first. It contains the ready-t
 
 The local engine uses two model roles: one creates a structured lesson specification; another authors a constrained lesson module. A trusted shell—not the model—owns sandboxing, interaction rendering, accessibility, feedback, progress, and audio playback. Each module is statically checked, browser-rendered without outbound network access, screenshot-validated, and judged before it can enter the gallery.
 
-The public landing is a fast, playable gallery of validated artifact HTML and embedded audio. Its **Log in as teacher (demo)** gate opens the live studio locally; it is deliberately a presentation gate, not real authentication.
+The public landing is a fast, playable gallery of validated artifact HTML and embedded audio. Its **Log in as teacher (demo)** gate opens the live studio; it is deliberately a presentation gate, not real authentication.
 
 ## Run the local engine
 
@@ -32,24 +32,34 @@ Password: lessonbend-demo
 
 This is intentionally not security. It has no user records, sessions, or authentication library, and the credentials are visible in the client bundle. It is suitable only for a judged demo where the API key stays server-side.
 
-## Production / Vercel
+## Deploy the live demo on Render
 
-The static gallery requires **no environment variables**. Do not set an `OPENAI_API_KEY` for the public gallery unless the backend is moved to durable infrastructure.
+Render is the supported host for the full demo because the application needs a persistent Node process, SQLite, Playwright Chromium, and a writable location for validation screenshots. The repository includes a pinned Playwright Docker image, `render.yaml`, and a persistent `/data` layout.
 
-There is not yet a safe Vercel-only configuration for the live engine. The current local engine requires:
+1. In Render, select **New → Web Service**, connect GitHub, and choose `imgero/lessonbend` on the `main` branch.
+2. Select **Docker** as the runtime. Render will use the repository `Dockerfile`; do not enter a separate build or start command.
+3. Choose a paid instance type (persistent disks are not available on Free), then open **Advanced** and add a 1 GB disk mounted at `/data`.
+4. Add these environment variables in the service's **Environment** page:
 
-```bash
-OPENAI_API_KEY=...
-OPENAI_TTS_MODEL=gpt-4o-mini-tts # optional
-```
+   ```text
+   OPENAI_API_KEY=<your key>             # secret
+   LESSONBEND_DATA_DIR=/data
+   OPENAI_TTS_MODEL=gpt-4o-mini-tts      # optional; this is the default
+   ```
 
-`OPENAI_API_KEY` must never be named `NEXT_PUBLIC_OPENAI_API_KEY`. The live pipeline currently depends on a writable SQLite database, local screenshots, and Playwright browser validation. Vercel functions have ephemeral filesystems and execution limits, so enabling `OPENAI_API_KEY` alone would not make the live generator reliable. A future production live engine needs managed database/artifact storage and a compatible browser-validation worker.
+   Do **not** set `NEXT_PUBLIC_OPENAI_API_KEY`; the browser never receives the key. `PROFILE_PREP_MODEL` is optional and defaults in the app.
+5. Set health check path to `/`, create the service, and wait for the first deploy to reach **Live**. Render supplies the `PORT`; the Docker command binds Next.js to it on `0.0.0.0`.
+6. In **Settings → Custom Domains**, add `app.lessonbend.com`. Copy the exact hostname Render shows, then add the corresponding CNAME at the domain's DNS provider. Use `app` rather than the apex domain unless the DNS provider supports ANAME/ALIAS records. Render provisions HTTPS after DNS verifies.
+
+The public gallery is still the first screen at the Render URL. Judges can select **Log in as teacher (demo)** to unlock live generation, profile prep, and insights. This demo gate is intentionally not authentication; it is suitable only for a judged prototype.
+
+The disk stores `lessonbend.db` and artifact screenshots under `/data`. A disk-backed service runs as one instance and briefly goes offline during redeploys, which is the appropriate trade-off for this single-instance demo.
 
 To refresh the gallery locally after validating new artifacts:
 
 ```bash
 node scripts/export-static-gallery.mjs
-NEXT_PUBLIC_STATIC_GALLERY=true npm run build
+npm run build
 ```
 
 SQLite is suitable for this local pilot but not for persistent serverless writes. If live generation is enabled in production later, move run/profile storage and artifact/audio persistence to managed storage first.
