@@ -99,8 +99,9 @@ main > header .intro {
   .lesson-card textarea { min-height: 132px; }
   .profile-picker .profiles { grid-template-columns: 1fr; gap: 12px; }
   .profile-picker .profile-option article { min-height: 92px; display: grid; grid-template-columns: minmax(170px, .7fr) minmax(0, 1fr) minmax(150px, .7fr); align-items: center; column-gap: 18px; }
+  .profile-picker .profile-option article { text-align: left; }
   .profile-picker .profile-option h3 { grid-column: 1; grid-row: 1; }
-  .profile-picker .profile-option .profile-summary { grid-column: 2; grid-row: 1; min-height: 0; }
+  .profile-picker .profile-option .profile-summary { grid-column: 2; grid-row: 1; min-height: 0; text-align: left; }
   .profile-picker .profile-option .profile-more, .profile-picker .profile-option .why-works { grid-column: 3; margin-top: 0; align-self: start; }
   .profile-picker .profile-option .profile-more { grid-row: 1; }
   .profile-picker .profile-option .why-works { grid-row: 2; }
