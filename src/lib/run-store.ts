@@ -14,6 +14,9 @@ async function init() {
       "CREATE TABLE IF NOT EXISTS artifacts (id TEXT PRIMARY KEY, run_id TEXT NOT NULL, profile_id TEXT NOT NULL, html TEXT, screenshot_path TEXT, validation_json TEXT, status TEXT NOT NULL, created_at TEXT NOT NULL)",
       "CREATE TABLE IF NOT EXISTS support_profiles (id TEXT PRIMARY KEY, label TEXT NOT NULL, supports_json TEXT NOT NULL, constraints_json TEXT NOT NULL, created_at TEXT NOT NULL)",
     ], "write");
+    if (process.env.LESSONBEND_RESET_PROFILES === "1") {
+      await db.execute({ sql: "DELETE FROM support_profiles WHERE id NOT IN (?, ?)", args: ["short-concrete-loops", "audio-first"] });
+    }
     for (const column of ["emoji TEXT", "accent TEXT", "why_may_help TEXT", "evidence_links_json TEXT"]) { try { await db.execute(`ALTER TABLE support_profiles ADD COLUMN ${column}`); } catch { /* existing local database already has it */ } }
   })();
   return initialized;
