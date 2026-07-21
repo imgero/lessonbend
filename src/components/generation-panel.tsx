@@ -73,6 +73,8 @@ export function GenerationPanel({ lessonText, profiles }: { lessonText: string; 
   const profileLabel = (id: string) => profile(id)?.label ?? id;
   const galleryItems = Array.from(new Map(gallery.map((item) => [item.lesson_text.trim().toLowerCase(), item])).values());
   const complete = Boolean(run?.run && !active && !run.run.error);
+  const hasArtifacts = Boolean(run?.artifacts?.some((artifact) => artifact.html));
+  const canShowInsights = Boolean(run?.run && !active && hasArtifacts);
   const failed = status === "failed";
   return <section className="engine">
     <div><p className="eyebrow">3. Generation</p><h2>Generate three routes to the same goal</h2><p>Your lesson, bent three ways—usually about two minutes.</p></div>
@@ -83,7 +85,7 @@ export function GenerationPanel({ lessonText, profiles }: { lessonText: string; 
       {failed && <section className="generation-retry" aria-live="polite"><b>This route needs another pass.</b><span>Nothing has been shared. You can try another version when you’re ready.</span><button className="approve" onClick={() => void start()}>Try another version</button></section>}
       {status === "cancelled" && <p className="warning">This version was stopped. You can generate a new route whenever you’re ready.</p>}
       {run.artifacts.length > 0 && <div className="generated-grid">{run.artifacts.map(a => a.html && <GeneratedFrame key={a.id} profileId={a.profile_id} label={profileLabel(a.profile_id)} accent={profile(a.profile_id)?.accent} html={a.html} runId={run.run?.id} />)}</div>}
-      {complete && <button className="approve" onClick={() => setShowInsights(current => !current)}>{showInsights ? "Hide insights" : "View insights"}</button>}
+      {canShowInsights && <button className="approve" onClick={() => setShowInsights(current => !current)}>{showInsights ? "Hide insights" : "View insights"}</button>}
       {showInsights && run.run && <ClassInsights runId={run.run.id} profiles={profiles} />}
       <details className="technical-run"><summary>Debug run details</summary><p>{run.modelCalls.length} model calls · {total.toLocaleString()} tokens</p><div className="timeline">{run.events.map((entry, index) => <div key={`${entry.created_at}-${index}`}><b>{entry.status.replaceAll("_", " ")}</b><span>{entry.detail}</span></div>)}</div></details>
     </>}

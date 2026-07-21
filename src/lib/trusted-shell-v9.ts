@@ -11,6 +11,7 @@ export function renderTrustedArtifactV9(module: LessonModule, accent?: string | 
     steps: module.steps.map(step => ({ ...step, choices: shuffle(step.choices), pairs: shuffle(step.pairs), items: shuffle(step.items), bins: shuffle(step.bins) })),
   };
   const instantLock = "function done(ok,s){if(ok){stage.dataset.locked='true';stage.querySelectorAll('button,.sector').forEach(x=>{x.disabled=true;x.style.pointerEvents='none'});}fb.className='feedback '+(ok?'ok':'no');fb.textContent=ok?'✓ Correct — nice work.':'↻ Try again. '+s.retryNextMove;port?.postMessage({type:'lessonbend.checkpoint',token,checkpointId:s.checkpointId,outcome:ok?'mastered':'retry'});if(ok)setTimeout(()=>{step++;render()},m.adaptations.minimalText?900:1300)}";
+  const audioGuard = `<script>(()=>{if(!window.speechSynthesis)return;const native=window.speechSynthesis.speak.bind(window.speechSynthesis);window.speechSynthesis.speak=(utterance)=>{const recorded=document.querySelector('#recorded-audio');if(recorded){recorded.currentTime=0;recorded.play().catch(()=>{});return}native(utterance)}})()</script>`;
   const css = `<style>
     body{font-size:17px}main{max-width:1280px;padding:16px}.card{padding:clamp(18px,3vw,30px)}
     .feedback{margin:12px 0;min-height:50px}.feedback.ok,.feedback.no{position:fixed;z-index:5;top:18px;left:50%;width:min(760px,calc(100vw - 32px));transform:translateX(-50%);box-shadow:0 8px 24px #24324a33}.choice,.action,.token{padding:11px 14px;margin:5px}.choice:disabled{opacity:.62;cursor:default}
@@ -25,5 +26,5 @@ export function renderTrustedArtifactV9(module: LessonModule, accent?: string | 
   return renderTrustedArtifactV8(playableModule, accent)
     .replace(/data-lessonbend-shell="[^"]+"/, `data-lessonbend-shell="${SHELL_V9}"`)
     .replace(/function done\(ok,s\)\{fb\.className='feedback '\+\(ok\?'ok':'no'\);fb\.textContent=ok\?'✓ Correct — nice work\.':'↻ Try again\. '\+s\.retryNextMove;port\?\.postMessage\(\{type:'lessonbend\.checkpoint',token,checkpointId:s\.checkpointId,outcome:ok\?'mastered':'retry'\}\);if\(ok\)setTimeout\(\(\)=>\{step\+\+;render\(\)\},m\.adaptations\.minimalText\?900:1300\)\}/, instantLock)
-    .replace("</head>", `${css}</head>`);
+    .replace("</head>", `${audioGuard}${css}</head>`);
 }
