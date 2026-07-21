@@ -27,7 +27,8 @@ function moduleContentFailures(module: LessonModule) {
   const visibleText = JSON.stringify({ intro: module.intro, audioText: module.audioText, vocabulary: module.vocabulary, steps: module.steps.map(step => ({ prompt: step.prompt, retryNextMove: step.retryNextMove, choices: step.choices, pairs: step.pairs, items: step.items, bins: step.bins, diagram: step.diagram })) });
   if (module.intro.trim().split(/\s+/).length > 60 || (module.audioText?.trim().split(/\s+/).length ?? 0) > 60) failures.push("Intro and audio text must stay under 60 words.");
   if (!/[.!?]["')\]]?$/.test(module.intro.trim()) || (module.audioText && !/[.!?]["')\]]?$/.test(module.audioText.trim()))) failures.push("The lesson passage or audio text ends mid-sentence; complete it with closing punctuation.");
-  if (/[^\u0000-\u007F]/.test(visibleText)) failures.push("Use only the lesson language; remove unexpected non-language characters.");
+  // Curly quotes and dashes are normal English typography; reject actual unexpected writing-system leakage.
+  if (/[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af\u0400-\u052f]/.test(visibleText)) failures.push("Use only the lesson language; remove unexpected non-language characters.");
   if (/\b(?:drag|drop|swipe)\b/i.test(visibleText)) failures.push("The shell uses tap/click interactions. Do not use drag, drop, or swipe language.");
   let streak = 1;
   for (let index = 1; index < module.steps.length; index++) { streak = module.steps[index].kind === module.steps[index - 1].kind ? streak + 1 : 1; if (streak > 2) failures.push("Do not use the same interaction type more than two consecutive steps."); }
