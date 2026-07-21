@@ -23,9 +23,12 @@ h1{font-size:clamp(2.7rem,6vw,5rem)}
 
 @media (min-width: 900px) {
   .grid { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: 24px; }
-  .profile-picker .profiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .profile-picker .profile-option article { min-height: 132px; }
+  .profile-picker .profiles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .profile-picker .profile-option article { min-height: 194px; }
 }
+
+.profile-picker .profiles{align-items:stretch}.profile-picker .profile-option{height:100%}.profile-picker .profile-option article{height:100%;display:flex;flex-direction:column}.profile-picker .profile-summary{min-height:2.8em}.profile-picker .why-works{margin-top:auto}.profile-picker .profile-more{min-height:1.45em}
+@media(max-width:1080px) and (min-width:781px){.profile-picker .profiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* A quieter masthead: the bent L/B stays as the mark, while the lesson is the focus. */
 main > header {
