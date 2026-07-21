@@ -2,9 +2,21 @@
 
 LessonBend bends one learning goal into distinct, anonymous support routes. It is built for teachers who need the lesson to adapt—not the learner to be labelled. The public site is a playable gallery of validated lessons; it stores no learner identities.
 
-## Start here: the live gallery
+## Live demo
 
-Open **[lessonbend.com](https://lessonbend.com)** first. It contains the ready-to-play fractions, science, and reading routes, including fullscreen lessons and embedded audio where available.
+Open **[app.lessonbend.com](https://app.lessonbend.com)**. Browse example lessons freely on the homepage, or select **Log in as teacher** to use the full live studio.
+
+```text
+Username: teacher
+Password: lessonbend-demo
+```
+
+## How Codex and GPT-5.6 were used
+
+- **Codex CLI** generated the application and the constrained lesson-module workflow.
+- **GPT-5.6** is the pedagogy engine: it decomposes a teacher lesson into a structured specification, evaluates generated lesson quality, and researches anonymous learner-profile suggestions.
+
+The trusted app shell, not the model, renders interactions, handles feedback and accessibility, and enforces the sandbox and network restrictions.
 
 ## Architecture, briefly
 
