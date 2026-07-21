@@ -30,7 +30,16 @@ function GeneratedFrame({ html, label, profileId, accent, runId }: { html: strin
   return <><article style={{ "--profile-color": accent } as CSSProperties} className={`generated-frame ${profileId}`}><p><strong>{label}</strong><span>{state}</span></p><iframe title={`${label} generated artifact`} sandbox="allow-scripts" srcDoc={html} onLoad={(event) => connectFrame(event.currentTarget)} /><button className="start-lesson" onClick={() => setOpen(true)}>Start lesson</button></article>{open && <div className="lesson-fullscreen" role="dialog" aria-modal="true"><button className="exit-lesson" onClick={() => setOpen(false)}>Exit lesson</button><iframe title={`${label} fullscreen lesson`} sandbox="allow-scripts" srcDoc={html} onLoad={(event) => connectFrame(event.currentTarget)} /></div>}</>;
 }
 
-function stageFor(status = "") { if (status.includes("decomposition")) return 0; if (status.includes("artifact_generation") || status.includes("repair")) return 1; if (status.includes("static") || status.includes("browser") || status.includes("evaluation")) return 2; return 3; }
+function stageFor(status = "") { if (status.includes("decomposition")) return 0; if (status === "decomposed" || status.includes("artifact_generation") || status.includes("repair")) return 1; if (status.includes("static") || status.includes("browser") || status.includes("evaluation")) return 2; return 3; }
+function friendlyLiveStatus(status = "", detail = "") {
+  const profile = detail.match(/^(Pineapple|Blueberry|Mango|Banana|Kiwi|Strawberry):/)?.[1];
+  if (status.includes("decomposition")) return "Reading your lesson and finding the tricky bits…";
+  if (status === "decomposed") return "The goal is clear. Designing each learner route…";
+  if (status.includes("artifact_generation") || status.includes("repair")) return `${profile ? `Creating ${profile}'s version` : "Creating each learner version"}…`;
+  if (status.includes("browser") || status.includes("static") || status.includes("evaluation")) return `${profile ? `Quality-checking ${profile}'s version` : "Quality-checking each version"}…`;
+  if (status.includes("audio")) return "Adding the optional spoken directions…";
+  return "Working through the lesson routes…";
+}
 function errorMessage(value: unknown) {
   if (typeof value === "string") return value;
   if (value && typeof value === "object") {
@@ -57,6 +66,7 @@ export function GenerationPanel({ lessonText, profiles }: { lessonText: string; 
   const active = Boolean(run?.run && !["failed", "cancelled", "approved", "ready_for_approval"].includes(status));
   const stage = stageFor(status);
   const started = run?.events[0];
+  const latestEvent = run?.events.at(-1);
   const elapsed = started ? Math.max(0, Math.floor((now - new Date(started.created_at).getTime()) / 1000)) : 0;
   const total = run?.modelCalls.reduce((sum, call) => sum + (call.total_tokens ?? 0), 0) ?? 0;
   const profile = (id: string) => profiles.find(p => p.id === id);
@@ -67,6 +77,7 @@ export function GenerationPanel({ lessonText, profiles }: { lessonText: string; 
   return <section className="engine">
     <div><p className="eyebrow">3. Generation</p><h2>Generate three routes to the same goal</h2><p>Your lesson, bent three ways—usually about two minutes.</p></div>
     <button className="generate" disabled={starting || active} onClick={() => void start()}>{active ? "Bending your lesson…" : starting ? "Starting…" : "Generate"}</button>
+    {active && latestEvent && <p className="live-generation-status" role="status"><span aria-hidden="true" />{friendlyLiveStatus(latestEvent.status, latestEvent.detail)} <b>{elapsed}s</b></p>}
     {run && <>
       <div className="friendly-progress">{[["Reading your lesson", "Finding the goal and the tricky bits."], ["Designing each route", profiles.map(p => p.label).join(" · ")], ["Creating each version", run.artifacts.length ? run.artifacts.map(a => `${profileLabel(a.profile_id)}: ${a.status.replaceAll("_", " ")}`).join(" · ") : "Preparing the learner routes."], ["Quality check", "Checking that every lesson is safe, clear, and playable."]].map(([title, detail], index) => <article key={title} className={index < stage || (!active && status === "ready_for_approval") ? "complete" : index === stage && active ? "current" : ""}><b>{index < stage ? "✓" : index === stage && active ? "↝" : "○"} {title}</b><span>{detail}{index === stage && active ? ` · ${elapsed}s` : ""}</span></article>)}</div>
       {failed && <section className="generation-retry" aria-live="polite"><b>This route needs another pass.</b><span>Nothing has been shared. You can try another version when you’re ready.</span><button className="approve" onClick={() => void start()}>Try another version</button></section>}
